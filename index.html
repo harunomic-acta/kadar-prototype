@@ -422,9 +422,6 @@
       display: flex;
       flex-direction: column;
     }
-    .ps-card .ps-items {
-      flex: 1;
-    }
     .ps-card.ps-problem {
       background: #ffffff;
       border: 1px solid rgba(111,76,255,0.12);
@@ -465,6 +462,9 @@
     .ps-card.ps-problem .ps-title {
       color: #1a1a2e;
     }
+    .ps-card.ps-problem .ps-sub {
+      color: rgba(26,26,46,0.55);
+    }
 
     .ps-sub {
       font-size: 14px;
@@ -474,7 +474,7 @@
       margin-bottom: 32px;
     }
 
-    .ps-items { display: flex; flex-direction: column; gap: 20px; }
+    .ps-item + .ps-item { margin-top: 20px; }
 
     .ps-item {
       display: flex;
@@ -911,9 +911,11 @@
       }
       .hero-left { max-width: 580px; flex-shrink: 0; }
 
-      .ps-grid { grid-template-columns: 1fr 1fr; gap: 24px; grid-template-rows: auto auto 1fr auto; }
-      .ps-card { display: grid; grid-template-rows: subgrid; grid-row: span 4; }
-      .ps-sub-empty { margin: 0; }
+      .ps-grid { grid-template-columns: 1fr 1fr; column-gap: 24px; row-gap: 16px; grid-template-rows: auto auto auto auto auto auto; }
+      .ps-card { display: grid; grid-template-rows: subgrid; grid-row: span 6; }
+      .ps-sub { margin-bottom: 0; }
+      .ps-item + .ps-item { margin-top: 0; }
+      .ps-card-cta { margin-top: 0; }
       .ps-vs { display: flex; }
 
       .feature-inner { flex-direction: row; gap: 64px; }
@@ -1035,26 +1037,24 @@
         <!-- Problem -->
         <div class="ps-card ps-problem reveal">
           <h2 class="ps-title">Traditional HR tools cost more than they give back</h2>
-          <p class="ps-sub ps-sub-empty"></p>
-          <div class="ps-items">
-            <div class="ps-item">
-              <div class="ps-icon bad">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-              </div>
-              <p class="ps-text">You spend weeks setting up a review cycle. Then export everything to Excel anyway, because the built-in analytics are useless.</p>
+          <p class="ps-sub">The daily reality with traditional HR platforms.</p>
+          <div class="ps-item">
+            <div class="ps-icon bad">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
             </div>
-            <div class="ps-item">
-              <div class="ps-icon bad">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-              </div>
-              <p class="ps-text">Every customization costs extra. Or isn't possible at all. You paid for a platform that doesn't bend.</p>
+            <p class="ps-text">You spend weeks setting up a review cycle. Then export everything to Excel anyway, because the built-in analytics are useless.</p>
+          </div>
+          <div class="ps-item">
+            <div class="ps-icon bad">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
             </div>
-            <div class="ps-item">
-              <div class="ps-icon bad">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-              </div>
-              <p class="ps-text">When something breaks mid-cycle, you get a chatbot. Good luck.</p>
+            <p class="ps-text">Every customization costs extra. Or isn't possible at all. You paid for a platform that doesn't bend.</p>
+          </div>
+          <div class="ps-item">
+            <div class="ps-icon bad">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
             </div>
+            <p class="ps-text">When something breaks mid-cycle, you get a chatbot. Good luck.</p>
           </div>
           <div class="ps-card-cta ps-problem-cta">
             <p class="ps-problem-note">Continue working like this and watch your team fall further behind every cycle.</p>
@@ -1068,25 +1068,23 @@
         <div class="ps-card ps-solution reveal reveal-d1">
           <h2 class="ps-title">Kadar fixes all three.</h2>
           <p class="ps-sub">with an HR platform built around how your team actually works.</p>
-          <div class="ps-items">
-            <div class="ps-item">
-              <div class="ps-icon good">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              </div>
-              <p class="ps-text"><strong>Decision-ready analytics, built in.</strong> See results, skill maps, and growth trends in one click. No exports. No Power BI. No workarounds.</p>
+          <div class="ps-item">
+            <div class="ps-icon good">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
             </div>
-            <div class="ps-item">
-              <div class="ps-icon good">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              </div>
-              <p class="ps-text"><strong>Flexible by design.</strong> Your processes stay exactly as you built them. Customize without limits, scale without hidden costs.</p>
+            <p class="ps-text"><strong>Decision-ready analytics, built in.</strong> See results, skill maps, and growth trends in one click. No exports. No Power BI. No workarounds.</p>
+          </div>
+          <div class="ps-item">
+            <div class="ps-icon good">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
             </div>
-            <div class="ps-item">
-              <div class="ps-icon good">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              </div>
-              <p class="ps-text"><strong>A real person, not a ticket.</strong> Every Kadar client gets a dedicated Customer Success Manager — someone who picks up when you're mid-cycle and stuck.</p>
+            <p class="ps-text"><strong>Flexible by design.</strong> Your processes stay exactly as you built them. Customize without limits, scale without hidden costs.</p>
+          </div>
+          <div class="ps-item">
+            <div class="ps-icon good">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
             </div>
+            <p class="ps-text"><strong>A real person, not a ticket.</strong> Every Kadar client gets a dedicated Customer Success Manager — someone who picks up when you're mid-cycle and stuck.</p>
           </div>
           <div class="ps-card-cta">
             <a href="https://kadar.app/sign-up" class="ps-cta-btn">Book a demo &rarr;</a>
