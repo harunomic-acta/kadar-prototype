@@ -368,8 +368,8 @@
 
     /* ─── PROBLEM / SOLUTION ───────────────────────────────────────── */
     .ps-section {
-      padding: 80px 0;
-      background: var(--bg);
+      padding: 70px 0;
+      background: #F9F9F9;
     }
 
     .ps-grid {
@@ -380,27 +380,28 @@
 
     .ps-card {
       background: #fff;
-      border-radius: var(--radius);
-      padding: 44px 36px;
-      box-shadow: var(--shadow);
+      border-radius: 12px;
+      padding: 36px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.07);
     }
 
     .ps-title {
       font-size: clamp(22px, 2.5vw, 30px);
       font-weight: 700;
-      color: var(--purple);
-      text-align: center;
+      color: #1a1a1a;
+      text-align: left;
       line-height: 1.18;
       margin-bottom: 8px;
       letter-spacing: -0.01em;
     }
 
     .ps-sub {
-      font-size: 15px;
-      font-weight: 300;
-      color: var(--purple);
-      text-align: center;
-      margin-bottom: 32px;
+      font-size: 14px;
+      font-weight: 400;
+      font-style: italic;
+      color: #888;
+      text-align: left;
+      margin-bottom: 28px;
     }
 
     .ps-items { display: flex; flex-direction: column; gap: 22px; }
@@ -413,9 +414,9 @@
 
     .ps-icon {
       flex-shrink: 0;
-      margin-top: 3px;
-      width: 22px;
-      height: 22px;
+      margin-top: 2px;
+      width: 20px;
+      height: 20px;
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -430,11 +431,30 @@
       line-height: 1.65;
       color: var(--text);
     }
+    .ps-text strong {
+      font-weight: 700;
+      color: #1a1a1a;
+    }
 
     .ps-card-cta {
-      text-align: center;
-      margin-top: 32px;
+      margin-top: 28px;
     }
+    .ps-cta-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      background: var(--purple);
+      color: #fff;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 16px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.2s;
+      gap: 8px;
+    }
+    .ps-cta-btn:hover { background: var(--purple-hover); }
 
     /* ─── FEATURE SECTIONS ─────────────────────────────────────────── */
     .feature-section {
@@ -896,55 +916,55 @@
 
         <!-- Problem -->
         <div class="ps-card reveal">
-          <h2 class="ps-title">Traditional HR tools cost more<br>than they give back</h2>
+          <h2 class="ps-title">Traditional HR tools cost more than they give back</h2>
           <div class="ps-items">
             <div class="ps-item">
               <div class="ps-icon bad">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
               </div>
-              <p class="ps-text">You waste weeks setting up a performance review cycle. In the end, you still export everything into Excel or Power BI for usable HR analytics.</p>
+              <p class="ps-text">You spend weeks setting up a review cycle. Then export everything to Excel anyway, because the built-in analytics are useless.</p>
             </div>
             <div class="ps-item">
               <div class="ps-icon bad">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
               </div>
-              <p class="ps-text">You pay extra for every little upgrade. Every customization of your HR processes costs extra or isn't possible at all.</p>
+              <p class="ps-text">Every customization costs extra. Or isn't possible at all. You paid for a platform that doesn't bend.</p>
             </div>
             <div class="ps-item">
               <div class="ps-icon bad">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
               </div>
-              <p class="ps-text">You can't get real support when you need it. During 360 performance reviews, you're left with chatbots or long wait times.</p>
+              <p class="ps-text">When something breaks mid-cycle, you get a chatbot. Good luck.</p>
             </div>
           </div>
         </div>
 
         <!-- Solution -->
         <div class="ps-card reveal reveal-d1">
-          <h2 class="ps-title">We've changed that</h2>
-          <p class="ps-sub">with people-first performance review software</p>
+          <h2 class="ps-title">Kadar fixes all three.</h2>
+          <p class="ps-sub">with an HR platform built around how your team actually works.</p>
           <div class="ps-items">
             <div class="ps-item">
               <div class="ps-icon good">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
               </div>
-              <p class="ps-text">Built-in, decision-ready HR analytics. Stop juggling exports and see results, skill maps, and growth insights in just one click.</p>
+              <p class="ps-text"><strong>Decision-ready analytics, built in.</strong> See results, skill maps, and growth trends in one click. No exports. No Power BI. No workarounds.</p>
             </div>
             <div class="ps-item">
               <div class="ps-icon good">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
               </div>
-              <p class="ps-text">Flexible, scalable HR processes. Start simple, adapt to your team's workflow, and scale as you grow without hidden costs.</p>
+              <p class="ps-text"><strong>Flexible by design.</strong> Your processes stay exactly as you built them. Customize without limits, scale without hidden costs.</p>
             </div>
             <div class="ps-item">
               <div class="ps-icon good">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
               </div>
-              <p class="ps-text">Real human support for every performance review cycle. Every team gets a dedicated Customer Success Manager, so you're never stuck mid-cycle.</p>
+              <p class="ps-text"><strong>A real person, not a ticket.</strong> Every Kadar client gets a dedicated Customer Success Manager — someone who picks up when you're mid-cycle and stuck.</p>
             </div>
           </div>
           <div class="ps-card-cta">
-            <a href="https://kadar.app/sign-up" class="btn btn-purple btn-lg">Skip the HR headaches</a>
+            <a href="https://kadar.app/sign-up" class="ps-cta-btn">Try Kadar free &rarr;</a>
           </div>
         </div>
 
