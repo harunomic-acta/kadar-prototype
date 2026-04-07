@@ -368,93 +368,189 @@
 
     /* ─── PROBLEM / SOLUTION ───────────────────────────────────────── */
     .ps-section {
-      padding: 70px 0;
-      background: #F9F9F9;
+      padding: 80px 0;
+      background: #0c0c10;
+      overflow: hidden;
+      position: relative;
+    }
+    .ps-section::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      right: -200px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(111,76,255,0.15) 0%, transparent 70%);
+      pointer-events: none;
     }
 
     .ps-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 20px;
+      gap: 16px;
+      position: relative;
     }
 
+    /* VS divider badge — hidden on mobile, shown at desktop via media query */
+    .ps-vs {
+      display: none;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 10;
+      width: 44px;
+      height: 44px;
+      background: #0c0c10;
+      border: 2px solid rgba(255,255,255,0.12);
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.5);
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Problem card — dark & stark */
     .ps-card {
-      background: #fff;
-      border-radius: 12px;
-      padding: 36px;
-      box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+      border-radius: 20px;
+      padding: 48px 44px;
+      position: relative;
+      overflow: hidden;
+    }
+    .ps-card.ps-problem {
+      background: #161620;
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+    .ps-card.ps-problem::after {
+      content: '';
+      position: absolute;
+      bottom: -80px;
+      left: -80px;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(239,68,68,0.08) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    /* Solution card — vivid purple gradient */
+    .ps-card.ps-solution {
+      background: linear-gradient(135deg, #6f4cff 0%, #a855f7 100%);
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+    .ps-card.ps-solution::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      border-radius: 20px;
     }
 
     .ps-title {
-      font-size: clamp(22px, 2.5vw, 30px);
-      font-weight: 700;
-      color: #1a1a1a;
+      font-size: clamp(22px, 2.2vw, 28px);
+      font-weight: 800;
+      color: #fff;
       text-align: left;
-      line-height: 1.18;
-      margin-bottom: 8px;
-      letter-spacing: -0.01em;
+      line-height: 1.2;
+      margin-bottom: 10px;
+      letter-spacing: -0.02em;
+    }
+    .ps-card.ps-problem .ps-title {
+      color: rgba(255,255,255,0.7);
     }
 
     .ps-sub {
       font-size: 14px;
       font-weight: 400;
-      font-style: italic;
-      color: #888;
+      color: rgba(255,255,255,0.7);
       text-align: left;
-      margin-bottom: 28px;
+      margin-bottom: 32px;
     }
 
-    .ps-items { display: flex; flex-direction: column; gap: 22px; }
+    .ps-items { display: flex; flex-direction: column; gap: 20px; }
 
     .ps-item {
       display: flex;
       align-items: flex-start;
-      gap: 14px;
+      gap: 16px;
+    }
+    .ps-card.ps-problem .ps-item {
+      padding: 16px;
+      background: rgba(255,255,255,0.03);
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+    .ps-card.ps-solution .ps-item {
+      padding: 16px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.15);
+      backdrop-filter: blur(4px);
     }
 
     .ps-icon {
       flex-shrink: 0;
-      margin-top: 2px;
-      width: 20px;
-      height: 20px;
+      margin-top: 1px;
+      width: 32px;
+      height: 32px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
     }
-    .ps-icon.bad  { background: var(--red); }
-    .ps-icon.good { background: var(--green); }
+    .ps-icon.bad {
+      background: rgba(239,68,68,0.15);
+      border: 1.5px solid rgba(239,68,68,0.4);
+    }
+    .ps-icon.bad svg { stroke: #f87171; }
+    .ps-icon.good {
+      background: rgba(255,255,255,0.2);
+      border: 1.5px solid rgba(255,255,255,0.4);
+    }
+    .ps-icon.good svg { stroke: #fff; }
 
     .ps-text {
-      font-size: 15px;
-      font-weight: 300;
-      line-height: 1.65;
-      color: var(--text);
+      font-size: 14.5px;
+      font-weight: 400;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.55);
+    }
+    .ps-card.ps-solution .ps-text {
+      color: rgba(255,255,255,0.85);
     }
     .ps-text strong {
       font-weight: 700;
-      color: #1a1a1a;
+      color: #fff;
+      display: block;
+      margin-bottom: 2px;
     }
 
     .ps-card-cta {
-      margin-top: 28px;
+      margin-top: 32px;
+      position: relative;
     }
     .ps-cta-btn {
       display: flex;
       align-items: center;
       justify-content: center;
       width: 100%;
-      background: var(--purple);
-      color: #fff;
-      font-size: 16px;
-      font-weight: 600;
+      background: #fff;
+      color: #6f4cff;
+      font-size: 15px;
+      font-weight: 700;
       padding: 16px 24px;
-      border-radius: 8px;
+      border-radius: 10px;
       text-decoration: none;
-      transition: background 0.2s;
+      transition: transform 0.2s, box-shadow 0.2s;
       gap: 8px;
+      letter-spacing: -0.01em;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.25);
     }
-    .ps-cta-btn:hover { background: var(--purple-hover); }
+    .ps-cta-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+    }
 
     /* ─── FEATURE SECTIONS ─────────────────────────────────────────── */
     .feature-section {
@@ -796,7 +892,8 @@
       }
       .hero-left { max-width: 580px; flex-shrink: 0; }
 
-      .ps-grid { grid-template-columns: 1fr 1fr; }
+      .ps-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+      .ps-vs { display: flex; }
 
       .feature-inner { flex-direction: row; gap: 64px; }
       .feature-inner.rev { flex-direction: row-reverse; }
@@ -915,50 +1012,53 @@
       <div class="ps-grid">
 
         <!-- Problem -->
-        <div class="ps-card reveal">
+        <div class="ps-card ps-problem reveal">
           <h2 class="ps-title">Traditional HR tools cost more than they give back</h2>
           <div class="ps-items">
             <div class="ps-item">
               <div class="ps-icon bad">
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
               </div>
               <p class="ps-text">You spend weeks setting up a review cycle. Then export everything to Excel anyway, because the built-in analytics are useless.</p>
             </div>
             <div class="ps-item">
               <div class="ps-icon bad">
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
               </div>
               <p class="ps-text">Every customization costs extra. Or isn't possible at all. You paid for a platform that doesn't bend.</p>
             </div>
             <div class="ps-item">
               <div class="ps-icon bad">
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
               </div>
               <p class="ps-text">When something breaks mid-cycle, you get a chatbot. Good luck.</p>
             </div>
           </div>
         </div>
 
+        <!-- VS badge -->
+        <div class="ps-vs">VS</div>
+
         <!-- Solution -->
-        <div class="ps-card reveal reveal-d1">
+        <div class="ps-card ps-solution reveal reveal-d1">
           <h2 class="ps-title">Kadar fixes all three.</h2>
           <p class="ps-sub">with an HR platform built around how your team actually works.</p>
           <div class="ps-items">
             <div class="ps-item">
               <div class="ps-icon good">
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
               </div>
               <p class="ps-text"><strong>Decision-ready analytics, built in.</strong> See results, skill maps, and growth trends in one click. No exports. No Power BI. No workarounds.</p>
             </div>
             <div class="ps-item">
               <div class="ps-icon good">
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
               </div>
               <p class="ps-text"><strong>Flexible by design.</strong> Your processes stay exactly as you built them. Customize without limits, scale without hidden costs.</p>
             </div>
             <div class="ps-item">
               <div class="ps-icon good">
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
               </div>
               <p class="ps-text"><strong>A real person, not a ticket.</strong> Every Kadar client gets a dedicated Customer Success Manager — someone who picks up when you're mid-cycle and stuck.</p>
             </div>
