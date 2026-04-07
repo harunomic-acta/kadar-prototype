@@ -536,7 +536,8 @@
     }
 
     .ps-card-cta {
-      margin-top: 32px;
+      margin-top: auto;
+      padding-top: 32px;
       position: relative;
     }
     .ps-problem-cta {
@@ -548,19 +549,16 @@
       font-weight: 500;
       color: rgba(26,26,46,0.45);
       line-height: 1.5;
-      font-style: italic;
       padding: 16px 0;
     }
     .ps-cta-btn {
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      justify-content: center;
-      width: 100%;
       background: #fff;
       color: #6f4cff;
       font-size: 15px;
       font-weight: 700;
-      padding: 16px 24px;
+      padding: 14px 32px;
       border-radius: 10px;
       text-decoration: none;
       transition: transform 0.2s, box-shadow 0.2s;
@@ -915,6 +913,7 @@
 
       .ps-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
       .ps-vs { display: flex; }
+      .ps-card.ps-problem .ps-items { flex-direction: row; align-items: flex-start; }
 
       .feature-inner { flex-direction: row; gap: 64px; }
       .feature-inner.rev { flex-direction: row-reverse; }
@@ -1056,7 +1055,7 @@
             </div>
           </div>
           <div class="ps-card-cta ps-problem-cta">
-            <p class="ps-problem-note">Continue working like this — and watch your team fall further behind every cycle.</p>
+            <p class="ps-problem-note">Continue working like this and watch your team fall further behind every cycle.</p>
           </div>
         </div>
 
