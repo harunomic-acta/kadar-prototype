@@ -389,6 +389,7 @@
       grid-template-columns: 1fr;
       gap: 16px;
       position: relative;
+      align-items: stretch;
     }
 
     /* VS divider badge — hidden on mobile, shown at desktop via media query */
@@ -418,6 +419,11 @@
       padding: 48px 44px;
       position: relative;
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .ps-card .ps-items {
+      flex: 1;
     }
     .ps-card.ps-problem {
       background: #161620;
@@ -529,6 +535,18 @@
     .ps-card-cta {
       margin-top: 32px;
       position: relative;
+    }
+    .ps-problem-cta {
+      display: flex;
+      align-items: center;
+    }
+    .ps-problem-note {
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.35);
+      line-height: 1.5;
+      font-style: italic;
+      padding: 16px 0;
     }
     .ps-cta-btn {
       display: flex;
@@ -1034,6 +1052,9 @@
               <p class="ps-text">When something breaks mid-cycle, you get a chatbot. Good luck.</p>
             </div>
           </div>
+          <div class="ps-card-cta ps-problem-cta">
+            <p class="ps-problem-note">Continue working like this — and watch your team fall further behind every cycle.</p>
+          </div>
         </div>
 
         <!-- VS badge -->
@@ -1064,7 +1085,7 @@
             </div>
           </div>
           <div class="ps-card-cta">
-            <a href="https://kadar.app/sign-up" class="ps-cta-btn">Try Kadar free &rarr;</a>
+            <a href="https://kadar.app/sign-up" class="ps-cta-btn">Book a demo &rarr;</a>
           </div>
         </div>
 
