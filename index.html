@@ -911,7 +911,9 @@
       }
       .hero-left { max-width: 580px; flex-shrink: 0; }
 
-      .ps-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+      .ps-grid { grid-template-columns: 1fr 1fr; gap: 24px; grid-template-rows: auto auto 1fr auto; }
+      .ps-card { display: grid; grid-template-rows: subgrid; grid-row: span 4; }
+      .ps-sub-empty { margin: 0; }
       .ps-vs { display: flex; }
 
       .feature-inner { flex-direction: row; gap: 64px; }
@@ -1033,6 +1035,7 @@
         <!-- Problem -->
         <div class="ps-card ps-problem reveal">
           <h2 class="ps-title">Traditional HR tools cost more than they give back</h2>
+          <p class="ps-sub ps-sub-empty"></p>
           <div class="ps-items">
             <div class="ps-item">
               <div class="ps-icon bad">
