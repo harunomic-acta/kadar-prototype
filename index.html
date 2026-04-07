@@ -591,6 +591,40 @@
     .feature-visual { width: 100%; display: flex; justify-content: center; }
     .feature-visual img { max-width: 100%; width: 520px; }
 
+    /* ─── CARD STACK EFFECT ─────────────────────────────────────────── */
+    .card-stack {
+      position: relative;
+      display: inline-block;
+    }
+    .card-stack-back {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      width: 100%;
+      height: 100%;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+      transform: rotate(1.5deg);
+      z-index: 0;
+    }
+    .card-stack-front {
+      position: relative;
+      z-index: 1;
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+    }
+    .card-stack-front img { display: block; max-width: 100%; width: 520px; }
+
+    .card-stack-back-img {
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+    }
+    .card-stack-back-img img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
     .feat-tag {
       display: inline-flex;
       align-items: center;
@@ -1230,7 +1264,7 @@
             Onboarding
           </div>
           <h2 class="feature-h2">A new hire's first week sets the tone for everything after.</h2>
-          <p class="feature-body">Stop coordinating onboarding over email and Slack. Kadar assigns tasks across HR, IT, and every relevant team — with status tracking and filtering so nothing gets missed and nobody has to chase anyone.</p>
+          <p class="feature-body">Stop coordinating onboarding over email and Slack. Kadar assigns tasks across HR, IT, and every relevant team - with status tracking and filtering so nothing gets missed and nobody has to chase anyone.</p>
         </div>
         <div class="feature-visual reveal reveal-d1">
           <div class="onboarding-mockup">
@@ -1290,7 +1324,7 @@
     </div>
   </section>
 
-  <!-- 2 — HR Analytics -->
+  <!-- 2 — Performance Reviews -->
   <section class="feature-section">
     <div class="container">
       <div class="feature-inner rev">
@@ -1299,13 +1333,20 @@
             <div class="feat-tag-icon">
               <img src="https://cdn.prod.website-files.com/689597fffd74c2308c00dbbc/68a4709bd669d14b41736de4_logo_kadar_mark_primary.svg" alt="" />
             </div>
-            HR analytics &amp; insights
+            Performance reviews
           </div>
-          <h2 class="feature-h2">People trends you don't have to chase</h2>
-          <p class="feature-body">Track skills and team performance automatically across time and departments. You see growth, risks, and development needs clearly without relying on manual reporting.</p>
+          <h2 class="feature-h2">Simple and transparent performance tracking.</h2>
+          <p class="feature-body">Set up 180° or 360° review cycles in minutes. Self assessments, peer reviews, direct feedback, team reviews - all in one place, with clear data that shows how performance is actually changing over time.</p>
         </div>
         <div class="feature-visual reveal reveal-d1">
-          <img src="https://cdn.prod.website-files.com/689597fffd74c2308c00dbbc/68d0f3c15b4041685196baa4_d8e19e67569cf6ef0b3d0bbc7085092e_hr_analytics_%26_insights.svg" alt="HR analytics dashboard" />
+          <div class="card-stack card-stack-dual">
+            <div class="card-stack-back card-stack-back-img">
+              <img src="images/perf-attributes.png" alt="Performance attributes chart" />
+            </div>
+            <div class="card-stack-front">
+              <img src="images/perf-survey-types.png" alt="Choose survey type" />
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -1326,7 +1367,12 @@
           <p class="feature-body">Know how often tech managers run 1:1 meetings and the overall mood of those talks. Instead of guessing, you clearly see patterns &amp; trends and where team performance might be slipping.</p>
         </div>
         <div class="feature-visual reveal reveal-d1">
-          <img src="https://cdn.prod.website-files.com/689597fffd74c2308c00dbbc/68d0f4942bc4b4fbd1309e1e_c9b7204b7442f107a1cceec4ca1f946e_1-1_meeting.svg" alt="1:1 meeting dashboard" />
+          <div class="card-stack">
+            <div class="card-stack-back"></div>
+            <div class="card-stack-front">
+              <img src="https://cdn.prod.website-files.com/689597fffd74c2308c00dbbc/68d0f4942bc4b4fbd1309e1e_c9b7204b7442f107a1cceec4ca1f946e_1-1_meeting.svg" alt="1:1 meeting dashboard" />
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -1347,7 +1393,12 @@
           <p class="feature-body">Define roles, expectations, and skill levels in one place so employees know where they stand and how to grow. Build a clear job leveling framework that supports fair progress and planning.</p>
         </div>
         <div class="feature-visual reveal reveal-d1">
-          <img src="https://cdn.prod.website-files.com/689597fffd74c2308c00dbbc/68d0f50347a4c69132dab68e_4f41d1d03f71997cee6148cf235cf459_job_leveling_framework.svg" alt="Job leveling framework" />
+          <div class="card-stack">
+            <div class="card-stack-back"></div>
+            <div class="card-stack-front">
+              <img src="https://cdn.prod.website-files.com/689597fffd74c2308c00dbbc/68d0f50347a4c69132dab68e_4f41d1d03f71997cee6148cf235cf459_job_leveling_framework.svg" alt="Job leveling framework" />
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -1368,7 +1419,12 @@
           <p class="feature-body">Get a complete picture of every employee. Follow progress across 360 feedback, goals, and career paths to make confident talent management decisions with Kadar's performance review software.</p>
         </div>
         <div class="feature-visual reveal reveal-d1">
-          <img src="https://cdn.prod.website-files.com/689597fffd74c2308c00dbbc/68d0f54100ff16d40af99cff_d5a9a108383473a1b7a5ca8722cfbd19_team_member_profile.svg" alt="Team member profile" />
+          <div class="card-stack">
+            <div class="card-stack-back"></div>
+            <div class="card-stack-front">
+              <img src="https://cdn.prod.website-files.com/689597fffd74c2308c00dbbc/68d0f54100ff16d40af99cff_d5a9a108383473a1b7a5ca8722cfbd19_team_member_profile.svg" alt="Team member profile" />
+            </div>
+          </div>
         </div>
       </div>
     </div>
