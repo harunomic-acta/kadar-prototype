@@ -632,6 +632,125 @@
       max-width: 480px;
     }
 
+    /* ─── ONBOARDING MOCKUP ────────────────────────────────────────── */
+    .onboarding-mockup {
+      position: relative;
+      width: 100%;
+      max-width: 480px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .ob-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.09), 0 1px 4px rgba(0,0,0,0.06);
+      overflow: hidden;
+    }
+
+    .ob-card-top { padding: 24px 24px 20px; }
+
+    .ob-card-header {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+    .ob-logo-mark { width: 20px; height: 20px; }
+    .ob-logo-text {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: -0.02em;
+    }
+
+    .ob-greeting {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .ob-message {
+      font-size: 13px;
+      color: var(--text-2);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+    .ob-btn {
+      display: inline-block;
+      background: var(--text);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 9px 18px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .ob-card-bottom { padding: 18px 20px 20px; }
+
+    .ob-task-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .ob-badge {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .ob-badge-active { background: #e8f5e9; color: #2e7d32; }
+    .ob-task-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .ob-task-list { display: flex; flex-direction: column; gap: 9px; }
+
+    .ob-task {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .ob-check {
+      width: 18px;
+      height: 18px;
+      border-radius: 5px;
+      border: 1.5px solid #d0d5dd;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .ob-check-done {
+      background: #7c3aed;
+      border-color: #7c3aed;
+    }
+    .ob-task-text {
+      flex: 1;
+      font-size: 13px;
+      color: var(--text);
+    }
+    .ob-task-done-text {
+      color: #9ca3af;
+      text-decoration: line-through;
+    }
+    .ob-assignee {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 99px;
+    }
+    .ob-assignee-hr  { background: #fce7f3; color: #9d174d; }
+    .ob-assignee-it  { background: #e0f2fe; color: #075985; }
+    .ob-assignee-team { background: #fef3c7; color: #92400e; }
+
     /* ─── TESTIMONIALS ─────────────────────────────────────────────── */
     .testimonials-section {
       padding: 88px 0;
@@ -1099,7 +1218,7 @@
 
   <!-- ══ FEATURES ════════════════════════════════════════════════════ -->
 
-  <!-- 1 — 360 Performance Reviews -->
+  <!-- 1 — Onboarding -->
   <section class="feature-section">
     <div class="container">
       <div class="feature-inner">
@@ -1108,13 +1227,64 @@
             <div class="feat-tag-icon">
               <img src="https://cdn.prod.website-files.com/689597fffd74c2308c00dbbc/68a4709bd669d14b41736de4_logo_kadar_mark_primary.svg" alt="" />
             </div>
-            360 performance reviews
+            Onboarding
           </div>
-          <h2 class="feature-h2">Automated, structured, and fair 360 feedback</h2>
-          <p class="feature-body">Set up a 360 review process in minutes with self, peer, direct report, and upward feedback. Kadar's performance review software eliminates manual work so you can focus on what really matters — people.</p>
+          <h2 class="feature-h2">A new hire's first week sets the tone for everything after.</h2>
+          <p class="feature-body">Stop coordinating onboarding over email and Slack. Kadar assigns tasks across HR, IT, and every relevant team — with status tracking and filtering so nothing gets missed and nobody has to chase anyone.</p>
         </div>
         <div class="feature-visual reveal reveal-d1">
-          <img src="https://cdn.prod.website-files.com/689597fffd74c2308c00dbbc/68d0f31fea83674e59c4fc62_c8afeebc54924ec0149075dec691035c_360_performance_review.svg" alt="360 performance review dashboard" />
+          <div class="onboarding-mockup">
+            <!-- Card 1: Welcome email -->
+            <div class="ob-card ob-card-top">
+              <div class="ob-card-header">
+                <img src="https://cdn.prod.website-files.com/689597fffd74c2308c00dbbc/68a4709bd669d14b41736de4_logo_kadar_mark_primary.svg" alt="" class="ob-logo-mark" />
+                <span class="ob-logo-text">kadar</span>
+              </div>
+              <div class="ob-card-body">
+                <p class="ob-greeting">Welcome, Sarah 👋</p>
+                <p class="ob-message">Your onboarding plan is ready. You have <strong>8 tasks</strong> assigned across HR, IT, and your team — all in one place so nothing slips through.</p>
+                <a class="ob-btn">View my tasks</a>
+              </div>
+            </div>
+            <!-- Card 2: Task board -->
+            <div class="ob-card ob-card-bottom">
+              <div class="ob-task-header">
+                <span class="ob-badge ob-badge-active">In progress</span>
+                <span class="ob-task-title">Onboarding — Sarah K.</span>
+              </div>
+              <div class="ob-task-list">
+                <div class="ob-task ob-task-done">
+                  <span class="ob-check ob-check-done">
+                    <svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l2.5 2.5L9 1" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                  <span class="ob-task-text ob-task-done-text">Sign employment contract</span>
+                  <span class="ob-assignee ob-assignee-hr">HR</span>
+                </div>
+                <div class="ob-task ob-task-done">
+                  <span class="ob-check ob-check-done">
+                    <svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l2.5 2.5L9 1" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                  <span class="ob-task-text ob-task-done-text">Set up work email &amp; tools</span>
+                  <span class="ob-assignee ob-assignee-it">IT</span>
+                </div>
+                <div class="ob-task">
+                  <span class="ob-check"></span>
+                  <span class="ob-task-text">Complete security training</span>
+                  <span class="ob-assignee ob-assignee-it">IT</span>
+                </div>
+                <div class="ob-task">
+                  <span class="ob-check"></span>
+                  <span class="ob-task-text">Schedule intro with team lead</span>
+                  <span class="ob-assignee ob-assignee-team">Team</span>
+                </div>
+                <div class="ob-task">
+                  <span class="ob-check"></span>
+                  <span class="ob-task-text">Submit bank details for payroll</span>
+                  <span class="ob-assignee ob-assignee-hr">HR</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
