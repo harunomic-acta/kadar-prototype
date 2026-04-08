@@ -785,6 +785,43 @@
     .ob-assignee-it  { background: #e0f2fe; color: #075985; }
     .ob-assignee-team { background: #fef3c7; color: #92400e; }
 
+    /* ─── ONBOARDING CARD STACK ────────────────────────────────────── */
+    .ob-stack-wrap {
+      position: relative;
+      width: 100%;
+      max-width: 520px;
+      min-height: 420px;
+      background-image: radial-gradient(circle, #c4c4c4 1.2px, transparent 1.2px);
+      background-size: 20px 20px;
+      background-color: #f4f4f6;
+      border-radius: 18px;
+      flex-shrink: 0;
+    }
+
+    .ob-stack-card1 {
+      position: absolute;
+      top: 24px;
+      left: 24px;
+      width: 78%;
+      border-radius: 14px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.13), 0 2px 6px rgba(0,0,0,0.07);
+      overflow: hidden;
+      z-index: 1;
+    }
+    .ob-stack-card1 img { display: block; width: 100%; height: auto; }
+
+    .ob-stack-card2 {
+      position: absolute;
+      bottom: 24px;
+      right: 24px;
+      width: 72%;
+      border-radius: 14px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.15), 0 2px 6px rgba(0,0,0,0.08);
+      overflow: hidden;
+      z-index: 2;
+    }
+    .ob-stack-card2 img { display: block; width: 100%; height: auto; }
+
     /* ─── TESTIMONIALS ─────────────────────────────────────────────── */
     .testimonials-section {
       padding: 88px 0;
@@ -1273,7 +1310,7 @@
     </div>
   </section>
 
-  <!-- 2 — HR Analytics -->
+  <!-- 2 — Onboarding -->
   <section class="feature-section">
     <div class="container">
       <div class="feature-inner rev">
@@ -1282,13 +1319,20 @@
             <div class="feat-tag-icon">
               <img src="https://cdn.prod.website-files.com/689597fffd74c2308c00dbbc/68a4709bd669d14b41736de4_logo_kadar_mark_primary.svg" alt="" />
             </div>
-            HR analytics &amp; insights
+            Onboarding
           </div>
-          <h2 class="feature-h2">People trends you don't have to chase</h2>
-          <p class="feature-body">Track skills and team performance automatically across time and departments. You see growth, risks, and development needs clearly without relying on manual reporting.</p>
+          <h2 class="feature-h2">Stop coordinating new hire tasks over email.</h2>
+          <p class="feature-body">Kadar assigns everything across HR, IT, and your team in one place — with status tracking so nothing slips and nobody has to chase anyone.</p>
         </div>
         <div class="feature-visual reveal reveal-d1">
-          <img src="https://cdn.prod.website-files.com/689597fffd74c2308c00dbbc/68d0f3c15b4041685196baa4_d8e19e67569cf6ef0b3d0bbc7085092e_hr_analytics_%26_insights.svg" alt="HR analytics dashboard" />
+          <div class="ob-stack-wrap">
+            <div class="ob-stack-card1">
+              <img src="images/card1.png" alt="Task assignment details" />
+            </div>
+            <div class="ob-stack-card2">
+              <img src="images/card2.png" alt="Filters panel" />
+            </div>
+          </div>
         </div>
       </div>
     </div>
