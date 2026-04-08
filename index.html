@@ -803,6 +803,14 @@
       overflow: hidden;
       position: relative;
     }
+    .testimonials-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 100px;
+      background: linear-gradient(to bottom, var(--bg), transparent);
+      pointer-events: none;
+    }
     .testimonials-section::after {
       content: '';
       position: absolute;
@@ -920,6 +928,14 @@
       padding: 88px 0 120px;
       background: var(--bg);
       position: relative;
+    }
+    .faq-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 80px;
+      background: linear-gradient(to bottom, #ffffff, transparent);
+      pointer-events: none;
     }
 
     .faq-cols {
@@ -1223,6 +1239,11 @@
       </div>
     </div>
   </section>
+
+  <!-- ══ BRIDGE HEADING ═════════════════════════════════════════════ -->
+  <div style="text-align: center; padding: 40px 0; background: #5500b5;">
+    <h2 class="section-heading" style="color: #fff;">When did HR software get so <span style="text-decoration: underline wavy;">complicated</span>?</h2>
+  </div>
 
   <!-- ══ PROBLEM / SOLUTION ══════════════════════════════════════════ -->
   <section class="ps-section">
