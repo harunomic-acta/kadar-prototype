@@ -808,7 +808,7 @@
       position: absolute;
       top: 0; left: 0; right: 0;
       height: 100px;
-      background: linear-gradient(to bottom, var(--bg), transparent);
+      background: linear-gradient(to bottom, #fff, transparent);
       pointer-events: none;
     }
     .testimonials-section::after {
@@ -816,7 +816,7 @@
       position: absolute;
       bottom: 0; left: 0; right: 0;
       height: 120px;
-      background: linear-gradient(to bottom, transparent, var(--bg));
+      background: linear-gradient(to bottom, transparent, #fff);
       pointer-events: none;
     }
 
@@ -1003,10 +1003,20 @@
       background-size: cover;
       background-position: center;
       text-align: center;
-      border-radius: 32px 32px 0 0;
-      margin-top: -32px;
+      border-radius: 48px 48px 0 0;
+      margin-top: -48px;
       position: relative;
       z-index: 1;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 80px;
+      background: linear-gradient(to bottom, var(--bg), transparent);
+      border-radius: 48px 48px 0 0;
+      pointer-events: none;
+      z-index: 2;
     }
 
     .cta-section h2 {
@@ -1242,7 +1252,7 @@
 
   <!-- ══ BRIDGE HEADING ═════════════════════════════════════════════ -->
   <div style="text-align: center; padding: 40px 0; background: #5500b5;">
-    <h2 class="section-heading" style="color: #fff;">When did HR software get so <span style="text-decoration: underline wavy;">complicated</span>?</h2>
+    <h2 class="section-heading" style="color: #fff; font-size: clamp(26px, 3.5vw, 42px);">When did HR software<br class="desktop-br"> get so <span style="text-decoration: underline wavy;">complicated</span>?</h2>
   </div>
 
   <!-- ══ PROBLEM / SOLUTION ══════════════════════════════════════════ -->
