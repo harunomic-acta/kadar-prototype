@@ -333,9 +333,8 @@
 
     /* ─── LOGOS ────────────────────────────────────────────────────── */
     .logos-section {
-      padding: 52px 0;
-      background: #fff;
-      border-bottom: 1px solid var(--border);
+      padding: 52px 0 80px;
+      background: #5500b5;
     }
 
     .logos-label {
@@ -344,7 +343,7 @@
       font-weight: 500;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--text-2);
+      color: rgba(255,255,255,0.6);
       margin-bottom: 28px;
     }
 
@@ -356,33 +355,24 @@
       gap: 24px 40px;
     }
     .logos-row img {
-      height: 24px;
-      max-width: 110px;
+      height: 28px;
+      max-width: 120px;
       width: auto;
       object-fit: contain;
-      opacity: 0.5;
-      filter: grayscale(1);
-      transition: opacity 0.25s, filter 0.25s;
+      opacity: 0.8;
+      filter: brightness(0) invert(1);
+      transition: opacity 0.25s;
     }
-    .logos-row img:hover { opacity: 0.9; filter: none; }
+    .logos-row img:hover { opacity: 1; }
 
     /* ─── PROBLEM / SOLUTION ───────────────────────────────────────── */
     .ps-section {
-      padding: 80px 0;
-      background: #f5f4ff;
+      padding: 64px 0 80px;
+      background: linear-gradient(to bottom, #5500b5 0px, #5500b5 80px, #f5f4ff 360px, #f5f4ff 100%);
       overflow: hidden;
       position: relative;
     }
-    .ps-section::before {
-      content: '';
-      position: absolute;
-      top: -200px;
-      right: -200px;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(111,76,255,0.08) 0%, transparent 70%);
-      pointer-events: none;
-    }
+    .ps-section::before { display: none; }
 
     .ps-grid {
       display: grid;
@@ -1254,7 +1244,7 @@
             <div class="ps-icon good">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
             </div>
-            <p class="ps-text"><strong>A real person, not a ticket.</strong> Every Kadar client gets a dedicated Customer Success Manager — someone who picks up when you're mid-cycle and stuck.</p>
+            <p class="ps-text"><strong>A real person, not a ticket.</strong> Every Kadar client gets a dedicated Customer Success Manager, someone who picks up when you're mid-cycle and stuck.</p>
           </div>
           <div class="ps-card-cta">
             <a href="https://kadar.app/sign-up" class="ps-cta-btn">Book a demo &rarr;</a>
@@ -1308,7 +1298,7 @@
             Onboarding
           </div>
           <h2 class="feature-h2">Stop coordinating onboarding over email.</h2>
-          <p class="feature-body">Kadar assigns tasks across HR, IT, and every relevant team — status tracked, nothing missed, nobody chasing anyone.</p>
+          <p class="feature-body">Kadar assigns tasks across HR, IT, and every relevant team, status tracked, nothing missed, nobody chasing anyone.</p>
         </div>
         <div class="feature-visual reveal reveal-d1">
           <div class="onboarding-mockup">
@@ -1320,7 +1310,7 @@
               </div>
               <div class="ob-card-body">
                 <p class="ob-greeting">Welcome, Sarah 👋</p>
-                <p class="ob-message">Your onboarding plan is ready. You have <strong>8 tasks</strong> assigned across HR, IT, and your team — all in one place so nothing slips through.</p>
+                <p class="ob-message">Your onboarding plan is ready. You have <strong>8 tasks</strong> assigned across HR, IT, and your team, all in one place so nothing slips through.</p>
                 <a class="ob-btn">View my tasks</a>
               </div>
             </div>
@@ -1328,7 +1318,7 @@
             <div class="ob-card ob-card-bottom">
               <div class="ob-task-header">
                 <span class="ob-badge ob-badge-active">In progress</span>
-                <span class="ob-task-title">Onboarding — Sarah K.</span>
+                <span class="ob-task-title">Onboarding: Sarah K.</span>
               </div>
               <div class="ob-task-list">
                 <div class="ob-task ob-task-done">
@@ -1380,7 +1370,7 @@
             Performance reviews
           </div>
           <h2 class="feature-h2">Set up 180° or 360° review<br class="desktop-br"> cycles in minutes.</h2>
-          <p class="feature-body">Self assessments, peer reviews, direct feedback — all in one place, with data that tracks how performance actually changes over time.</p>
+          <p class="feature-body">Self assessments, peer reviews, direct feedback, all in one place, with data that tracks how performance actually changes over time.</p>
         </div>
         <div class="feature-visual reveal reveal-d1">
           <img src="https://cdn.prod.website-files.com/689597fffd74c2308c00dbbc/68d0f4942bc4b4fbd1309e1e_c9b7204b7442f107a1cceec4ca1f946e_1-1_meeting.svg" alt="1:1 meeting dashboard" />
@@ -1401,7 +1391,7 @@
             Career planning
           </div>
           <h2 class="feature-h2">Employees who can see where they're going stay longer.</h2>
-          <p class="feature-body">Define roles, levels, and exact competencies for every step — structured paths, not vague promises.</p>
+          <p class="feature-body">Define roles, levels, and exact competencies for every step. Structured paths, not vague promises.</p>
         </div>
         <div class="feature-visual reveal reveal-d1">
           <img src="https://cdn.prod.website-files.com/689597fffd74c2308c00dbbc/68d0f50347a4c69132dab68e_4f41d1d03f71997cee6148cf235cf459_job_leveling_framework.svg" alt="Job leveling framework" />
@@ -1422,7 +1412,7 @@
             Learning Hub
           </div>
           <h2 class="feature-h2">Organize your course library by role, department, or competency.</h2>
-          <p class="feature-body">See who's completed what, where the gaps are, and connect training directly to development plans — so it leads somewhere.</p>
+          <p class="feature-body">See who's completed what, where the gaps are, and connect training directly to development plans, so it leads somewhere.</p>
         </div>
         <div class="feature-visual reveal reveal-d1">
           <img src="https://cdn.prod.website-files.com/689597fffd74c2308c00dbbc/68d0f54100ff16d40af99cff_d5a9a108383473a1b7a5ca8722cfbd19_team_member_profile.svg" alt="Team member profile" />
@@ -1442,7 +1432,7 @@
             </div>
             Administrative support
           </div>
-          <h2 class="feature-h2">Every absence, every leave request, every team calendar — one place.</h2>
+          <h2 class="feature-h2">Every absence, every leave request, every team calendar. One place.</h2>
           <p class="feature-body">No more back-and-forth to find out who's in, what's approved, or what's pending.</p>
         </div>
         <div class="feature-visual reveal reveal-d1">
@@ -1464,7 +1454,7 @@
             Engagement
           </div>
           <h2 class="feature-h2">You can't fix what<br class="desktop-br"> you can't measure.</h2>
-          <p class="feature-body">Run eNPS surveys, collect anonymous feedback, and track sentiment continuously — so you catch the signal before it becomes a resignation.</p>
+          <p class="feature-body">Run eNPS surveys, collect anonymous feedback, and track sentiment continuously, so you catch the signal before it becomes a resignation.</p>
         </div>
         <div class="feature-visual reveal reveal-d1">
           <img src="https://cdn.prod.website-files.com/689597fffd74c2308c00dbbc/68d0f31fea83674e59c4fc62_c8afeebc54924ec0149075dec691035c_360_performance_review.svg" alt="360 performance review dashboard" />
