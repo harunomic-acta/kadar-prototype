@@ -785,43 +785,6 @@
     .ob-assignee-it  { background: #e0f2fe; color: #075985; }
     .ob-assignee-team { background: #fef3c7; color: #92400e; }
 
-    /* ─── ONBOARDING CARD STACK ────────────────────────────────────── */
-    .ob-stack-wrap {
-      position: relative;
-      width: 100%;
-      max-width: 520px;
-      min-height: 420px;
-      background-image: radial-gradient(circle, #c4c4c4 1.2px, transparent 1.2px);
-      background-size: 20px 20px;
-      background-color: #f4f4f6;
-      border-radius: 18px;
-      flex-shrink: 0;
-    }
-
-    .ob-stack-card1 {
-      position: absolute;
-      top: 24px;
-      left: 24px;
-      width: 78%;
-      border-radius: 14px;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.13), 0 2px 6px rgba(0,0,0,0.07);
-      overflow: hidden;
-      z-index: 1;
-    }
-    .ob-stack-card1 img { display: block; width: 100%; height: auto; }
-
-    .ob-stack-card2 {
-      position: absolute;
-      bottom: 24px;
-      right: 24px;
-      width: 72%;
-      border-radius: 14px;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.15), 0 2px 6px rgba(0,0,0,0.08);
-      overflow: hidden;
-      z-index: 2;
-    }
-    .ob-stack-card2 img { display: block; width: 100%; height: auto; }
-
     /* ─── TESTIMONIALS ─────────────────────────────────────────────── */
     .testimonials-section {
       padding: 88px 0;
@@ -1325,12 +1288,56 @@
           <p class="feature-body">Kadar assigns everything across HR, IT, and your team in one place — with status tracking so nothing slips and nobody has to chase anyone.</p>
         </div>
         <div class="feature-visual reveal reveal-d1">
-          <div class="ob-stack-wrap">
-            <div class="ob-stack-card1">
-              <img src="images/card1.png" alt="Task assignment details" />
+          <div class="onboarding-mockup">
+            <!-- Card 1: Welcome email -->
+            <div class="ob-card ob-card-top">
+              <div class="ob-card-header">
+                <img src="https://cdn.prod.website-files.com/689597fffd74c2308c00dbbc/68a4709bd669d14b41736de4_logo_kadar_mark_primary.svg" alt="" class="ob-logo-mark" />
+                <span class="ob-logo-text">kadar</span>
+              </div>
+              <div class="ob-card-body">
+                <p class="ob-greeting">Welcome, Sarah 👋</p>
+                <p class="ob-message">Your onboarding plan is ready. You have <strong>8 tasks</strong> assigned across HR, IT, and your team — all in one place so nothing slips through.</p>
+                <a class="ob-btn">View my tasks</a>
+              </div>
             </div>
-            <div class="ob-stack-card2">
-              <img src="images/card2.png" alt="Filters panel" />
+            <!-- Card 2: Task board -->
+            <div class="ob-card ob-card-bottom">
+              <div class="ob-task-header">
+                <span class="ob-badge ob-badge-active">In progress</span>
+                <span class="ob-task-title">Onboarding — Sarah K.</span>
+              </div>
+              <div class="ob-task-list">
+                <div class="ob-task ob-task-done">
+                  <span class="ob-check ob-check-done">
+                    <svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l2.5 2.5L9 1" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                  <span class="ob-task-text ob-task-done-text">Sign employment contract</span>
+                  <span class="ob-assignee ob-assignee-hr">HR</span>
+                </div>
+                <div class="ob-task ob-task-done">
+                  <span class="ob-check ob-check-done">
+                    <svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l2.5 2.5L9 1" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                  <span class="ob-task-text ob-task-done-text">Set up work email &amp; tools</span>
+                  <span class="ob-assignee ob-assignee-it">IT</span>
+                </div>
+                <div class="ob-task">
+                  <span class="ob-check"></span>
+                  <span class="ob-task-text">Complete security training</span>
+                  <span class="ob-assignee ob-assignee-it">IT</span>
+                </div>
+                <div class="ob-task">
+                  <span class="ob-check"></span>
+                  <span class="ob-task-text">Schedule intro with team lead</span>
+                  <span class="ob-assignee ob-assignee-team">Team</span>
+                </div>
+                <div class="ob-task">
+                  <span class="ob-check"></span>
+                  <span class="ob-task-text">Submit bank details for payroll</span>
+                  <span class="ob-assignee ob-assignee-hr">HR</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
