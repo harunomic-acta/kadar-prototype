@@ -1092,6 +1092,11 @@
     @media (min-width: 1024px) {
       .t-card { flex: 0 0 400px; }
     }
+
+    .desktop-br { display: none; }
+    @media (min-width: 768px) {
+      .desktop-br { display: block; }
+    }
   </style>
 </head>
 <body>
@@ -1255,8 +1260,8 @@
   <!-- Features section header -->
   <section class="features-header">
     <div class="container" style="text-align:center; padding-top:80px; padding-bottom:48px;">
-      <h2 class="hero-h1" style="color:#1a1a2e; margin-bottom:16px;">One platform. Every stage.</h2>
-      <p class="logos-label">Recruitment, onboarding, performance, development, engagement, offboarding. Connected, not cobbled together.</p>
+      <h2 class="section-heading">One platform. Every stage.</h2>
+      <p style="text-align:center; font-size:15px; font-weight:400; color:var(--text-2); margin-top:-32px; margin-bottom:48px;">Recruitment, onboarding, performance, development, engagement, offboarding.<br>Connected, not cobbled together.</p>
     </div>
   </section>
 
@@ -1364,7 +1369,7 @@
             </div>
             Performance reviews
           </div>
-          <h2 class="feature-h2">Set up 180° or 360° review cycles in minutes.</h2>
+          <h2 class="feature-h2">Set up 180° or 360° review<br class="desktop-br"> cycles in minutes.</h2>
           <p class="feature-body">Self assessments, peer reviews, direct feedback — all in one place, with data that tracks how performance actually changes over time.</p>
         </div>
         <div class="feature-visual reveal reveal-d1">
@@ -1448,7 +1453,7 @@
             </div>
             Engagement
           </div>
-          <h2 class="feature-h2">You can't fix what you can't measure.</h2>
+          <h2 class="feature-h2">You can't fix what<br class="desktop-br"> you can't measure.</h2>
           <p class="feature-body">Run eNPS surveys, collect anonymous feedback, and track sentiment continuously — so you catch the signal before it becomes a resignation.</p>
         </div>
         <div class="feature-visual reveal reveal-d1">
@@ -1469,7 +1474,7 @@
             </div>
             Offboarding
           </div>
-          <h2 class="feature-h2">Coordinate exit tasks across HR, IT, and other teams.</h2>
+          <h2 class="feature-h2">Coordinate exit tasks across HR,<br class="desktop-br"> IT, and other teams.</h2>
           <p class="feature-body">No checklist living in someone's inbox. Run exit surveys, spot recurring themes, and make sure every departure teaches you something.</p>
         </div>
         <div class="feature-visual reveal reveal-d1">
