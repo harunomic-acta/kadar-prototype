@@ -367,8 +367,8 @@
 
     /* ─── PROBLEM / SOLUTION ───────────────────────────────────────── */
     .ps-section {
-      padding: 64px 0 80px;
-      background: linear-gradient(to bottom, #5500b5 0px, #5500b5 80px, #f5f4ff 360px, #f5f4ff 100%);
+      padding: 64px 0 120px;
+      background: linear-gradient(to bottom, #5500b5 0px, #5500b5 80px, #f5f4ff 360px, #f5f4ff calc(100% - 120px), #ffffff 100%);
       overflow: hidden;
       position: relative;
     }
@@ -566,9 +566,30 @@
     /* ─── FEATURE SECTIONS ─────────────────────────────────────────── */
     .feature-section {
       padding: 32px 0;
+      position: relative;
     }
     .feature-section:nth-child(odd)  { background: var(--bg); }
     .feature-section:nth-child(even) { background: #fff; }
+
+    /* Seamless transitions between alternating feature sections */
+    .feature-section:nth-child(odd)::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 80px;
+      background: linear-gradient(to bottom, transparent, #ffffff);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .feature-section:nth-child(even)::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 80px;
+      background: linear-gradient(to bottom, transparent, var(--bg));
+      pointer-events: none;
+      z-index: 1;
+    }
 
     .feature-inner {
       display: flex;
@@ -777,9 +798,18 @@
 
     /* ─── TESTIMONIALS ─────────────────────────────────────────────── */
     .testimonials-section {
-      padding: 88px 0;
+      padding: 88px 0 120px;
       background: #fff;
       overflow: hidden;
+      position: relative;
+    }
+    .testimonials-section::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 120px;
+      background: linear-gradient(to bottom, transparent, var(--bg));
+      pointer-events: none;
     }
 
     .section-heading {
@@ -887,8 +917,17 @@
 
     /* ─── FAQ ──────────────────────────────────────────────────────── */
     .faq-section {
-      padding: 88px 0;
+      padding: 88px 0 120px;
       background: var(--bg);
+      position: relative;
+    }
+    .faq-section::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 120px;
+      background: linear-gradient(to bottom, transparent, #5500b5);
+      pointer-events: none;
     }
 
     .faq-cols {
