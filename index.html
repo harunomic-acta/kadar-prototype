@@ -1631,9 +1631,27 @@
   </script>
 
   <!-- ══ PERFORMANCE REVIEW COST CALCULATOR ══════════════════════════ -->
-  <section id="calc-section" style="background:#f5f4ff; padding:88px 0; width:100%;">
+  <section id="calc-section" style="background:#f5f4ff; padding:88px 0; width:100%; position:relative; overflow:hidden;">
     <style>
       /* ─── CALCULATOR SECTION ──────────────────────────────────────── */
+      #calc-section::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: 80px;
+        background: linear-gradient(to bottom, #ffffff, transparent);
+        pointer-events: none;
+        z-index: 1;
+      }
+      #calc-section::after {
+        content: '';
+        position: absolute;
+        bottom: 0; left: 0; right: 0;
+        height: 80px;
+        background: linear-gradient(to bottom, transparent, #ffffff);
+        pointer-events: none;
+        z-index: 1;
+      }
       #calc-section .calc-eyebrow {
         display: block;
         text-align: center;
@@ -1878,9 +1896,9 @@
           </div>
         </div>
 
-        <p class="calc-footnote">Calculated using averaged European HR salary benchmarks. Based on industry data: 20+ hours of HR coordination per cycle, 1.5hr self-assessments, 45min peer reviews.</p>
+        <p class="calc-footnote">Calculated using averaged European HR salary benchmarks.<br>Based on industry data: 20+ hours of HR coordination per cycle, 1.5hr self-assessments, 45min peer reviews.</p>
         <div class="calc-cta-wrap">
-          <a href="https://kadar.app/sign-up" class="btn btn-purple btn-lg">Try Kadar free and get those hours back →</a>
+          <a href="https://kadar.app/sign-up" class="btn btn-purple btn-lg">Book a free demo and let's get those hours back →</a>
         </div>
       </div>
     </div>
@@ -1925,11 +1943,26 @@
       };
     }
 
-    function animateNum(el, newText) {
-      el.textContent = newText;
-      el.classList.remove('animating');
-      void el.offsetWidth; // reflow to restart animation
-      el.classList.add('animating');
+    function animateValue(element, start, end, duration, isCurrency) {
+      var startTime = performance.now();
+      function update(currentTime) {
+        var elapsed  = currentTime - startTime;
+        var progress = Math.min(elapsed / duration, 1);
+        var eased    = 1 - Math.pow(1 - progress, 3);
+        var current  = Math.round(start + (end - start) * eased);
+        if (isCurrency) {
+          element.textContent = '€' + current.toLocaleString('de-DE');
+        } else {
+          element.textContent = current.toLocaleString('de-DE');
+        }
+        if (progress < 1) { requestAnimationFrame(update); }
+      }
+      requestAnimationFrame(update);
+    }
+
+    function readDisplayed(el, isCurrency) {
+      var raw = el.textContent.replace(/€/g, '').replace(/\./g, '').replace(/,/g, '').trim();
+      return parseInt(raw, 10) || 0;
     }
 
     function update() {
@@ -1945,10 +1978,15 @@
 
       var r = calcResults(employees, hrCount, peers, cycles);
 
-      animateNum(document.getElementById('res-hours'),      r.hours.toLocaleString('de-DE'));
-      animateNum(document.getElementById('res-cost'),       fmtEur(r.cost));
-      animateNum(document.getElementById('res-saved-hours'),r.savedHours.toLocaleString('de-DE'));
-      animateNum(document.getElementById('res-saved-cost'), fmtEur(r.savedCost));
+      var elHours     = document.getElementById('res-hours');
+      var elCost      = document.getElementById('res-cost');
+      var elSavedH    = document.getElementById('res-saved-hours');
+      var elSavedC    = document.getElementById('res-saved-cost');
+
+      animateValue(elHours,  readDisplayed(elHours),  r.hours,           400, false);
+      animateValue(elCost,   readDisplayed(elCost),   Math.round(r.cost), 400, true);
+      animateValue(elSavedH, readDisplayed(elSavedH), r.savedHours,      400, false);
+      animateValue(elSavedC, readDisplayed(elSavedC), Math.round(r.savedCost), 400, true);
 
       // update slider track fill
       ['calc-employees','calc-hr','calc-peers','calc-cycles'].forEach(function(id) {
