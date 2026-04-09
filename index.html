@@ -1630,6 +1630,342 @@
   })();
   </script>
 
+  <!-- ══ PERFORMANCE REVIEW COST CALCULATOR ══════════════════════════ -->
+  <section id="calc-section" style="background:#f5f4ff; padding:88px 0; width:100%;">
+    <style>
+      /* ─── CALCULATOR SECTION ──────────────────────────────────────── */
+      #calc-section .calc-eyebrow {
+        display: block;
+        text-align: center;
+        font-size: 11px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: #9b6dcc;
+        margin-bottom: 14px;
+      }
+      #calc-section .calc-heading {
+        text-align: center;
+        font-size: clamp(26px, 4vw, 38px);
+        font-weight: 700;
+        color: #1a1a2e;
+        line-height: 1.2;
+        margin-bottom: 12px;
+      }
+      #calc-section .calc-sub {
+        text-align: center;
+        font-size: 14px;
+        color: #8a8f98;
+        font-weight: 400;
+        margin-bottom: 48px;
+      }
+      #calc-section .calc-card {
+        background: #fff;
+        border-radius: 20px;
+        padding: 48px;
+        box-shadow: 0 0 40px rgba(0,0,0,0.08);
+        max-width: 860px;
+        margin: 0 auto;
+      }
+      #calc-section .calc-sliders {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 36px 48px;
+        margin-bottom: 40px;
+      }
+      @media (max-width: 640px) {
+        #calc-section .calc-sliders {
+          grid-template-columns: 1fr;
+          gap: 28px;
+        }
+        #calc-section .calc-card {
+          padding: 28px 20px;
+        }
+      }
+      #calc-section .slider-group label {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        font-size: 15px;
+        font-weight: 600;
+        color: #1a1a2e;
+        margin-bottom: 10px;
+      }
+      #calc-section .slider-group label span.val {
+        color: #7b00ff;
+        font-weight: 700;
+        font-size: 15px;
+      }
+      #calc-section .slider-group input[type=range] {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 100%;
+        height: 6px;
+        border-radius: 3px;
+        background: #e5ccff;
+        outline: none;
+        cursor: pointer;
+        accent-color: #7b00ff;
+      }
+      #calc-section .slider-group input[type=range]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #7b00ff;
+        cursor: pointer;
+        box-shadow: 0 2px 6px rgba(123,0,255,0.35);
+        transition: box-shadow 0.15s;
+      }
+      #calc-section .slider-group input[type=range]::-webkit-slider-thumb:hover {
+        box-shadow: 0 2px 10px rgba(123,0,255,0.55);
+      }
+      #calc-section .slider-group input[type=range]::-moz-range-thumb {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #7b00ff;
+        cursor: pointer;
+        border: none;
+        box-shadow: 0 2px 6px rgba(123,0,255,0.35);
+      }
+      #calc-section .slider-group .helper {
+        font-size: 12px;
+        color: #a0a6b0;
+        margin-top: 7px;
+      }
+      /* ─── RESULTS PANEL ───────────────────────────────────────────── */
+      #calc-section .results-panel {
+        background: #1a1a2e;
+        border-radius: 16px;
+        padding: 40px;
+        display: grid;
+        grid-template-columns: 1fr 1px 1fr;
+        gap: 0 40px;
+        align-items: start;
+      }
+      @media (max-width: 640px) {
+        #calc-section .results-panel {
+          grid-template-columns: 1fr;
+          gap: 0;
+          padding: 28px 20px;
+        }
+        #calc-section .results-divider {
+          display: none;
+        }
+        #calc-section .results-col + .results-col {
+          margin-top: 32px;
+          padding-top: 32px;
+          border-top: 1px solid rgba(255,255,255,0.1);
+        }
+      }
+      #calc-section .results-divider {
+        width: 1px;
+        background: rgba(255,255,255,0.1);
+        align-self: stretch;
+      }
+      #calc-section .results-col-label {
+        font-size: 10px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: #7a7d99;
+        margin-bottom: 24px;
+      }
+      #calc-section .results-col-label.green {
+        color: #28c700;
+      }
+      #calc-section .result-item {
+        margin-bottom: 28px;
+      }
+      #calc-section .result-item:last-child {
+        margin-bottom: 0;
+      }
+      #calc-section .result-number {
+        font-size: 48px;
+        font-weight: 700;
+        color: #fff;
+        line-height: 1;
+        display: block;
+        transition: color 0.2s;
+        font-variant-numeric: tabular-nums;
+      }
+      #calc-section .result-number.green {
+        color: #28c700;
+      }
+      #calc-section .result-label {
+        font-size: 13px;
+        color: #7a7d99;
+        margin-top: 6px;
+        font-weight: 400;
+      }
+      #calc-section .calc-footnote {
+        text-align: center;
+        font-size: 12px;
+        color: #a0a6b0;
+        margin-top: 20px;
+        line-height: 1.5;
+      }
+      #calc-section .calc-cta-wrap {
+        text-align: center;
+        margin-top: 24px;
+      }
+      /* number flip animation */
+      @keyframes calcFlip {
+        from { opacity: 0.4; transform: translateY(-4px); }
+        to   { opacity: 1;   transform: translateY(0); }
+      }
+      #calc-section .result-number.animating {
+        animation: calcFlip 0.22s ease-out forwards;
+      }
+    </style>
+
+    <div class="container">
+      <span class="calc-eyebrow">The hidden cost of manual HR</span>
+      <h2 class="calc-heading">How much is your current HR process actually costing you?</h2>
+      <p class="calc-sub">Move the sliders. See the real number.</p>
+
+      <div class="calc-card">
+        <!-- SLIDERS -->
+        <div class="calc-sliders">
+          <div class="slider-group">
+            <label for="calc-employees">Number of employees <span class="val" id="val-employees">100</span></label>
+            <input type="range" id="calc-employees" min="10" max="500" step="10" value="100">
+            <p class="helper">Total headcount at your company</p>
+          </div>
+          <div class="slider-group">
+            <label for="calc-hr">HR team members <span class="val" id="val-hr">2</span></label>
+            <input type="range" id="calc-hr" min="1" max="10" step="1" value="2">
+            <p class="helper">People responsible for running review cycles</p>
+          </div>
+          <div class="slider-group">
+            <label for="calc-peers">Peer reviewers per employee <span class="val" id="val-peers">3</span></label>
+            <input type="range" id="calc-peers" min="1" max="6" step="1" value="3">
+            <p class="helper">How many colleagues review each person</p>
+          </div>
+          <div class="slider-group">
+            <label for="calc-cycles">Review cycles per year <span class="val" id="val-cycles">2</span></label>
+            <input type="range" id="calc-cycles" min="1" max="4" step="1" value="2">
+            <p class="helper">How often you run full performance reviews</p>
+          </div>
+        </div>
+
+        <!-- RESULTS -->
+        <div class="results-panel">
+          <div class="results-col">
+            <p class="results-col-label">Your current process</p>
+            <div class="result-item">
+              <span class="result-number" id="res-hours">0</span>
+              <p class="result-label">hours spent per year on review admin</p>
+            </div>
+            <div class="result-item">
+              <span class="result-number" id="res-cost">€0</span>
+              <p class="result-label">in salary cost per year</p>
+            </div>
+          </div>
+          <div class="results-divider"></div>
+          <div class="results-col">
+            <p class="results-col-label green">With Kadar</p>
+            <div class="result-item">
+              <span class="result-number green" id="res-saved-hours">0</span>
+              <p class="result-label">hours saved per year</p>
+            </div>
+            <div class="result-item">
+              <span class="result-number green" id="res-saved-cost">€0</span>
+              <p class="result-label">returned to your budget</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="calc-footnote">Calculated using averaged European HR salary benchmarks. Based on industry data: 20+ hours of HR coordination per cycle, 1.5hr self-assessments, 45min peer reviews.</p>
+        <div class="calc-cta-wrap">
+          <a href="https://kadar.app/sign-up" class="btn btn-purple btn-lg">Try Kadar free and get those hours back →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+  (function() {
+    var RATES = { employee_hourly: 12, manager_hourly: 28, hr_hourly: 22 };
+
+    function round10(n) { return Math.round(n / 10) * 10; }
+
+    function fmtEur(n) {
+      return '€' + Math.round(n).toLocaleString('de-DE');
+    }
+
+    function calcResults(employees, hrCount, peers, cycles) {
+      var selfH   = 1.5;
+      var mgrH    = 1.0;
+      var peerH   = 0.75;
+      var hrCoord = 20;
+      var hrChase = 0.25 * employees;
+
+      var empCost  = employees * selfH * RATES.employee_hourly;
+      var mgrCost  = employees * mgrH  * RATES.manager_hourly;
+      var peerCost = employees * peers * peerH * RATES.employee_hourly;
+      var hrCost   = (hrCount * hrCoord + hrChase) * RATES.hr_hourly;
+
+      var costPerCycle  = empCost + mgrCost + peerCost + hrCost;
+      var hoursPerCycle = (employees * selfH) + (employees * mgrH) + (employees * peers * peerH) + (hrCount * hrCoord) + hrChase;
+
+      var annualCost  = costPerCycle  * cycles;
+      var annualHours = hoursPerCycle * cycles;
+
+      var kadarHours = annualHours * 0.15;
+      var kadarCost  = annualCost  * 0.15;
+
+      return {
+        hours:      round10(annualHours),
+        cost:       annualCost,
+        savedHours: round10(annualHours - kadarHours),
+        savedCost:  annualCost - kadarCost
+      };
+    }
+
+    function animateNum(el, newText) {
+      el.textContent = newText;
+      el.classList.remove('animating');
+      void el.offsetWidth; // reflow to restart animation
+      el.classList.add('animating');
+    }
+
+    function update() {
+      var employees = parseInt(document.getElementById('calc-employees').value, 10);
+      var hrCount   = parseInt(document.getElementById('calc-hr').value,        10);
+      var peers     = parseInt(document.getElementById('calc-peers').value,     10);
+      var cycles    = parseInt(document.getElementById('calc-cycles').value,    10);
+
+      document.getElementById('val-employees').textContent = employees;
+      document.getElementById('val-hr').textContent        = hrCount;
+      document.getElementById('val-peers').textContent     = peers;
+      document.getElementById('val-cycles').textContent    = cycles;
+
+      var r = calcResults(employees, hrCount, peers, cycles);
+
+      animateNum(document.getElementById('res-hours'),      r.hours.toLocaleString('de-DE'));
+      animateNum(document.getElementById('res-cost'),       fmtEur(r.cost));
+      animateNum(document.getElementById('res-saved-hours'),r.savedHours.toLocaleString('de-DE'));
+      animateNum(document.getElementById('res-saved-cost'), fmtEur(r.savedCost));
+
+      // update slider track fill
+      ['calc-employees','calc-hr','calc-peers','calc-cycles'].forEach(function(id) {
+        var el  = document.getElementById(id);
+        var pct = (el.value - el.min) / (el.max - el.min) * 100;
+        el.style.background = 'linear-gradient(to right, #7b00ff 0%, #7b00ff ' + pct + '%, #e5ccff ' + pct + '%, #e5ccff 100%)';
+      });
+    }
+
+    ['calc-employees','calc-hr','calc-peers','calc-cycles'].forEach(function(id) {
+      document.getElementById(id).addEventListener('input', update);
+    });
+
+    update(); // initialise on load
+  })();
+  </script>
+
   <!-- ══ TESTIMONIALS ════════════════════════════════════════════════ -->
   <section class="testimonials-section">
     <div class="container">
