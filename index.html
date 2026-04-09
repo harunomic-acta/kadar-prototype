@@ -884,29 +884,31 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 16px;
       margin-top: 32px;
     }
 
     .s-arrow {
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      border: 1px solid var(--border);
-      background: #fff;
+      width: 40px;
+      height: 40px;
+      border-radius: 0;
+      border: none;
+      background: transparent;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      transition: background 0.18s, border-color 0.18s;
+      transition: opacity 0.2s;
       flex-shrink: 0;
+      padding: 0;
     }
-    .s-arrow:hover { background: var(--bg); border-color: #cdd5db; }
+    .s-arrow:hover { opacity: 0.65; background: transparent; }
+    .s-arrow:disabled svg polygon { fill: #ccc; }
 
     .s-dots {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
     }
 
     .s-dot {
@@ -914,14 +916,15 @@
       height: 8px;
       border-radius: 50%;
       border: none;
-      background: #d0d8df;
+      background: #d0d0d0;
       cursor: pointer;
       padding: 0;
-      transition: background 0.2s, transform 0.2s;
+      transition: width 0.3s ease, background 0.3s ease, border-radius 0.3s ease;
     }
     .s-dot.active {
-      background: var(--purple);
-      transform: scale(1.35);
+      background: #7b00ff;
+      width: 24px;
+      border-radius: 100px;
     }
 
     /* ─── FAQ ──────────────────────────────────────────────────────── */
@@ -1675,8 +1678,33 @@
         font-size: 14px;
         color: #8a8f98;
         font-weight: 400;
-        margin-bottom: 48px;
+        margin-bottom: 40px;
       }
+      /* ─── TAB NAV ─────────────────────────────────────────────────── */
+      #calc-section .calc-tabs {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        margin-bottom: 24px;
+      }
+      #calc-section .calc-tab-btn {
+        background: #fff;
+        border: 1.5px solid #e0e0e0;
+        color: #1a1a2e;
+        border-radius: 100px;
+        padding: 10px 28px;
+        font-size: 15px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background 0.2s, color 0.2s, border-color 0.2s;
+        font-family: inherit;
+      }
+      #calc-section .calc-tab-btn.active {
+        background: #7b00ff;
+        color: #fff;
+        border-color: #7b00ff;
+      }
+      /* ─── CARD ────────────────────────────────────────────────────── */
       #calc-section .calc-card {
         background: #fff;
         border-radius: 20px;
@@ -1685,6 +1713,9 @@
         max-width: 860px;
         margin: 0 auto;
       }
+      #calc-section .calc-tab-panel { display: none; }
+      #calc-section .calc-tab-panel.active { display: block; }
+      /* ─── SLIDERS ─────────────────────────────────────────────────── */
       #calc-section .calc-sliders {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -1698,6 +1729,9 @@
         }
         #calc-section .calc-card {
           padding: 28px 20px;
+        }
+        #calc-section .calc-tabs {
+          flex-wrap: wrap;
         }
       }
       #calc-section .slider-group label {
@@ -1818,12 +1852,50 @@
         margin-top: 6px;
         font-weight: 400;
       }
+      /* ─── TAB 2 BREAKDOWN ─────────────────────────────────────────── */
+      #calc-section .t2-breakdown {
+        padding-top: 16px;
+        font-size: 13px;
+        color: #5e6266;
+        line-height: 1.8;
+      }
+      /* ─── COMBINED TOTAL ──────────────────────────────────────────── */
+      #calc-section .calc-combined {
+        background: #1a1a2e;
+        border-radius: 16px;
+        padding: 32px 40px;
+        max-width: 860px;
+        margin: 32px auto 0;
+        display: grid;
+        grid-template-columns: 1fr 1px 1fr;
+        gap: 0 40px;
+        align-items: start;
+      }
+      @media (max-width: 640px) {
+        #calc-section .calc-combined {
+          grid-template-columns: 1fr;
+          gap: 0;
+          padding: 28px 20px;
+        }
+        #calc-section .calc-combined .results-divider {
+          display: none;
+        }
+        #calc-section .calc-combined .results-col + .results-col {
+          margin-top: 32px;
+          padding-top: 32px;
+          border-top: 1px solid rgba(255,255,255,0.1);
+        }
+      }
+      /* ─── FOOTNOTE & CTA ──────────────────────────────────────────── */
       #calc-section .calc-footnote {
         text-align: center;
         font-size: 12px;
         color: #a0a6b0;
         margin-top: 20px;
         line-height: 1.5;
+        max-width: 860px;
+        margin-left: auto;
+        margin-right: auto;
       }
       #calc-section .calc-cta-wrap {
         text-align: center;
@@ -1852,65 +1924,144 @@
 
     <div class="container">
       <span class="calc-eyebrow">The hidden cost of manual HR</span>
-      <h2 class="calc-heading">How much is your current HR process actually costing you?</h2>
-      <p class="calc-sub">Move the sliders. See the real number.</p>
+      <h2 class="calc-heading">How much is manual HR work actually costing your team?</h2>
+      <p class="calc-sub">Explore by activity. See the full picture.</p>
 
+      <!-- TAB BUTTONS -->
+      <div class="calc-tabs">
+        <button class="calc-tab-btn active" data-tab="tab1">Performance Reviews</button>
+        <button class="calc-tab-btn" data-tab="tab2">Full HR Admin</button>
+      </div>
+
+      <!-- CALCULATOR CARD -->
       <div class="calc-card">
-        <!-- SLIDERS -->
-        <div class="calc-sliders">
-          <div class="slider-group">
-            <label for="calc-employees">Number of employees <span class="val" id="val-employees">100</span></label>
-            <input type="range" id="calc-employees" min="10" max="500" step="10" value="100">
-            <p class="helper">Total headcount at your company</p>
+
+        <!-- ── TAB 1: Performance Reviews ── -->
+        <div class="calc-tab-panel active" id="tab1">
+          <div class="calc-sliders">
+            <div class="slider-group">
+              <label for="calc-employees">Number of employees <span class="val" id="val-employees">100</span></label>
+              <input type="range" id="calc-employees" min="10" max="500" step="10" value="100">
+              <p class="helper">Total headcount at your company</p>
+            </div>
+            <div class="slider-group">
+              <label for="calc-hr">HR team members <span class="val" id="val-hr">2</span></label>
+              <input type="range" id="calc-hr" min="1" max="10" step="1" value="2">
+              <p class="helper">People responsible for running review cycles</p>
+            </div>
+            <div class="slider-group">
+              <label for="calc-peers">Peer reviewers per employee <span class="val" id="val-peers">3</span></label>
+              <input type="range" id="calc-peers" min="1" max="6" step="1" value="3">
+              <p class="helper">How many colleagues review each person</p>
+            </div>
+            <div class="slider-group">
+              <label for="calc-cycles">Review cycles per year <span class="val" id="val-cycles">2</span></label>
+              <input type="range" id="calc-cycles" min="1" max="4" step="1" value="2">
+              <p class="helper">How often you run full performance reviews</p>
+            </div>
           </div>
-          <div class="slider-group">
-            <label for="calc-hr">HR team members <span class="val" id="val-hr">2</span></label>
-            <input type="range" id="calc-hr" min="1" max="10" step="1" value="2">
-            <p class="helper">People responsible for running review cycles</p>
-          </div>
-          <div class="slider-group">
-            <label for="calc-peers">Peer reviewers per employee <span class="val" id="val-peers">3</span></label>
-            <input type="range" id="calc-peers" min="1" max="6" step="1" value="3">
-            <p class="helper">How many colleagues review each person</p>
-          </div>
-          <div class="slider-group">
-            <label for="calc-cycles">Review cycles per year <span class="val" id="val-cycles">2</span></label>
-            <input type="range" id="calc-cycles" min="1" max="4" step="1" value="2">
-            <p class="helper">How often you run full performance reviews</p>
+          <div class="results-panel">
+            <div class="results-col">
+              <p class="results-col-label">Your current process</p>
+              <div class="result-item">
+                <span class="result-number" id="res-hours">0</span>
+                <p class="result-label">hours spent per year on review admin</p>
+              </div>
+              <div class="result-item">
+                <span class="result-number" id="res-cost">€0</span>
+                <p class="result-label">in salary cost per year</p>
+              </div>
+            </div>
+            <div class="results-divider"></div>
+            <div class="results-col">
+              <p class="results-col-label green">With Kadar</p>
+              <div class="result-item">
+                <span class="result-number green" id="res-saved-hours">0</span>
+                <p class="result-label">hours saved per year</p>
+              </div>
+              <div class="result-item">
+                <span class="result-number green" id="res-saved-cost">€0</span>
+                <p class="result-label">returned to your budget</p>
+              </div>
+            </div>
           </div>
         </div>
 
-        <!-- RESULTS -->
-        <div class="results-panel">
-          <div class="results-col">
-            <p class="results-col-label">Your current process</p>
-            <div class="result-item">
-              <span class="result-number" id="res-hours">0</span>
-              <p class="result-label">hours spent per year on review admin</p>
+        <!-- ── TAB 2: Full HR Admin ── -->
+        <div class="calc-tab-panel" id="tab2">
+          <div class="calc-sliders" style="grid-template-columns:1fr;">
+            <div class="slider-group">
+              <label for="calc-newhires">New hires per year <span class="val" id="val-newhires">20</span></label>
+              <input type="range" id="calc-newhires" min="1" max="100" step="1" value="20">
+              <p class="helper">Employees you onboard annually</p>
             </div>
-            <div class="result-item">
-              <span class="result-number" id="res-cost">€0</span>
-              <p class="result-label">in salary cost per year</p>
+            <div class="slider-group">
+              <label for="calc-absence">Absence requests per employee per year <span class="val" id="val-absence">6</span></label>
+              <input type="range" id="calc-absence" min="1" max="20" step="1" value="6">
+              <p class="helper">Average leave, sick day, and time-off requests per person</p>
+            </div>
+            <div class="slider-group">
+              <label for="calc-departures">Employee departures per year <span class="val" id="val-departures">10</span></label>
+              <input type="range" id="calc-departures" min="1" max="50" step="1" value="10">
+              <p class="helper">Annual leavers — voluntary and involuntary</p>
             </div>
           </div>
-          <div class="results-divider"></div>
-          <div class="results-col">
-            <p class="results-col-label green">With Kadar</p>
-            <div class="result-item">
-              <span class="result-number green" id="res-saved-hours">0</span>
-              <p class="result-label">hours saved per year</p>
+          <div class="results-panel">
+            <div class="results-col">
+              <p class="results-col-label">Your current process</p>
+              <div class="result-item">
+                <span class="result-number" id="res2-hours">0</span>
+                <p class="result-label">hours spent per year on HR admin</p>
+              </div>
+              <div class="result-item">
+                <span class="result-number" id="res2-cost">€0</span>
+                <p class="result-label">in salary cost per year</p>
+              </div>
             </div>
-            <div class="result-item">
-              <span class="result-number green" id="res-saved-cost">€0</span>
-              <p class="result-label">returned to your budget</p>
+            <div class="results-divider"></div>
+            <div class="results-col">
+              <p class="results-col-label green">With Kadar</p>
+              <div class="result-item">
+                <span class="result-number green" id="res2-saved-hours">0</span>
+                <p class="result-label">hours saved per year</p>
+              </div>
+              <div class="result-item">
+                <span class="result-number green" id="res2-saved-cost">€0</span>
+                <p class="result-label">returned to your budget</p>
+              </div>
             </div>
+          </div>
+          <div class="t2-breakdown" id="t2-breakdown">
+            <div id="t2-line-onboarding"></div>
+            <div id="t2-line-absence"></div>
+            <div id="t2-line-offboarding"></div>
           </div>
         </div>
 
-        <p class="calc-footnote">Calculated using averaged European HR salary benchmarks.<br>Based on industry data: 20+ hours of HR coordination per cycle, 1.5hr self-assessments, 45min peer reviews.</p>
-        <div class="calc-cta-wrap">
-          <a href="https://kadar.app/sign-up" class="btn btn-purple btn-lg">Book a free demo and let's get those hours back →</a>
+      </div><!-- /calc-card -->
+
+      <!-- COMBINED TOTAL — always visible -->
+      <div class="calc-combined">
+        <div class="results-col">
+          <p class="results-col-label" style="color:#7a7d99;">Total annual cost across all HR activities</p>
+          <div class="result-item">
+            <span class="result-number" id="comb-cost">€0</span>
+            <p class="result-label" id="comb-hours-label">0 hours of manual work per year</p>
+          </div>
         </div>
+        <div class="results-divider"></div>
+        <div class="results-col">
+          <p class="results-col-label green">What Kadar saves you</p>
+          <div class="result-item">
+            <span class="result-number green" id="comb-saved-cost">€0</span>
+            <p class="result-label" id="comb-saved-hours-label">0 hours back per year</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="calc-footnote">Calculated using averaged European HR salary benchmarks. Based on industry data: 20+ hours of HR coordination per review cycle, 10hrs onboarding per hire, 20min per absence request, 6hrs offboarding per departure.</p>
+      <div class="calc-cta-wrap">
+        <a href="https://kadar.app/sign-up" class="btn btn-purple btn-lg">Book a free demo and<br class="d-md-none"> let's get those hours back →</a>
       </div>
     </div>
   </section>
@@ -1921,62 +2072,56 @@
 
     function round10(n) { return Math.round(n / 10) * 10; }
 
-    function fmtEur(n) {
-      return '€' + Math.round(n).toLocaleString('de-DE');
-    }
-
-    function calcResults(employees, hrCount, peers, cycles) {
-      var selfH   = 1.5;
-      var mgrH    = 1.0;
-      var peerH   = 0.75;
-      var hrCoord = 20;
-      var hrChase = 0.25 * employees;
-
-      var empCost  = employees * selfH * RATES.employee_hourly;
-      var mgrCost  = employees * mgrH  * RATES.manager_hourly;
-      var peerCost = employees * peers * peerH * RATES.employee_hourly;
-      var hrCost   = (hrCount * hrCoord + hrChase) * RATES.hr_hourly;
-
-      var costPerCycle  = empCost + mgrCost + peerCost + hrCost;
-      var hoursPerCycle = (employees * selfH) + (employees * mgrH) + (employees * peers * peerH) + (hrCount * hrCoord) + hrChase;
-
-      var annualCost  = costPerCycle  * cycles;
-      var annualHours = hoursPerCycle * cycles;
-
-      var kadarHours = annualHours * 0.15;
-      var kadarCost  = annualCost  * 0.15;
-
-      return {
-        hours:      round10(annualHours),
-        cost:       annualCost,
-        savedHours: round10(annualHours - kadarHours),
-        savedCost:  annualCost - kadarCost
-      };
-    }
-
+    // ── shared helpers ────────────────────────────────────────────────
     function animateValue(element, start, end, duration, isCurrency) {
       var startTime = performance.now();
-      function update(currentTime) {
-        var elapsed  = currentTime - startTime;
+      function tick(now) {
+        var elapsed  = now - startTime;
         var progress = Math.min(elapsed / duration, 1);
         var eased    = 1 - Math.pow(1 - progress, 3);
         var current  = Math.round(start + (end - start) * eased);
-        if (isCurrency) {
-          element.textContent = '€' + current.toLocaleString('de-DE');
-        } else {
-          element.textContent = current.toLocaleString('de-DE');
-        }
-        if (progress < 1) { requestAnimationFrame(update); }
+        element.textContent = isCurrency
+          ? '€' + current.toLocaleString('de-DE')
+          : current.toLocaleString('de-DE');
+        if (progress < 1) { requestAnimationFrame(tick); }
       }
-      requestAnimationFrame(update);
+      requestAnimationFrame(tick);
     }
 
-    function readDisplayed(el, isCurrency) {
+    function readDisplayed(el) {
       var raw = el.textContent.replace(/€/g, '').replace(/\./g, '').replace(/,/g, '').trim();
       return parseInt(raw, 10) || 0;
     }
 
-    function update() {
+    function fillSlider(id) {
+      var el  = document.getElementById(id);
+      var pct = (el.value - el.min) / (el.max - el.min) * 100;
+      el.style.background = 'linear-gradient(to right, #7b00ff 0%, #7b00ff ' + pct + '%, #e5ccff ' + pct + '%, #e5ccff 100%)';
+    }
+
+    // ── tab 1 state ───────────────────────────────────────────────────
+    var tab1Cost = 0, tab1Hours = 0, tab1SavedCost = 0, tab1SavedHours = 0;
+
+    function calcTab1(employees, hrCount, peers, cycles) {
+      var selfH   = 1.5, mgrH = 1.0, peerH = 0.75, hrCoord = 20;
+      var hrChase = 0.25 * employees;
+      var empCost  = employees * selfH * RATES.employee_hourly;
+      var mgrCost  = employees * mgrH  * RATES.manager_hourly;
+      var peerCost = employees * peers * peerH * RATES.employee_hourly;
+      var hrCost   = (hrCount * hrCoord + hrChase) * RATES.hr_hourly;
+      var costPerCycle  = empCost + mgrCost + peerCost + hrCost;
+      var hoursPerCycle = (employees * selfH) + (employees * mgrH) + (employees * peers * peerH) + (hrCount * hrCoord) + hrChase;
+      var annualCost    = costPerCycle  * cycles;
+      var annualHours   = hoursPerCycle * cycles;
+      return {
+        hours:      round10(annualHours),
+        cost:       annualCost,
+        savedHours: round10(annualHours * 0.85),
+        savedCost:  annualCost * 0.85
+      };
+    }
+
+    function updateTab1() {
       var employees = parseInt(document.getElementById('calc-employees').value, 10);
       var hrCount   = parseInt(document.getElementById('calc-hr').value,        10);
       var peers     = parseInt(document.getElementById('calc-peers').value,     10);
@@ -1987,31 +2132,117 @@
       document.getElementById('val-peers').textContent     = peers;
       document.getElementById('val-cycles').textContent    = cycles;
 
-      var r = calcResults(employees, hrCount, peers, cycles);
+      var r = calcTab1(employees, hrCount, peers, cycles);
+      tab1Cost = Math.round(r.cost);
+      tab1Hours = r.hours;
+      tab1SavedCost = Math.round(r.savedCost);
+      tab1SavedHours = r.savedHours;
 
-      var elHours     = document.getElementById('res-hours');
-      var elCost      = document.getElementById('res-cost');
-      var elSavedH    = document.getElementById('res-saved-hours');
-      var elSavedC    = document.getElementById('res-saved-cost');
+      animateValue(document.getElementById('res-hours'),       readDisplayed(document.getElementById('res-hours')),       r.hours,      400, false);
+      animateValue(document.getElementById('res-cost'),        readDisplayed(document.getElementById('res-cost')),        tab1Cost,     400, true);
+      animateValue(document.getElementById('res-saved-hours'), readDisplayed(document.getElementById('res-saved-hours')), r.savedHours, 400, false);
+      animateValue(document.getElementById('res-saved-cost'),  readDisplayed(document.getElementById('res-saved-cost')),  tab1SavedCost,400, true);
 
-      animateValue(elHours,  readDisplayed(elHours),  r.hours,           400, false);
-      animateValue(elCost,   readDisplayed(elCost),   Math.round(r.cost), 400, true);
-      animateValue(elSavedH, readDisplayed(elSavedH), r.savedHours,      400, false);
-      animateValue(elSavedC, readDisplayed(elSavedC), Math.round(r.savedCost), 400, true);
-
-      // update slider track fill
-      ['calc-employees','calc-hr','calc-peers','calc-cycles'].forEach(function(id) {
-        var el  = document.getElementById(id);
-        var pct = (el.value - el.min) / (el.max - el.min) * 100;
-        el.style.background = 'linear-gradient(to right, #7b00ff 0%, #7b00ff ' + pct + '%, #e5ccff ' + pct + '%, #e5ccff 100%)';
-      });
+      ['calc-employees','calc-hr','calc-peers','calc-cycles'].forEach(fillSlider);
+      updateCombined();
     }
 
-    ['calc-employees','calc-hr','calc-peers','calc-cycles'].forEach(function(id) {
-      document.getElementById(id).addEventListener('input', update);
+    // ── tab 2 state ───────────────────────────────────────────────────
+    var tab2Cost = 0, tab2Hours = 0, tab2SavedCost = 0, tab2SavedHours = 0;
+
+    function calcTab2(newHires, absencePerPerson, departures) {
+      var employees = parseInt(document.getElementById('calc-employees').value, 10) || 100;
+
+      var onboardH   = newHires    * 10;
+      var onboardC   = onboardH    * RATES.hr_hourly;
+
+      var absenceH   = (employees * absencePerPerson * 20) / 60;
+      var absenceC   = absenceH   * RATES.hr_hourly;
+
+      var offboardH  = departures  * 6;
+      var offboardC  = offboardH   * RATES.hr_hourly;
+
+      var totalH = onboardH + absenceH + offboardH;
+      var totalC = onboardC + absenceC + offboardC;
+
+      return {
+        hours:      round10(totalH),
+        cost:       totalC,
+        savedHours: round10(totalH * 0.85),
+        savedCost:  totalC * 0.85,
+        onboardH: round10(onboardH), onboardC: Math.round(onboardC),
+        absenceH: round10(absenceH), absenceC: Math.round(absenceC),
+        offboardH: round10(offboardH), offboardC: Math.round(offboardC)
+      };
+    }
+
+    function updateTab2() {
+      var newHires          = parseInt(document.getElementById('calc-newhires').value,   10);
+      var absencePerPerson  = parseInt(document.getElementById('calc-absence').value,    10);
+      var departures        = parseInt(document.getElementById('calc-departures').value, 10);
+
+      document.getElementById('val-newhires').textContent   = newHires;
+      document.getElementById('val-absence').textContent    = absencePerPerson;
+      document.getElementById('val-departures').textContent = departures;
+
+      var r = calcTab2(newHires, absencePerPerson, departures);
+      tab2Cost = Math.round(r.cost);
+      tab2Hours = r.hours;
+      tab2SavedCost = Math.round(r.savedCost);
+      tab2SavedHours = r.savedHours;
+
+      animateValue(document.getElementById('res2-hours'),       readDisplayed(document.getElementById('res2-hours')),       r.hours,      400, false);
+      animateValue(document.getElementById('res2-cost'),        readDisplayed(document.getElementById('res2-cost')),        tab2Cost,     400, true);
+      animateValue(document.getElementById('res2-saved-hours'), readDisplayed(document.getElementById('res2-saved-hours')), r.savedHours, 400, false);
+      animateValue(document.getElementById('res2-saved-cost'),  readDisplayed(document.getElementById('res2-saved-cost')),  tab2SavedCost,400, true);
+
+      document.getElementById('t2-line-onboarding').textContent  = 'Onboarding coordination: ' + r.onboardH + ' hrs · €' + r.onboardC.toLocaleString('de-DE');
+      document.getElementById('t2-line-absence').textContent     = 'Absence & leave tracking: ' + r.absenceH + ' hrs · €' + r.absenceC.toLocaleString('de-DE');
+      document.getElementById('t2-line-offboarding').textContent = 'Offboarding process: '      + r.offboardH + ' hrs · €' + r.offboardC.toLocaleString('de-DE');
+
+      ['calc-newhires','calc-absence','calc-departures'].forEach(fillSlider);
+      updateCombined();
+    }
+
+    // ── combined total ────────────────────────────────────────────────
+    function updateCombined() {
+      var totalCost       = tab1Cost + tab2Cost;
+      var totalHours      = tab1Hours + tab2Hours;
+      var totalSavedCost  = tab1SavedCost + tab2SavedCost;
+      var totalSavedHours = tab1SavedHours + tab2SavedHours;
+
+      var elCC  = document.getElementById('comb-cost');
+      var elCS  = document.getElementById('comb-saved-cost');
+      animateValue(elCC, readDisplayed(elCC), totalCost,      400, true);
+      animateValue(elCS, readDisplayed(elCS), totalSavedCost, 400, true);
+      document.getElementById('comb-hours-label').textContent       = totalHours.toLocaleString('de-DE') + ' hours of manual work per year';
+      document.getElementById('comb-saved-hours-label').textContent = totalSavedHours.toLocaleString('de-DE') + ' hours back per year';
+    }
+
+    // ── tab switching ─────────────────────────────────────────────────
+    document.querySelectorAll('#calc-section .calc-tab-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('#calc-section .calc-tab-btn').forEach(function(b) { b.classList.remove('active'); });
+        document.querySelectorAll('#calc-section .calc-tab-panel').forEach(function(p) { p.classList.remove('active'); });
+        btn.classList.add('active');
+        document.getElementById(btn.getAttribute('data-tab')).classList.add('active');
+      });
     });
 
-    update(); // initialise on load
+    // ── wire up sliders ───────────────────────────────────────────────
+    ['calc-employees','calc-hr','calc-peers','calc-cycles'].forEach(function(id) {
+      document.getElementById(id).addEventListener('input', function() {
+        updateTab1();
+        updateTab2(); // employees slider affects tab2 absence hours
+      });
+    });
+    ['calc-newhires','calc-absence','calc-departures'].forEach(function(id) {
+      document.getElementById(id).addEventListener('input', updateTab2);
+    });
+
+    // ── init ──────────────────────────────────────────────────────────
+    updateTab1();
+    updateTab2();
   })();
   </script>
 
@@ -2383,7 +2614,7 @@
       var prev = document.createElement('button');
       prev.className = 's-arrow';
       prev.setAttribute('aria-label', 'Previous');
-      prev.innerHTML = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>';
+      prev.innerHTML = '<svg width="12" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="14,0 0,7 14,14" fill="#7b00ff"/></svg>';
       prev.addEventListener('click', function () { stopAuto(); goTo(curr - 1); });
       nav.appendChild(prev);
 
@@ -2404,7 +2635,7 @@
       var next = document.createElement('button');
       next.className = 's-arrow';
       next.setAttribute('aria-label', 'Next');
-      next.innerHTML = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>';
+      next.innerHTML = '<svg width="12" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="0,0 14,7 0,14" fill="#7b00ff"/></svg>';
       next.addEventListener('click', function () { stopAuto(); goTo(curr + 1); });
       nav.appendChild(next);
     }
