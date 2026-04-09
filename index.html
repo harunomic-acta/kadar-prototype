@@ -1318,236 +1318,317 @@
     </div>
   </section>
 
-  <!-- ══ FEATURES ════════════════════════════════════════════════════ -->
-
-  <!-- Features section header -->
-  <section class="features-header" style="position: relative; overflow: hidden;">
-    <div style="position:absolute;width:300px;height:300px;border-radius:50%;background:#a0a0a0;opacity:0.07;top:10px;left:10px;z-index:0;"></div>
-    <div style="position:absolute;width:220px;height:220px;border-radius:50%;background:#a0a0a0;opacity:0.06;bottom:10px;right:10px;z-index:0;"></div>
-    <div class="container" style="text-align:center; padding-top:80px; padding-bottom:48px; position: relative; z-index: 1;">
-      <h2 class="section-heading">Your HR stack should cover the full employee lifecycle.<br>Not five different tools.</h2>
-      <p class="section-subheading" style="font-size: 17px; font-weight: 400;">Stop switching tools and start seeing the full picture.</p>
-    </div>
-  </section>
-
-  <!-- 1 — Recruitment -->
-  <section class="feature-section">
+  <!-- ══ FEATURES TABBED ══════════════════════════════════════════════ -->
+  <section class="features-tabbed">
     <div class="container">
-      <div class="feature-inner">
-        <div class="feature-text reveal">
-          <div class="feat-tag">
-            <div class="feat-tag-icon">
-              <img src="https://cdn.prod.website-files.com/689597fffd74c2308c00dbbc/68a4709bd669d14b41736de4_logo_kadar_mark_primary.svg" alt="" />
-            </div>
-            Recruitment
-          </div>
-          <h2 class="feature-h2">Manage candidates, track every stage, and keep your hiring team aligned.</h2>
-          <p class="feature-body">Without switching between five different tools.</p>
-        </div>
-        <div class="feature-visual reveal reveal-d1">
-          <img src="https://cdn.prod.website-files.com/689597fffd74c2308c00dbbc/68d0f31fea83674e59c4fc62_c8afeebc54924ec0149075dec691035c_360_performance_review.svg" alt="360 performance review dashboard" />
-        </div>
+
+      <!-- Section header -->
+      <div class="ftab-header">
+        <h2 class="section-heading">Your HR stack should cover the full employee lifecycle.<br>Not five different tools.</h2>
+        <p class="section-subheading" style="font-size:17px;font-weight:400;">Stop switching tools and start seeing the full picture.</p>
       </div>
+
+      <!-- Primary tab buttons -->
+      <div class="ftab-nav" role="tablist">
+        <button class="ftab-btn ftab-btn--active" data-tab="0" role="tab" aria-selected="true">People Operations</button>
+        <button class="ftab-btn" data-tab="1" role="tab" aria-selected="false">Performance &amp; Development</button>
+        <button class="ftab-btn" data-tab="2" role="tab" aria-selected="false">Engagement &amp; Insights</button>
+      </div>
+
+      <!-- Sub-navigation -->
+      <div class="ftab-subnav" id="ftab-subnav"></div>
+
+      <!-- Content panels -->
+      <div class="ftab-panels" id="ftab-panels"></div>
+
     </div>
   </section>
 
-  <!-- 2 — Onboarding -->
-  <section class="feature-section">
-    <div class="container">
-      <div class="feature-inner rev">
-        <div class="feature-text reveal">
-          <div class="feat-tag">
-            <div class="feat-tag-icon">
-              <img src="https://cdn.prod.website-files.com/689597fffd74c2308c00dbbc/68a4709bd669d14b41736de4_logo_kadar_mark_primary.svg" alt="" />
-            </div>
-            Onboarding
-          </div>
-          <h2 class="feature-h2">Stop coordinating onboarding over email.</h2>
-          <p class="feature-body">Kadar assigns tasks across HR, IT, and every relevant team, status tracked, nothing missed, nobody chasing anyone.</p>
-        </div>
-        <div class="feature-visual reveal reveal-d1">
-          <div class="onboarding-mockup">
-            <!-- Card 1: Welcome email -->
-            <div class="ob-card ob-card-top">
-              <div class="ob-card-header">
-                <img src="https://cdn.prod.website-files.com/689597fffd74c2308c00dbbc/68a4709bd669d14b41736de4_logo_kadar_mark_primary.svg" alt="" class="ob-logo-mark" />
-                <span class="ob-logo-text">kadar</span>
-              </div>
-              <div class="ob-card-body">
-                <p class="ob-greeting">Welcome, Sarah 👋</p>
-                <p class="ob-message">Your onboarding plan is ready. You have <strong>8 tasks</strong> assigned across HR, IT, and your team, all in one place so nothing slips through.</p>
-                <a class="ob-btn">View my tasks</a>
-              </div>
-            </div>
-            <!-- Card 2: Task board -->
-            <div class="ob-card ob-card-bottom">
-              <div class="ob-task-header">
-                <span class="ob-badge ob-badge-active">In progress</span>
-                <span class="ob-task-title">Onboarding: Sarah K.</span>
-              </div>
-              <div class="ob-task-list">
-                <div class="ob-task ob-task-done">
-                  <span class="ob-check ob-check-done">
-                    <svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l2.5 2.5L9 1" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  </span>
-                  <span class="ob-task-text ob-task-done-text">Sign employment contract</span>
-                  <span class="ob-assignee ob-assignee-hr">HR</span>
-                </div>
-                <div class="ob-task ob-task-done">
-                  <span class="ob-check ob-check-done">
-                    <svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l2.5 2.5L9 1" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  </span>
-                  <span class="ob-task-text ob-task-done-text">Set up work email &amp; tools</span>
-                  <span class="ob-assignee ob-assignee-it">IT</span>
-                </div>
-                <div class="ob-task">
-                  <span class="ob-check"></span>
-                  <span class="ob-task-text">Complete security training</span>
-                  <span class="ob-assignee ob-assignee-it">IT</span>
-                </div>
-                <div class="ob-task">
-                  <span class="ob-check"></span>
-                  <span class="ob-task-text">Schedule intro with team lead</span>
-                  <span class="ob-assignee ob-assignee-team">Team</span>
-                </div>
-                <div class="ob-task">
-                  <span class="ob-check"></span>
-                  <span class="ob-task-text">Submit bank details for payroll</span>
-                  <span class="ob-assignee ob-assignee-hr">HR</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <style>
+    .features-tabbed {
+      background: #fff;
+      padding: 80px 0;
+    }
+    .ftab-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .ftab-nav {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+    .ftab-btn {
+      background: #fff;
+      border: 1.5px solid #e0e0e0;
+      color: var(--text);
+      border-radius: 100px;
+      padding: 10px 24px;
+      font-size: 15px;
+      font-weight: 500;
+      transition: background 0.18s, color 0.18s, border-color 0.18s;
+    }
+    .ftab-btn:hover {
+      border-color: var(--purple);
+      color: var(--purple);
+    }
+    .ftab-btn--active {
+      background: var(--purple);
+      color: #fff;
+      border-color: var(--purple);
+    }
+    .ftab-subnav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+    .ftab-sub-item {
+      background: none;
+      border: none;
+      font-size: 13.5px;
+      font-weight: 400;
+      color: var(--text-2);
+      padding: 4px 16px;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: color 0.15s, border-color 0.15s;
+      white-space: nowrap;
+    }
+    .ftab-sub-item:hover { color: var(--purple); }
+    .ftab-sub-item--active {
+      color: var(--purple);
+      border-bottom-color: var(--purple);
+      font-weight: 500;
+    }
+    .ftab-sub-divider {
+      width: 1px;
+      height: 14px;
+      background: #d0d5d9;
+      flex-shrink: 0;
+    }
+    .ftab-panels {
+      position: relative;
+    }
+    .ftab-panel {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .ftab-panel--active {
+      display: flex;
+      opacity: 1;
+      align-items: center;
+      gap: 0;
+    }
+    .ftab-panel-text {
+      flex: 1;
+      padding-right: 48px;
+    }
+    .ftab-panel-visual {
+      flex: 1;
+    }
+    .ftab-eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-2);
+      margin-bottom: 14px;
+    }
+    .ftab-heading {
+      font-size: 28px;
+      font-weight: 700;
+      color: #1a1a2e;
+      line-height: 1.25;
+      margin-bottom: 16px;
+    }
+    .ftab-body {
+      font-size: 14.5px;
+      line-height: 1.6;
+      color: #5e6266;
+      margin-bottom: 24px;
+    }
+    .ftab-learn-more {
+      font-size: 14.5px;
+      font-weight: 500;
+      color: var(--purple);
+      text-decoration: none;
+      transition: opacity 0.15s;
+    }
+    .ftab-learn-more:hover { opacity: 0.75; }
+    .ftab-panel-visual img,
+    .ftab-panel-visual .onboarding-mockup {
+      max-width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.10);
+    }
+    @media (max-width: 768px) {
+      .ftab-panel--active { flex-direction: column; }
+      .ftab-panel-text { padding-right: 0; padding-bottom: 32px; }
+    }
+  </style>
 
-  <!-- 3 — Performance reviews -->
-  <section class="feature-section">
-    <div class="container">
-      <div class="feature-inner">
-        <div class="feature-text reveal">
-          <div class="feat-tag">
-            <div class="feat-tag-icon">
-              <img src="https://cdn.prod.website-files.com/689597fffd74c2308c00dbbc/68a4709bd669d14b41736de4_logo_kadar_mark_primary.svg" alt="" />
-            </div>
-            Performance reviews
-          </div>
-          <h2 class="feature-h2">Set up 180° or 360° review<br class="desktop-br"> cycles in minutes.</h2>
-          <p class="feature-body">Self assessments, peer reviews, direct feedback, all in one place, with data that tracks how performance actually changes over time.</p>
-        </div>
-        <div class="feature-visual reveal reveal-d1">
-          <img src="https://cdn.prod.website-files.com/689597fffd74c2308c00dbbc/68d0f4942bc4b4fbd1309e1e_c9b7204b7442f107a1cceec4ca1f946e_1-1_meeting.svg" alt="1:1 meeting dashboard" />
-        </div>
-      </div>
-    </div>
-  </section>
+  <script>
+  (function() {
+    var IMG = {
+      recruitment:   'https://cdn.prod.website-files.com/689597fffd74c2308c00dbbc/68d0f31fea83674e59c4fc62_c8afeebc54924ec0149075dec691035c_360_performance_review.svg',
+      performance:   'https://cdn.prod.website-files.com/689597fffd74c2308c00dbbc/68d0f4942bc4b4fbd1309e1e_c9b7204b7442f107a1cceec4ca1f946e_1-1_meeting.svg',
+      career:        'https://cdn.prod.website-files.com/689597fffd74c2308c00dbbc/68d0f50347a4c69132dab68e_4f41d1d03f71997cee6148cf235cf459_job_leveling_framework.svg',
+      learning:      'https://cdn.prod.website-files.com/689597fffd74c2308c00dbbc/68d0f54100ff16d40af99cff_d5a9a108383473a1b7a5ca8722cfbd19_team_member_profile.svg',
+      admin:         'https://cdn.prod.website-files.com/689597fffd74c2308c00dbbc/68d0f50347a4c69132dab68e_4f41d1d03f71997cee6148cf235cf459_job_leveling_framework.svg',
+      engagement:    'https://cdn.prod.website-files.com/689597fffd74c2308c00dbbc/68d0f31fea83674e59c4fc62_c8afeebc54924ec0149075dec691035c_360_performance_review.svg',
+      offboarding:   'https://cdn.prod.website-files.com/689597fffd74c2308c00dbbc/68d0f4942bc4b4fbd1309e1e_c9b7204b7442f107a1cceec4ca1f946e_1-1_meeting.svg'
+    };
 
-  <!-- 4 — Career planning -->
-  <section class="feature-section">
-    <div class="container">
-      <div class="feature-inner rev">
-        <div class="feature-text reveal">
-          <div class="feat-tag">
-            <div class="feat-tag-icon">
-              <img src="https://cdn.prod.website-files.com/689597fffd74c2308c00dbbc/68a4709bd669d14b41736de4_logo_kadar_mark_primary.svg" alt="" />
-            </div>
-            Career planning
-          </div>
-          <h2 class="feature-h2">Employees who can see where they're going stay longer.</h2>
-          <p class="feature-body">Define roles, levels, and exact competencies for every step. Structured paths, not vague promises.</p>
-        </div>
-        <div class="feature-visual reveal reveal-d1">
-          <img src="https://cdn.prod.website-files.com/689597fffd74c2308c00dbbc/68d0f50347a4c69132dab68e_4f41d1d03f71997cee6148cf235cf459_job_leveling_framework.svg" alt="Job leveling framework" />
-        </div>
-      </div>
-    </div>
-  </section>
+    var ONBOARDING_VISUAL = '<div class="onboarding-mockup"><div class="ob-card ob-card-top"><div class="ob-card-header"><img src="https://cdn.prod.website-files.com/689597fffd74c2308c00dbbc/68a4709bd669d14b41736de4_logo_kadar_mark_primary.svg" alt="" class="ob-logo-mark" /><span class="ob-logo-text">kadar</span></div><div class="ob-card-body"><p class="ob-greeting">Welcome, Sarah \u{1F44B}</p><p class="ob-message">Your onboarding plan is ready. You have <strong>8 tasks</strong> assigned across HR, IT, and your team, all in one place so nothing slips through.</p><a class="ob-btn">View my tasks</a></div></div><div class="ob-card ob-card-bottom"><div class="ob-task-header"><span class="ob-badge ob-badge-active">In progress</span><span class="ob-task-title">Onboarding: Sarah K.</span></div><div class="ob-task-list"><div class="ob-task ob-task-done"><span class="ob-check ob-check-done"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l2.5 2.5L9 1" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="ob-task-text ob-task-done-text">Sign employment contract</span><span class="ob-assignee ob-assignee-hr">HR</span></div><div class="ob-task ob-task-done"><span class="ob-check ob-check-done"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l2.5 2.5L9 1" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="ob-task-text ob-task-done-text">Set up work email &amp; tools</span><span class="ob-assignee ob-assignee-it">IT</span></div><div class="ob-task"><span class="ob-check"></span><span class="ob-task-text">Complete security training</span><span class="ob-assignee ob-assignee-it">IT</span></div><div class="ob-task"><span class="ob-check"></span><span class="ob-task-text">Schedule intro with team lead</span><span class="ob-assignee ob-assignee-team">Team</span></div><div class="ob-task"><span class="ob-check"></span><span class="ob-task-text">Submit bank details for payroll</span><span class="ob-assignee ob-assignee-hr">HR</span></div></div></div></div>';
 
-  <!-- 5 — Learning Hub -->
-  <section class="feature-section">
-    <div class="container">
-      <div class="feature-inner">
-        <div class="feature-text reveal">
-          <div class="feat-tag">
-            <div class="feat-tag-icon">
-              <img src="https://cdn.prod.website-files.com/689597fffd74c2308c00dbbc/68a4709bd669d14b41736de4_logo_kadar_mark_primary.svg" alt="" />
-            </div>
-            Learning Hub
-          </div>
-          <h2 class="feature-h2">Organize your course library by role, department, or competency.</h2>
-          <p class="feature-body">See who's completed what, where the gaps are, and connect training directly to development plans, so it leads somewhere.</p>
-        </div>
-        <div class="feature-visual reveal reveal-d1">
-          <img src="https://cdn.prod.website-files.com/689597fffd74c2308c00dbbc/68d0f54100ff16d40af99cff_d5a9a108383473a1b7a5ca8722cfbd19_team_member_profile.svg" alt="Team member profile" />
-        </div>
-      </div>
-    </div>
-  </section>
+    function imgVisual(src, alt) {
+      return '<img src="' + src + '" alt="' + alt + '" />';
+    }
 
-  <!-- 6 — Administrative support -->
-  <section class="feature-section">
-    <div class="container">
-      <div class="feature-inner rev">
-        <div class="feature-text reveal">
-          <div class="feat-tag">
-            <div class="feat-tag-icon">
-              <img src="https://cdn.prod.website-files.com/689597fffd74c2308c00dbbc/68a4709bd669d14b41736de4_logo_kadar_mark_primary.svg" alt="" />
-            </div>
-            Administrative support
-          </div>
-          <h2 class="feature-h2">Every absence, every leave request, every team calendar. One place.</h2>
-          <p class="feature-body">No more back-and-forth to find out who's in, what's approved, or what's pending.</p>
-        </div>
-        <div class="feature-visual reveal reveal-d1">
-          <img src="https://cdn.prod.website-files.com/689597fffd74c2308c00dbbc/68d0f50347a4c69132dab68e_4f41d1d03f71997cee6148cf235cf459_job_leveling_framework.svg" alt="Job leveling framework" />
-        </div>
-      </div>
-    </div>
-  </section>
+    var TABS = [
+      {
+        label: 'People Operations',
+        items: [
+          {
+            key: 'onboarding',
+            eyebrow: 'Onboarding',
+            heading: 'Stop coordinating onboarding over email.',
+            body: 'Kadar assigns tasks across HR, IT, and every relevant team — status tracked, nothing missed, nobody chasing anyone.',
+            visual: ONBOARDING_VISUAL
+          },
+          {
+            key: 'admin',
+            eyebrow: 'Administrative support',
+            heading: 'Every absence, every leave request, every team calendar. One place.',
+            body: 'No more back-and-forth to find out who\'s in, what\'s approved, or what\'s pending.',
+            visual: imgVisual(IMG.admin, 'Administrative support')
+          },
+          {
+            key: 'offboarding',
+            eyebrow: 'Offboarding',
+            heading: 'Coordinate exit tasks across HR, IT, and other teams.',
+            body: 'No checklist living in someone\'s inbox. Run exit surveys, spot recurring themes, and make sure every departure teaches you something.',
+            visual: imgVisual(IMG.offboarding, 'Offboarding')
+          }
+        ]
+      },
+      {
+        label: 'Performance &amp; Development',
+        items: [
+          {
+            key: 'performance',
+            eyebrow: 'Performance reviews',
+            heading: 'Set up 180° or 360° review cycles in minutes.',
+            body: 'Self assessments, peer reviews, direct feedback — all in one place, with data that tracks how performance actually changes over time.',
+            visual: imgVisual(IMG.performance, 'Performance reviews')
+          },
+          {
+            key: 'career',
+            eyebrow: 'Career planning',
+            heading: 'Employees who can see where they\'re going stay longer.',
+            body: 'Define roles, levels, and exact competencies for every step. Structured paths, not vague promises.',
+            visual: imgVisual(IMG.career, 'Career planning')
+          },
+          {
+            key: 'learning',
+            eyebrow: 'Learning Hub',
+            heading: 'Organize your course library by role, department, or competency.',
+            body: 'See who\'s completed what, where the gaps are, and connect training directly to development plans — so it leads somewhere.',
+            visual: imgVisual(IMG.learning, 'Learning Hub')
+          }
+        ]
+      },
+      {
+        label: 'Engagement &amp; Insights',
+        items: [
+          {
+            key: 'engagement',
+            eyebrow: 'Engagement',
+            heading: 'You can\'t fix what you can\'t measure.',
+            body: 'Run eNPS surveys, collect anonymous feedback, and track sentiment continuously — so you catch the signal before it becomes a resignation.',
+            visual: imgVisual(IMG.engagement, 'Engagement')
+          },
+          {
+            key: 'recruitment',
+            eyebrow: 'Recruitment',
+            heading: 'Manage candidates, track every stage, and keep your hiring team aligned.',
+            body: 'Without switching between five different tools.',
+            visual: imgVisual(IMG.recruitment, 'Recruitment')
+          }
+        ]
+      }
+    ];
 
-  <!-- 7 — Engagement -->
-  <section class="feature-section">
-    <div class="container">
-      <div class="feature-inner">
-        <div class="feature-text reveal">
-          <div class="feat-tag">
-            <div class="feat-tag-icon">
-              <img src="https://cdn.prod.website-files.com/689597fffd74c2308c00dbbc/68a4709bd669d14b41736de4_logo_kadar_mark_primary.svg" alt="" />
-            </div>
-            Engagement
-          </div>
-          <h2 class="feature-h2">You can't fix what<br class="desktop-br"> you can't measure.</h2>
-          <p class="feature-body">Run eNPS surveys, collect anonymous feedback, and track sentiment continuously, so you catch the signal before it becomes a resignation.</p>
-        </div>
-        <div class="feature-visual reveal reveal-d1">
-          <img src="https://cdn.prod.website-files.com/689597fffd74c2308c00dbbc/68d0f31fea83674e59c4fc62_c8afeebc54924ec0149075dec691035c_360_performance_review.svg" alt="360 performance review dashboard" />
-        </div>
-      </div>
-    </div>
-  </section>
+    var activeTab = 0;
+    var activeItems = [0, 0, 0];
 
-  <!-- 8 — Offboarding -->
-  <section class="feature-section">
-    <div class="container">
-      <div class="feature-inner rev">
-        <div class="feature-text reveal">
-          <div class="feat-tag">
-            <div class="feat-tag-icon">
-              <img src="https://cdn.prod.website-files.com/689597fffd74c2308c00dbbc/68a4709bd669d14b41736de4_logo_kadar_mark_primary.svg" alt="" />
-            </div>
-            Offboarding
-          </div>
-          <h2 class="feature-h2">Coordinate exit tasks across HR,<br class="desktop-br"> IT, and other teams.</h2>
-          <p class="feature-body">No checklist living in someone's inbox. Run exit surveys, spot recurring themes, and make sure every departure teaches you something.</p>
-        </div>
-        <div class="feature-visual reveal reveal-d1">
-          <img src="https://cdn.prod.website-files.com/689597fffd74c2308c00dbbc/68d0f4942bc4b4fbd1309e1e_c9b7204b7442f107a1cceec4ca1f946e_1-1_meeting.svg" alt="1:1 meeting dashboard" />
-        </div>
-      </div>
-    </div>
-  </section>
+    var subnavEl = document.getElementById('ftab-subnav');
+    var panelsEl = document.getElementById('ftab-panels');
+    var tabBtns  = document.querySelectorAll('.ftab-btn');
+
+    function renderSubnav() {
+      var items = TABS[activeTab].items;
+      var html = '';
+      items.forEach(function(item, i) {
+        if (i > 0) html += '<span class="ftab-sub-divider"></span>';
+        var cls = i === activeItems[activeTab] ? 'ftab-sub-item ftab-sub-item--active' : 'ftab-sub-item';
+        html += '<button class="' + cls + '" data-subitem="' + i + '">' + item.eyebrow + '</button>';
+      });
+      subnavEl.innerHTML = html;
+      subnavEl.querySelectorAll('.ftab-sub-item').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          activeItems[activeTab] = parseInt(this.dataset.subitem);
+          renderSubnav();
+          renderContent();
+        });
+      });
+    }
+
+    function renderContent() {
+      var tab = TABS[activeTab];
+      var item = tab.items[activeItems[activeTab]];
+      panelsEl.style.opacity = '0';
+      setTimeout(function() {
+        panelsEl.innerHTML =
+          '<div class="ftab-panel ftab-panel--active">' +
+            '<div class="ftab-panel-text">' +
+              '<p class="ftab-eyebrow">' + item.eyebrow + '</p>' +
+              '<h3 class="ftab-heading">' + item.heading + '</h3>' +
+              '<p class="ftab-body">' + item.body + '</p>' +
+              '<a href="#" class="ftab-learn-more">Learn more &rarr;</a>' +
+            '</div>' +
+            '<div class="ftab-panel-visual">' + item.visual + '</div>' +
+          '</div>';
+        panelsEl.style.opacity = '1';
+      }, 80);
+    }
+
+    tabBtns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var idx = parseInt(this.dataset.tab);
+        activeTab = idx;
+        tabBtns.forEach(function(b) {
+          b.classList.remove('ftab-btn--active');
+          b.setAttribute('aria-selected', 'false');
+        });
+        this.classList.add('ftab-btn--active');
+        this.setAttribute('aria-selected', 'true');
+        renderSubnav();
+        renderContent();
+      });
+    });
+
+    panelsEl.style.transition = 'opacity 0.2s';
+    renderSubnav();
+    renderContent();
+  })();
+  </script>
 
   <!-- ══ TESTIMONIALS ════════════════════════════════════════════════ -->
   <section class="testimonials-section">
