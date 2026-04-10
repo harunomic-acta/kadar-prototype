@@ -1758,20 +1758,24 @@
     function renderContent() {
       var tab = TABS[activeTab];
       var item = tab.items[activeItems[activeTab]];
+      panelsEl.style.transition = 'none';
       panelsEl.style.opacity = '0';
-      setTimeout(function() {
-        panelsEl.innerHTML =
-          '<div class="ftab-panel ftab-panel--active">' +
-            '<div class="ftab-panel-text">' +
-              '<p class="ftab-eyebrow">' + item.eyebrow + '</p>' +
-              '<h3 class="ftab-heading">' + item.heading + '</h3>' +
-              '<p class="ftab-body">' + item.body + '</p>' +
-              '<a href="#" class="ftab-learn-more">Learn more &rarr;</a>' +
-            '</div>' +
-            '<div class="ftab-panel-visual">' + item.visual + '</div>' +
-          '</div>';
-        panelsEl.style.opacity = '1';
-      }, 80);
+      panelsEl.innerHTML =
+        '<div class="ftab-panel ftab-panel--active">' +
+          '<div class="ftab-panel-text">' +
+            '<p class="ftab-eyebrow">' + item.eyebrow + '</p>' +
+            '<h3 class="ftab-heading">' + item.heading + '</h3>' +
+            '<p class="ftab-body">' + item.body + '</p>' +
+            '<a href="#" class="ftab-learn-more">Learn more &rarr;</a>' +
+          '</div>' +
+          '<div class="ftab-panel-visual">' + item.visual + '</div>' +
+        '</div>';
+      requestAnimationFrame(function() {
+        requestAnimationFrame(function() {
+          panelsEl.style.transition = 'opacity 0.18s';
+          panelsEl.style.opacity = '1';
+        });
+      });
     }
 
     tabBtns.forEach(function(btn) {
@@ -1789,7 +1793,6 @@
       });
     });
 
-    panelsEl.style.transition = 'opacity 0.2s';
     renderSubnav();
     renderContent();
   })();
@@ -2414,7 +2417,7 @@
   <!-- ══ TESTIMONIALS ════════════════════════════════════════════════ -->
   <section class="testimonials-section">
     <div class="container">
-      <h2 class="section-heading">Turns out HR software<br class="mobile-br"> can be something<br class="mobile-br"> people actually<br class="desktop-br"> use.</h2>
+      <h2 class="section-heading">Turns out HR software<br class="mobile-br"> can be<br class="desktop-br"> something<br class="mobile-br"> people actually use.</h2>
       <p style="text-align:center; font-size:17px; font-weight:400; color:var(--text-2); margin-top:0; margin-bottom:48px;">2,000+ managers worldwide. 85% adoption rate. No chasing required.</p>
     </div>
 
@@ -2627,7 +2630,7 @@
     <div style="position:absolute;width:250px;height:250px;border-radius:50%;background:#a0a0a0;opacity:0.06;bottom:10px;right:10px;z-index:0;"></div>
     <div style="position:absolute;width:160px;height:160px;border-radius:50%;background:#a0a0a0;opacity:0.05;top:30%;right:15%;z-index:0;"></div>
     <div class="container" style="position: relative; z-index: 1;">
-      <h2>Right then.<br class="mobile-br"> Wouldn't it be great<br class="mobile-br"> if HR software finally<br class="mobile-br"> got out of your way?</h2>
+      <h2>Right then.<br class="desktop-br mobile-br"> Wouldn't it be great<br class="mobile-br"> if HR<br class="desktop-br"> software finally<br class="mobile-br"> got out of your way?</h2>
       <p>Join 2,000+ HR managers and team leads who replaced clunky HR tools with something that actually works.</p>
       <a href="https://kadar.app/sign-up" class="btn btn-white btn-lg">Book a demo</a>
     </div>
