@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exit Interview Template - Starting From Scratch</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 13px;
+    color: #1a1a2e;
+    background: #f9f9fb;
+    padding: 24px;
+  }
+  .page {
+    max-width: 820px;
+    margin: 0 auto;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 40px 48px 48px;
+  }
+  /* Header */
+  .doc-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding-bottom: 14px;
+    border-bottom: 2px solid #E24B4A;
+    margin-bottom: 20px;
+  }
+  .doc-header .brand {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1D9E75;
+    letter-spacing: -0.5px;
+  }
+  .doc-header .doc-label {
+    font-size: 11px;
+    font-weight: 500;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+  }
+  /* Meta line */
+  .meta-line {
+    display: flex;
+    gap: 32px;
+    margin-bottom: 20px;
+    font-size: 12px;
+    color: #6b7280;
+  }
+  .meta-line span { border-bottom: 1px solid #d1d5db; min-width: 120px; padding-bottom: 2px; }
+  /* Insight callout */
+  .insight-box {
+    background: #FEF2F2;
+    border-left: 4px solid #E24B4A;
+    border-radius: 0 6px 6px 0;
+    padding: 14px 16px;
+    margin-bottom: 28px;
+  }
+  .insight-box .insight-label {
+    font-size: 10px;
+    font-weight: 600;
+    color: #E24B4A;
+    text-transform: uppercase;
+    letter-spacing: 0.9px;
+    margin-bottom: 6px;
+  }
+  .insight-box p {
+    font-size: 12.5px;
+    color: #374151;
+    line-height: 1.55;
+  }
+  /* Sections */
+  .section { margin-bottom: 28px; }
+  .section-title {
+    font-size: 11px;
+    font-weight: 600;
+    color: #E24B4A;
+    text-transform: uppercase;
+    letter-spacing: 0.9px;
+    margin-bottom: 12px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #fecaca;
+  }
+  .question { margin-bottom: 16px; }
+  .question-text {
+    font-size: 12.5px;
+    font-weight: 500;
+    color: #374151;
+    margin-bottom: 6px;
+    line-height: 1.4;
+  }
+  .question-note {
+    font-style: italic;
+    font-size: 11px;
+    color: #9ca3af;
+    margin-bottom: 8px;
+  }
+  .answer-lines { display: flex; flex-direction: column; gap: 8px; }
+  .answer-line {
+    border: none;
+    border-bottom: 1px solid #e5e7eb;
+    height: 22px;
+    width: 100%;
+  }
+  /* Save button */
+  .save-btn-wrap { text-align: right; margin-bottom: 28px; }
+  .save-btn {
+    display: inline-block;
+    background: #E24B4A;
+    color: #fff;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .save-btn:hover { background: #c93a39; }
+  /* Footer */
+  .doc-footer {
+    border-top: 1px solid #e5e7eb;
+    margin-top: 32px;
+    padding-top: 12px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    color: #9ca3af;
+  }
+  /* Print */
+  @media print {
+    body { background: #fff; padding: 0; }
+    .page { border: none; border-radius: 0; padding: 1cm; max-width: 100%; }
+    .save-btn-wrap { display: none; }
+    .answer-line { border-bottom-color: #aaa; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="save-btn-wrap">
+    <button class="save-btn" onclick="window.print()">Save as PDF</button>
+  </div>
+
+  <div class="doc-header">
+    <span class="brand">kadar</span>
+    <span class="doc-label">Exit Interview Template</span>
+  </div>
+
+  <div class="meta-line">
+    <div>Conducted by: <span>&nbsp;</span></div>
+    <div>Date: <span>&nbsp;</span></div>
+    <div>Role: <span>&nbsp;</span></div>
+  </div>
+
+  <div class="insight-box">
+    <div class="insight-label">Your result - Starting from scratch</div>
+    <p>Your exit interview process is largely ad hoc. Without a consistent structure, you're likely missing patterns across departures and leaving employees without a safe space to share honest feedback. This template gives you a repeatable starting point - use it for every exit from here on.</p>
+  </div>
+
+  <!-- Section 1 -->
+  <div class="section">
+    <div class="section-title">1. Role and Day-to-Day Experience</div>
+    <div class="question">
+      <div class="question-text">What did you enjoy most about your role here?</div>
+      <div class="answer-lines">
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+      </div>
+    </div>
+    <div class="question">
+      <div class="question-text">What aspects of the role were most frustrating or draining?</div>
+      <div class="answer-lines">
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+      </div>
+    </div>
+    <div class="question">
+      <div class="question-text">Did the role match what was described when you were hired?</div>
+      <div class="answer-lines">
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 2 -->
+  <div class="section">
+    <div class="section-title">2. Team and Management</div>
+    <div class="question">
+      <div class="question-text">How would you describe your relationship with your direct manager?</div>
+      <div class="answer-lines">
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+      </div>
+    </div>
+    <div class="question">
+      <div class="question-text">Did you feel supported and recognised in your work?</div>
+      <div class="answer-lines">
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+      </div>
+    </div>
+    <div class="question">
+      <div class="question-text">Was there anything about the team dynamic that affected your experience?</div>
+      <div class="answer-lines">
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 3 -->
+  <div class="section">
+    <div class="section-title">3. Growth and Development</div>
+    <div class="question">
+      <div class="question-text">Did you have opportunities to learn and grow in this role?</div>
+      <div class="answer-lines">
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+      </div>
+    </div>
+    <div class="question">
+      <div class="question-text">Was there a clear path forward for your career here?</div>
+      <div class="answer-lines">
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+      </div>
+    </div>
+    <div class="question">
+      <div class="question-text">What would have made you more likely to stay?</div>
+      <div class="answer-lines">
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 4 -->
+  <div class="section">
+    <div class="section-title">4. Culture and Environment</div>
+    <div class="question">
+      <div class="question-text">How would you describe the overall company culture?</div>
+      <div class="answer-lines">
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+      </div>
+    </div>
+    <div class="question">
+      <div class="question-text">Did you feel comfortable raising concerns or sharing ideas?</div>
+      <div class="answer-lines">
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+      </div>
+    </div>
+    <div class="question">
+      <div class="question-text">Was there anything about the environment that surprised you - positively or negatively?</div>
+      <div class="answer-lines">
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 5 - The Real Reason -->
+  <div class="section">
+    <div class="section-title">5. The Real Reason</div>
+    <div class="question">
+      <div class="question-text">What is the primary reason you decided to leave?</div>
+      <div class="question-note">Give the employee time to answer fully - this is the most valuable part of the conversation.</div>
+      <div class="answer-lines">
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+      </div>
+    </div>
+    <div class="question">
+      <div class="question-text">Was there a specific moment or event that prompted your decision?</div>
+      <div class="question-note">Listen without interrupting - often the first answer is not the full answer.</div>
+      <div class="answer-lines">
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+      </div>
+    </div>
+    <div class="question">
+      <div class="question-text">If you could change one thing about how things are done here, what would it be?</div>
+      <div class="question-note">This is an open door - take notes carefully.</div>
+      <div class="answer-lines">
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 6 -->
+  <div class="section">
+    <div class="section-title">6. Looking Ahead</div>
+    <div class="question">
+      <div class="question-text">Would you recommend this company as a place to work? Why or why not?</div>
+      <div class="answer-lines">
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+      </div>
+    </div>
+    <div class="question">
+      <div class="question-text">Is there anything you'd like leadership to know that wasn't covered here?</div>
+      <div class="answer-lines">
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+      </div>
+    </div>
+    <div class="question">
+      <div class="question-text">Would you be open to returning in the future under different circumstances?</div>
+      <div class="answer-lines">
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="doc-footer">
+    <span>kadar.app - Exit Interview Template</span>
+    <span>This document is for internal HR use only.</span>
+  </div>
+
+</div>
+</body>
+</html>
