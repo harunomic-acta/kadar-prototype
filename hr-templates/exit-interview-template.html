@@ -123,10 +123,14 @@
     .stat-src { font-size: 12px; color: var(--text-2); }
 
     /* ---- QUIZ WRAPPER ---- */
-    .quiz-section { padding: 80px 0 100px; background: var(--white); }
+    .quiz-section { padding: 80px 0 100px; background: linear-gradient(160deg, #f8fdfc 0%, #eaf7f1 100%); }
     .quiz-header { text-align: center; margin-bottom: 48px; }
     .quiz-intro { font-size: 16px; font-weight: 300; color: var(--text-2); line-height: 1.65; margin-top: 12px; }
-    .quiz-card { max-width: 640px; margin: 0 auto; background: var(--white); border: 1px solid var(--border); border-radius: 20px; padding: 36px; box-shadow: 0 2px 24px rgba(0,0,0,.06); }
+    .quiz-card { max-width: 640px; margin: 0 auto; background: var(--white); border: 1px solid var(--border); border-radius: 20px; padding: 36px; box-shadow: 0 4px 32px rgba(29,158,117,.10); border-top: 3px solid var(--primary); }
+
+    .quiz-brand { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+    .quiz-brand-logo { font-size: 17px; font-weight: 800; color: var(--primary); letter-spacing: -.03em; }
+    .quiz-brand-pill { font-size: 11px; font-weight: 600; color: var(--primary); background: var(--primary-bg); border: 1px solid var(--primary-light); padding: 4px 10px; border-radius: 100px; letter-spacing: .02em; text-transform: uppercase; }
 
     /* Progress */
     .q-progress-track { height: 3px; background: var(--border); border-radius: 2px; margin-bottom: 20px; overflow: hidden; }
@@ -357,6 +361,12 @@
     </div>
 
     <div class="quiz-card" id="quizContainer">
+
+      <!-- Brand bar -->
+      <div class="quiz-brand">
+        <span class="quiz-brand-logo">kadar</span>
+        <span class="quiz-brand-pill">Process Health Check</span>
+      </div>
 
       <!-- Progress (hidden until quiz starts, JS shows it) -->
       <div class="q-progress-track" id="progressTrack" style="display:none">
