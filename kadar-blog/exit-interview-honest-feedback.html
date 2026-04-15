@@ -28,6 +28,9 @@
       --dark:          #1a2332;
       --shadow:        0 0 20px rgba(0,0,0,0.07);
       --radius:        16px;
+      --purple:        #7b00ff;
+      --purple-hover:  #6400d0;
+      --purple-light:  #e5ccff;
     }
 
     html { scroll-behavior: smooth; }
@@ -73,8 +76,10 @@
     .btn:active { transform: scale(0.97); }
     .btn-primary { background: var(--primary); color: #fff; }
     .btn-primary:hover { background: var(--primary-hover); }
-    .btn-white { background: #fff; color: var(--primary); }
-    .btn-white:hover { background: #f0fffe; }
+    .btn-purple { background: var(--purple); color: #fff; }
+    .btn-purple:hover { background: var(--purple-hover); }
+    .btn-white { background: #fff; color: var(--purple); }
+    .btn-white:hover { background: var(--purple-light); }
     .btn-lg { font-size: 16px; padding: 14px 34px; }
 
     /* ─── NAVBAR ──────────────────────────────────────────── */
@@ -110,7 +115,7 @@
       color: var(--text);
       transition: color 0.2s;
     }
-    .nav-links a:hover { color: var(--primary); }
+    .nav-links a:hover { color: var(--purple); }
 
     .nav-right {
       display: flex;
@@ -127,7 +132,7 @@
       border-radius: 8px;
       transition: color 0.2s, background 0.2s;
     }
-    .nav-login:hover { color: var(--primary); background: var(--bg); }
+    .nav-login:hover { color: var(--purple); background: var(--bg); }
     .nav-signup { display: none; }
 
     .nav-burger {
@@ -171,7 +176,7 @@
       border-bottom: 1px solid var(--border);
       transition: color 0.2s;
     }
-    .mobile-nav a:hover { color: var(--primary); }
+    .mobile-nav a:hover { color: var(--purple); }
     .mobile-nav .btn { display: flex; width: 100%; margin-top: 16px; font-size: 16px; }
 
     /* ─── BLOG HEADER ─────────────────────────────────────── */
@@ -321,7 +326,7 @@
       color: var(--text-2);
       transition: color 0.2s;
     }
-    .footer-nav a:hover { color: var(--primary); }
+    .footer-nav a:hover { color: var(--purple); }
     .footer-nav .sep { color: var(--border); }
 
     .footer-social {
@@ -338,7 +343,7 @@
       color: var(--text-2);
       transition: border-color 0.2s, color 0.2s;
     }
-    .footer-social a:hover { border-color: var(--primary); color: var(--primary); }
+    .footer-social a:hover { border-color: var(--purple); color: var(--purple); }
 
     .footer-bottom {
       padding-top: 20px;
@@ -384,7 +389,7 @@
       </ul>
       <div class="nav-right">
         <a href="https://kadar.app/login" class="nav-login">Login</a>
-        <a href="https://kadar.app/sign-up" class="btn btn-primary nav-signup">Try Kadar free</a>
+        <a href="https://kadar.app/sign-up" class="btn btn-purple nav-signup">Book a demo</a>
         <button class="nav-burger" id="burger" aria-label="Open menu" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
@@ -398,7 +403,7 @@
     <a href="/kadar-blog/exit-interview-honest-feedback.html">Kadar blog</a>
     <a href="/hr-templates/exit-interview-template.html">HR templates</a>
     <a href="https://kadar.app/login">Login</a>
-    <a href="https://kadar.app/sign-up" class="btn btn-primary">Try Kadar free</a>
+    <a href="https://kadar.app/sign-up" class="btn btn-purple">Book a demo</a>
   </div>
 
   <!-- ══ BLOG HEADER ═════════════════════════════════════════════════ -->
