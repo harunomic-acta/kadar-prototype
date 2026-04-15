@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Why Your Exit Interviews Aren't Getting Honest Answers | Kadar Blog</title>
+  <meta name="description" content="Most exit interview feedback is polished, safe, and useless. Here's why employees hold back on the way out — and how to fix the process so exits actually inform retention." />
+  <meta property="og:title" content="Why Your Exit Interviews Aren't Getting Honest Answers | Kadar Blog" />
+  <meta property="og:description" content="Most exit interview feedback is polished, safe, and useless. Here's why employees hold back on the way out — and how to fix the process so exits actually inform retention." />
+  <meta property="og:type" content="article" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary:       #0EA5A5;
+      --primary-dark:  #0c8a8a;
+      --primary-hover: #0b9898;
+      --primary-light: #e0f7f7;
+      --primary-bg:    #f0fffe;
+      --text:          #2c2f31;
+      --text-2:        #5e6266;
+      --bg:            #eaeff2;
+      --border:        #e8edf0;
+      --white:         #ffffff;
+      --dark:          #1a2332;
+      --shadow:        0 0 20px rgba(0,0,0,0.07);
+      --radius:        16px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Geologica', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+      font-weight: 300;
+      color: var(--text);
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; height: auto; display: block; }
+    ul { list-style: none; }
+    button { font-family: inherit; cursor: pointer; }
+
+    .container {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ─── BUTTONS ─────────────────────────────────────────── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 1;
+      padding: 12px 26px;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, transform 0.15s;
+      white-space: nowrap;
+      text-decoration: none;
+    }
+    .btn:active { transform: scale(0.97); }
+    .btn-primary { background: var(--primary); color: #fff; }
+    .btn-primary:hover { background: var(--primary-hover); }
+    .btn-white { background: #fff; color: var(--primary); }
+    .btn-white:hover { background: #f0fffe; }
+    .btn-lg { font-size: 16px; padding: 14px 34px; }
+
+    /* ─── NAVBAR ──────────────────────────────────────────── */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 300;
+      height: 72px;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(232,237,240,0.9);
+    }
+
+    .navbar .container {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .nav-logo img { height: 28px; width: auto; }
+
+    .nav-links {
+      display: none;
+      align-items: center;
+      gap: 28px;
+    }
+    .nav-links a {
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--text);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--primary); }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-login {
+      display: none;
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--text);
+      padding: 8px 14px;
+      border-radius: 8px;
+      transition: color 0.2s, background 0.2s;
+    }
+    .nav-login:hover { color: var(--primary); background: var(--bg); }
+    .nav-signup { display: none; }
+
+    .nav-burger {
+      width: 40px; height: 40px;
+      border: none; background: none;
+      padding: 8px;
+      display: flex; flex-direction: column;
+      justify-content: center; gap: 5px;
+      cursor: pointer;
+    }
+    .nav-burger span {
+      display: block;
+      width: 22px; height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: transform 0.28s cubic-bezier(0.4,0,0.2,1), opacity 0.2s;
+    }
+    .nav-burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-burger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .nav-burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-nav {
+      position: fixed;
+      top: 72px; left: 0; right: 0;
+      z-index: 299;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      padding: 4px 24px 24px;
+      transform: translateY(-8px);
+      opacity: 0;
+      visibility: hidden;
+      transition: transform 0.28s cubic-bezier(0.4,0,0.2,1), opacity 0.28s, visibility 0.28s;
+    }
+    .mobile-nav.open { transform: none; opacity: 1; visibility: visible; }
+    .mobile-nav a {
+      display: block;
+      padding: 15px 0;
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--text);
+      border-bottom: 1px solid var(--border);
+      transition: color 0.2s;
+    }
+    .mobile-nav a:hover { color: var(--primary); }
+    .mobile-nav .btn { display: flex; width: 100%; margin-top: 16px; font-size: 16px; }
+
+    /* ─── BLOG HEADER ─────────────────────────────────────── */
+    .blog-header {
+      padding: 120px 0 48px;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .blog-header-inner {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .blog-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--text-2);
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .blog-meta-sep { color: var(--border); }
+
+    .blog-h1 {
+      font-size: clamp(26px, 4vw, 44px);
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1.1;
+      letter-spacing: -0.025em;
+      margin-bottom: 0;
+    }
+
+    /* ─── BLOG CONTENT ────────────────────────────────────── */
+    .blog-body {
+      padding: 56px 0 80px;
+      background: var(--white);
+    }
+
+    .blog-content {
+      max-width: 760px;
+      margin: 0 auto;
+      font-size: 17px;
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1.75;
+    }
+
+    .blog-content p {
+      margin-bottom: 24px;
+    }
+
+    .blog-content h2 {
+      font-size: clamp(20px, 2.5vw, 26px);
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+      margin: 48px 0 18px;
+    }
+
+    .blog-content h3 {
+      font-size: clamp(17px, 2vw, 20px);
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+      margin: 32px 0 14px;
+    }
+
+    /* ─── CALLOUT BLOCK ───────────────────────────────────── */
+    .callout {
+      border-left: 4px solid var(--primary);
+      background: var(--primary-bg);
+      padding: 20px 24px;
+      border-radius: 0 10px 10px 0;
+      margin: 28px 0;
+    }
+
+    .callout p {
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--text);
+      line-height: 1.7;
+      margin-bottom: 0 !important;
+    }
+
+    /* ─── END CTA BLOCK ───────────────────────────────────── */
+    .blog-cta-block {
+      background: var(--dark);
+      border-radius: var(--radius);
+      padding: 36px 40px;
+      margin-top: 56px;
+    }
+
+    .blog-cta-block p {
+      font-size: 17px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.88);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .blog-cta-block a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--primary);
+      text-decoration: none;
+      transition: gap 0.2s;
+    }
+    .blog-cta-block a:hover { gap: 10px; }
+
+    /* ─── FOOTER ──────────────────────────────────────────── */
+    .footer {
+      padding: 36px 0 28px;
+      background: #fff;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-top {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+
+    .footer-logo img { height: 26px; width: auto; }
+
+    .footer-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 18px;
+      align-items: center;
+    }
+    .footer-nav a {
+      font-size: 14px;
+      color: var(--text-2);
+      transition: color 0.2s;
+    }
+    .footer-nav a:hover { color: var(--primary); }
+    .footer-nav .sep { color: var(--border); }
+
+    .footer-social {
+      display: flex;
+      gap: 8px;
+    }
+    .footer-social a {
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-2);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .footer-social a:hover { border-color: var(--primary); color: var(--primary); }
+
+    .footer-bottom {
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px 14px;
+      font-size: 13px;
+      color: var(--text-2);
+    }
+    .footer-bottom a { color: var(--text-2); transition: color 0.2s; }
+    .footer-bottom a:hover { color: var(--primary); }
+    .footer-bottom .sep { color: var(--border); }
+
+    /* ─── RESPONSIVE ──────────────────────────────────────── */
+    @media (min-width: 768px) {
+      .nav-links  { display: flex; }
+      .nav-login  { display: block; }
+      .nav-signup { display: inline-flex; }
+      .nav-burger { display: none; }
+
+      .footer-top {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══ NAVBAR ══════════════════════════════════════════════════════ -->
+  <header class="navbar">
+    <div class="container">
+      <a href="/" class="nav-logo" aria-label="Kadar home">
+        <img src="https://cdn.prod.website-files.com/689597fffd74c2308c00dbbc/68959926703d34004604b465_6a5a0e9ff3d94367225b0cc9c6aea34a_logotype.svg" alt="Kadar" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="https://www.kadar.app/kadar-pricing">Pricing</a></li>
+        <li><a href="/kadar-blog/index.html">Kadar blog</a></li>
+        <li><a href="/hr-templates/index.html">HR templates</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="https://kadar.app/login" class="nav-login">Login</a>
+        <a href="https://kadar.app/sign-up" class="btn btn-primary nav-signup">Try Kadar free</a>
+        <button class="nav-burger" id="burger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile drawer -->
+  <div class="mobile-nav" id="mobileNav" aria-hidden="true">
+    <a href="https://www.kadar.app/kadar-pricing">Pricing</a>
+    <a href="/kadar-blog/index.html">Kadar blog</a>
+    <a href="/hr-templates/index.html">HR templates</a>
+    <a href="https://kadar.app/login">Login</a>
+    <a href="https://kadar.app/sign-up" class="btn btn-primary">Try Kadar free</a>
+  </div>
+
+  <!-- ══ BLOG HEADER ═════════════════════════════════════════════════ -->
+  <section class="blog-header">
+    <div class="container">
+      <div class="blog-header-inner">
+        <div class="blog-meta">
+          <span>April 14, 2026</span>
+          <span class="blog-meta-sep">·</span>
+          <span>7 min of reading</span>
+        </div>
+        <h1 class="blog-h1">Why your exit interviews aren't getting honest answers</h1>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ BLOG BODY ═══════════════════════════════════════════════════ -->
+  <section class="blog-body">
+    <div class="container">
+      <div class="blog-content">
+
+        <p>Goodbyes are awkward. Exit interviews are more awkward. And the feedback you get from them is usually the most polished, careful, professionally safe version of what someone actually thinks.</p>
+
+        <p>That's not a coincidence. It's a structural problem — and a template won't fix it on its own.</p>
+
+        <div class="callout">
+          <p>💡 According to a professor of psychology at NYU, the default in exit interviews isn't honest feedback. Most employees leave their final conversation having said almost nothing of real value — not because they don't have opinions, but because the conditions for honesty simply aren't there.</p>
+        </div>
+
+        <h2>The honesty problem starts before the interview</h2>
+
+        <p>By the time someone sits down for an exit interview, their decision is already made. They've mentally moved on. When an employee decides to resign, it usually comes after weeks or months of contemplation — and by the time they hand in their notice, emotional detachment has already begun.</p>
+
+        <p>You're asking for candid feedback from someone who has already checked out. And you're asking them to deliver it in a format that doesn't feel safe.</p>
+
+        <p>Even in large organisations, employees know their feedback can be connected to their name or their manager. In smaller organisations, anonymity is almost impossible. Departing employees naturally soften their feedback to protect professional relationships, preserve references, or simply avoid discomfort in their final days.</p>
+
+        <p>The result is predictable: the same surface-level responses appear again and again. Better opportunity. Pay. Work-life balance. Easy to document, nearly impossible to act on.</p>
+
+        <h2>Three structural reasons exit interviews fail</h2>
+
+        <h3>1. The wrong person is asking</h3>
+
+        <p>A neutral third party should conduct exit interviews — not the employee's direct manager, and not the HR professional who manages their records and references. When the interviewer has any stake in the answer, the departing employee adjusts accordingly.</p>
+
+        <p>If exit interviews are being run by direct managers, the dynamic makes honesty structurally difficult. The departing employee is not going to criticise the manager who might be taking their reference call next week.</p>
+
+        <h3>2. The questions don't invite real answers</h3>
+
+        <p>Generic, closed-ended questions produce generic, closed-ended answers. "Did you enjoy working here?" is a yes/no question. "What would have made you stay?" puts the employee in the position of fixing your problems on their way out the door.</p>
+
+        <p>Exit interviews alone do not improve retention. What improves retention is acting on the patterns they reveal. But to find patterns, you need answers specific enough to be comparable. Vague responses to vague questions produce noise, not insight.</p>
+
+        <h3>3. Nothing visibly changes</h3>
+
+        <div class="callout">
+          <p>💡 When no change follows exit feedback, employees notice. When future surveys or stay interviews come around, trust in those processes drops as well. Every employee who gave honest feedback and watched nothing happen has told at least one current colleague about it.</p>
+        </div>
+
+        <p>Over time, your exit interviews become known internally as a box-ticking exercise — and the quality of feedback adjusts accordingly.</p>
+
+        <h2>What actually produces honest exit data</h2>
+
+        <h3>Separate the interview from the interviewer</h3>
+
+        <p>The interviewer matters more than the questions. Someone neutral to the employee's day-to-day experience will consistently get more candid responses. The departing employee needs to believe the feedback goes somewhere useful, not back to the manager they're uncomfortable criticising.</p>
+
+        <h3>Use surveys alongside the conversation</h3>
+
+        <p>Live interviews catch things surveys miss — tone, hesitation, the thing someone almost says. But surveys catch things live interviews miss — feedback that's too uncomfortable to say out loud.</p>
+
+        <p>Running a structured exit survey alongside the interview — anonymous where possible, standardised across all exits — gives you data that's actually comparable. You stop relying on one HR professional's notes from a 30-minute conversation.</p>
+
+        <h3>Close the loop visibly</h3>
+
+        <p>If the point of exit interviews is organisational learning, the organisation needs to visibly learn. That means sharing themes with leadership quarterly, not filing notes in a folder. It means that when someone left and said the onboarding was broken, the onboarding actually changed — and current employees can see it.</p>
+
+        <h2>Where Kadar fits into this</h2>
+
+        <p>The structural problems above — wrong interviewer, wrong format, no follow-through — are process problems. A template helps with the questions. It doesn't help with the system.</p>
+
+        <p>Inside Kadar, exit interviews work differently. Instead of a conversation that lives in someone's notebook, you run a standardised exit survey that every departing employee completes — anonymous, structured, and automatically connected to the rest of your people data.</p>
+
+        <p>When the next person leaves six months later, you're not comparing notes. You're comparing data. Recurring themes surface automatically. The manager with a pattern becomes visible. The onboarding gap that keeps coming up has a paper trail.</p>
+
+        <p>The 1:1 meeting feature handles the live conversation — structured agenda, notes captured in the platform, nothing lost. The survey module handles the written feedback — standardised, comparable, aggregated over time.</p>
+
+        <p>Exits stop being individual events you manage. They become a feedback loop that informs how you retain the people who haven't left yet.</p>
+
+        <!-- END CTA BLOCK -->
+        <div class="blog-cta-block">
+          <p>Find out where your exit process stands before the next goodbye.</p>
+          <a href="/hr-templates/exit-interview-template.html">Check your exit process score — free &rarr;</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ══════════════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <a href="/" class="footer-logo">
+          <img src="https://cdn.prod.website-files.com/689597fffd74c2308c00dbbc/68959926703d34004604b465_6a5a0e9ff3d94367225b0cc9c6aea34a_logotype.svg" alt="Kadar" />
+        </a>
+        <nav class="footer-nav" aria-label="Footer links">
+          <a href="https://www.kadar.app/kadar-pricing">Pricing</a>
+          <span class="sep">|</span>
+          <a href="/kadar-blog/index.html">Kadar blog</a>
+          <span class="sep">|</span>
+          <a href="/hr-templates/index.html">HR templates</a>
+          <span class="sep">|</span>
+          <a href="https://kadar.app/login">Login</a>
+          <span class="sep">|</span>
+          <a href="https://kadar.app/sign-up">Sign up</a>
+        </nav>
+        <div class="footer-social">
+          <a href="#" aria-label="LinkedIn">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="#" aria-label="Instagram">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 Kadar</span>
+        <span class="sep">|</span>
+        <a href="/privacy-and-cookie-policy">Privacy and Cookie Policy</a>
+        <span class="sep">|</span>
+        <a href="/terms-of-service">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ══ SCRIPTS ═════════════════════════════════════════════════════ -->
+  <script>
+  (function () {
+    'use strict';
+    var burger    = document.getElementById('burger');
+    var mobileNav = document.getElementById('mobileNav');
+
+    burger.addEventListener('click', function () {
+      var isOpen = mobileNav.classList.toggle('open');
+      burger.classList.toggle('open', isOpen);
+      burger.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!burger.contains(e.target) && !mobileNav.contains(e.target)) {
+        mobileNav.classList.remove('open');
+        burger.classList.remove('open');
+        burger.setAttribute('aria-expanded', 'false');
+      }
+    });
+  })();
+  </script>
+
+</body>
+</html>

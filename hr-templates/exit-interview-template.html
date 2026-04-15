@@ -1,0 +1,1747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free Exit Interview Template + Process Health Check | Kadar</title>
+  <meta name="description" content="Most exit interview feedback is polished, safe, and useless. Get Kadar's free template — plus a 2-minute health check that shows exactly where your process is breaking down." />
+  <meta property="og:title" content="Free Exit Interview Template + Process Health Check | Kadar" />
+  <meta property="og:description" content="Most exit interview feedback is polished, safe, and useless. Get Kadar's free template — plus a 2-minute health check that shows exactly where your process is breaking down." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://kadarideas.netlify.app/hr-templates/exit-interview-template.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Why don't employees give honest exit interview feedback?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most employees soften exit feedback to protect professional relationships and references. The conditions for honesty — a neutral interviewer, genuine anonymity, and visible follow-through — are rarely all present at the same time."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Who should conduct the exit interview?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "HR, not the employee's direct manager. A neutral party consistently produces more candid responses. For senior exits, some organisations use an external facilitator to add an additional layer of independence."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you make exit interview data useful?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Collect feedback in a standardised format across all exits so responses are comparable over time. Look for recurring themes, not individual responses. Share findings with leadership quarterly — the visibility of follow-through is what builds trust in the process."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary:       #0EA5A5;
+      --primary-dark:  #0c8a8a;
+      --primary-hover: #0b9898;
+      --primary-light: #e0f7f7;
+      --primary-bg:    #f0fffe;
+      --red:           #ef4444;
+      --red-light:     #fef2f2;
+      --amber:         #f59e0b;
+      --amber-light:   #fffbeb;
+      --text:          #2c2f31;
+      --text-2:        #5e6266;
+      --bg:            #eaeff2;
+      --border:        #e8edf0;
+      --white:         #ffffff;
+      --dark:          #1a2332;
+      --shadow:        0 0 20px rgba(0,0,0,0.07);
+      --shadow-sm:     0 1px 4px rgba(0,0,0,0.06);
+      --radius:        16px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Geologica', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+      font-weight: 300;
+      color: var(--text);
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; height: auto; display: block; }
+    ul { list-style: none; }
+    button { font-family: inherit; cursor: pointer; }
+
+    .container {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ─── BUTTONS ─────────────────────────────────────────── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 1;
+      padding: 12px 26px;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, transform 0.15s;
+      white-space: nowrap;
+      text-decoration: none;
+    }
+    .btn:active { transform: scale(0.97); }
+
+    .btn-primary { background: var(--primary); color: #fff; }
+    .btn-primary:hover { background: var(--primary-hover); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--primary);
+      border: 1.5px solid var(--primary);
+    }
+    .btn-outline:hover { background: var(--primary-bg); }
+
+    .btn-dark { background: var(--dark); color: #fff; }
+    .btn-dark:hover { background: #243040; }
+
+    .btn-white { background: #fff; color: var(--primary); }
+    .btn-white:hover { background: #f0fffe; }
+
+    .btn-lg { font-size: 16px; padding: 14px 34px; }
+    .btn-full { width: 100%; justify-content: center; }
+
+    /* ─── NAVBAR ──────────────────────────────────────────── */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 300;
+      height: 72px;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(232,237,240,0.9);
+    }
+
+    .navbar .container {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .nav-logo img { height: 28px; width: auto; }
+
+    .nav-links {
+      display: none;
+      align-items: center;
+      gap: 28px;
+    }
+    .nav-links a {
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--text);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--primary); }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-login {
+      display: none;
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--text);
+      padding: 8px 14px;
+      border-radius: 8px;
+      transition: color 0.2s, background 0.2s;
+    }
+    .nav-login:hover { color: var(--primary); background: var(--bg); }
+    .nav-signup { display: none; }
+
+    .nav-burger {
+      width: 40px; height: 40px;
+      border: none; background: none;
+      padding: 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      cursor: pointer;
+    }
+    .nav-burger span {
+      display: block;
+      width: 22px; height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: transform 0.28s cubic-bezier(0.4,0,0.2,1), opacity 0.2s;
+    }
+    .nav-burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-burger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .nav-burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-nav {
+      position: fixed;
+      top: 72px; left: 0; right: 0;
+      z-index: 299;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      padding: 4px 24px 24px;
+      transform: translateY(-8px);
+      opacity: 0;
+      visibility: hidden;
+      transition: transform 0.28s cubic-bezier(0.4,0,0.2,1), opacity 0.28s, visibility 0.28s;
+    }
+    .mobile-nav.open { transform: none; opacity: 1; visibility: visible; }
+    .mobile-nav a {
+      display: block;
+      padding: 15px 0;
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--text);
+      border-bottom: 1px solid var(--border);
+      transition: color 0.2s;
+    }
+    .mobile-nav a:hover { color: var(--primary); }
+    .mobile-nav .btn { display: flex; width: 100%; margin-top: 16px; font-size: 16px; }
+
+    /* ─── SECTION LABELS ──────────────────────────────────── */
+    .section-label {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-2);
+      margin-bottom: 16px;
+    }
+
+    .section-heading {
+      font-size: clamp(26px, 3.5vw, 38px);
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    /* ─── HERO ────────────────────────────────────────────── */
+    .hero {
+      padding: 140px 0 80px;
+      background: var(--white);
+      text-align: center;
+    }
+
+    .hero-inner {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .hero-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .hero h1 {
+      font-size: clamp(28px, 4.5vw, 52px);
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1.1;
+      letter-spacing: -0.025em;
+      margin-bottom: 22px;
+    }
+
+    .hero-sub {
+      font-size: 18px;
+      font-weight: 300;
+      color: var(--text-2);
+      line-height: 1.65;
+      margin-bottom: 36px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-cta-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 0;
+    }
+
+    .hero-microcopy {
+      font-size: 13px;
+      color: var(--text-2);
+      font-weight: 400;
+    }
+
+    /* ─── STATS BAR ───────────────────────────────────────── */
+    .stats-bar {
+      padding: 48px 0;
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .stat-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      text-align: center;
+    }
+
+    .stat-big {
+      font-size: clamp(36px, 5vw, 52px);
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1;
+      margin-bottom: 10px;
+      letter-spacing: -0.03em;
+    }
+
+    .stat-desc {
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--text);
+      line-height: 1.5;
+      margin-bottom: 8px;
+    }
+
+    .stat-source {
+      font-size: 12px;
+      color: var(--text-2);
+      font-weight: 400;
+    }
+
+    /* ─── QUIZ SECTION ────────────────────────────────────── */
+    .quiz-section {
+      padding: 80px 0 100px;
+      background: var(--white);
+    }
+
+    .quiz-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .quiz-intro {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--text-2);
+      line-height: 1.65;
+      margin-top: 12px;
+    }
+
+    .quiz-wrap {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    /* Progress */
+    .quiz-progress-track {
+      height: 3px;
+      background: var(--border);
+      border-radius: 2px;
+      margin-bottom: 24px;
+      overflow: hidden;
+    }
+
+    .quiz-progress-fill {
+      height: 100%;
+      background: var(--primary);
+      border-radius: 2px;
+      transition: width 0.4s ease;
+      width: 0%;
+    }
+
+    .quiz-step-label {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-2);
+      letter-spacing: 0.06em;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    /* Steps */
+    .quiz-step {
+      display: none;
+      animation: fadeIn 0.35s ease;
+    }
+
+    .quiz-step.active { display: block; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: none; }
+    }
+
+    .quiz-question {
+      font-size: clamp(18px, 2.5vw, 22px);
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.3;
+      margin-bottom: 24px;
+      letter-spacing: -0.01em;
+    }
+
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    .quiz-option {
+      width: 100%;
+      text-align: left;
+      padding: 16px 20px;
+      border-radius: 12px;
+      border: 1.5px solid var(--border);
+      background: var(--white);
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--text);
+      cursor: pointer;
+      transition: border-color 0.18s, background 0.18s, color 0.18s;
+      line-height: 1.5;
+    }
+
+    .quiz-option:hover {
+      border-color: var(--primary);
+      background: var(--primary-bg);
+    }
+
+    .quiz-option.selected {
+      border-color: var(--primary);
+      background: var(--primary-bg);
+      color: var(--primary-dark);
+      font-weight: 500;
+    }
+
+    .quiz-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .quiz-back {
+      padding: 10px 22px;
+      border-radius: 100px;
+      border: 1.5px solid var(--border);
+      background: transparent;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-2);
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .quiz-back:hover { border-color: var(--text-2); color: var(--text); }
+
+    .quiz-next {
+      padding: 12px 32px;
+      border-radius: 100px;
+      border: none;
+      background: var(--primary);
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 500;
+      color: #fff;
+      cursor: pointer;
+      transition: background 0.2s, opacity 0.2s;
+      margin-left: auto;
+    }
+    .quiz-next:hover:not(:disabled) { background: var(--primary-hover); }
+    .quiz-next:disabled { opacity: 0.35; cursor: not-allowed; }
+
+    /* ─── GATE (results + form) ───────────────────────────── */
+    .gate-step {
+      display: none;
+      animation: fadeIn 0.35s ease;
+    }
+    .gate-step.active { display: block; }
+
+    .score-ring-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 32px;
+    }
+
+    .score-ring-svg {
+      width: 120px;
+      height: 120px;
+      transform: rotate(-90deg);
+    }
+
+    .score-ring-bg {
+      fill: none;
+      stroke: var(--border);
+      stroke-width: 8;
+    }
+
+    .score-ring-fill {
+      fill: none;
+      stroke: var(--primary);
+      stroke-width: 8;
+      stroke-linecap: round;
+      stroke-dasharray: 283;
+      stroke-dashoffset: 283;
+      transition: stroke-dashoffset 1s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    .score-ring-fill.red-ring  { stroke: var(--red); }
+    .score-ring-fill.amber-ring { stroke: var(--amber); }
+
+    .score-ring-center {
+      position: absolute;
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    .score-ring-outer {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 120px;
+      height: 120px;
+      margin-bottom: 20px;
+    }
+
+    .score-ring-center {
+      position: absolute;
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -0.02em;
+    }
+
+    .profile-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 600;
+      background: var(--primary-light);
+      color: var(--primary-dark);
+    }
+    .profile-badge.red-badge   { background: var(--red-light); color: var(--red); }
+    .profile-badge.amber-badge { background: var(--amber-light); color: #92400e; }
+
+    .profile-title {
+      font-size: clamp(20px, 3vw, 26px);
+      font-weight: 800;
+      color: var(--text);
+      margin: 16px 0 12px;
+      letter-spacing: -0.02em;
+      text-align: center;
+    }
+
+    .profile-bullets {
+      list-style: none;
+      margin-bottom: 28px;
+    }
+
+    .profile-bullets li {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--text-2);
+      line-height: 1.65;
+      padding: 6px 0 6px 24px;
+      position: relative;
+    }
+
+    .profile-bullets li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 14px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--primary);
+    }
+    .profile-bullets.red-bullets li::before  { background: var(--red); }
+    .profile-bullets.amber-bullets li::before { background: var(--amber); }
+
+    .gate-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 28px 0;
+    }
+
+    .gate-form-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+      letter-spacing: -0.01em;
+    }
+
+    .gate-form-sub {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--text-2);
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+
+    .form-field {
+      margin-bottom: 14px;
+    }
+
+    .form-field label {
+      display: block;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .form-field input {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--text);
+      background: var(--white);
+      transition: border-color 0.2s;
+      outline: none;
+    }
+
+    .form-field input:focus { border-color: var(--primary); }
+    .form-field input::placeholder { color: #b0b7bc; }
+
+    .gate-submit {
+      width: 100%;
+      padding: 14px 32px;
+      border-radius: 100px;
+      border: none;
+      background: var(--primary);
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 600;
+      color: #fff;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      margin-bottom: 12px;
+    }
+    .gate-submit:hover { background: var(--primary-hover); }
+    .gate-submit:active { transform: scale(0.98); }
+
+    .gate-trust {
+      text-align: center;
+      font-size: 12px;
+      color: var(--text-2);
+      font-weight: 400;
+    }
+
+    /* ─── THANK YOU ───────────────────────────────────────── */
+    .thanks-step {
+      display: none;
+      text-align: center;
+      padding: 20px 0;
+      animation: fadeIn 0.35s ease;
+    }
+    .thanks-step.active { display: block; }
+
+    .thanks-check {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 20px;
+    }
+
+    .thanks-title {
+      font-size: clamp(22px, 3vw, 28px);
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 10px;
+      letter-spacing: -0.02em;
+    }
+
+    .thanks-sub {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--text-2);
+      line-height: 1.65;
+      margin-bottom: 28px;
+    }
+
+    .thanks-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 28px auto;
+      max-width: 320px;
+    }
+
+    .thanks-upsell {
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+
+    /* ─── INCLUDED SECTION ────────────────────────────────── */
+    .included-section {
+      padding: 80px 0;
+      background: var(--bg);
+    }
+
+    .included-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .included-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+    }
+
+    .included-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--primary-bg);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      flex-shrink: 0;
+    }
+
+    .included-icon svg { color: var(--primary); }
+
+    .included-card h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+    }
+
+    .included-card p {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--text-2);
+      line-height: 1.65;
+      margin-bottom: 16px;
+    }
+
+    .text-link {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--primary);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: gap 0.2s;
+    }
+    .text-link:hover { gap: 8px; }
+
+    /* ─── KADAR FEATURES SECTION ──────────────────────────── */
+    .features-section {
+      padding: 80px 0 100px;
+      background: var(--white);
+    }
+
+    .features-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .features-header .section-heading {
+      max-width: 600px;
+      margin: 0 auto 32px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      margin-bottom: 48px;
+    }
+
+    .feature-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+    }
+
+    .feature-card-num {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--primary);
+      margin-bottom: 14px;
+      text-transform: uppercase;
+    }
+
+    .feature-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 10px;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+    }
+
+    .feature-card p {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--text-2);
+      line-height: 1.7;
+    }
+
+    .features-cta { text-align: center; }
+
+    /* ─── TESTIMONIAL ─────────────────────────────────────── */
+    .testimonial-section {
+      padding: 80px 0;
+      background: var(--bg);
+    }
+
+    .t-card-single {
+      max-width: 680px;
+      margin: 0 auto;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 40px 44px;
+    }
+
+    .t-stars {
+      font-size: 18px;
+      color: #f59e0b;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+
+    .t-quote {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1.75;
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+
+    .t-author {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .t-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--border);
+    }
+
+    .t-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .t-role {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--text-2);
+    }
+
+    /* ─── FAQ ─────────────────────────────────────────────── */
+    .faq-section {
+      padding: 80px 0 100px;
+      background: var(--white);
+    }
+
+    .faq-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .faq-list {
+      max-width: 720px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .faq-item {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .faq-btn {
+      width: 100%;
+      text-align: left;
+      padding: 18px 22px;
+      background: none;
+      border: none;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      transition: color 0.2s;
+    }
+    .faq-btn:hover { color: var(--primary); }
+    .faq-item.open .faq-btn { color: var(--primary); }
+
+    .faq-chevron {
+      flex-shrink: 0;
+      width: 18px; height: 18px;
+      transition: transform 0.3s;
+      color: var(--text-2);
+    }
+    .faq-item.open .faq-chevron { transform: rotate(180deg); color: var(--primary); }
+
+    .faq-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s cubic-bezier(0.4,0,0.2,1);
+    }
+    .faq-item.open .faq-body { max-height: 400px; }
+
+    .faq-body-inner {
+      padding: 0 22px 18px;
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--text-2);
+      line-height: 1.7;
+    }
+
+    /* ─── DARK CTA ────────────────────────────────────────── */
+    .dark-cta {
+      padding: 80px 0;
+      background: var(--dark);
+      text-align: center;
+    }
+
+    .dark-cta h2 {
+      font-size: clamp(24px, 3.5vw, 38px);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 14px;
+      letter-spacing: -0.02em;
+    }
+
+    .dark-cta p {
+      font-size: 16px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.72);
+      margin-bottom: 32px;
+    }
+
+    .dark-cta-links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .back-link {
+      font-size: 14px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: rgba(255,255,255,0.85); }
+
+    /* ─── FOOTER ──────────────────────────────────────────── */
+    .footer {
+      padding: 36px 0 28px;
+      background: #fff;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-top {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+
+    .footer-logo img { height: 26px; width: auto; }
+
+    .footer-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 18px;
+      align-items: center;
+    }
+    .footer-nav a {
+      font-size: 14px;
+      color: var(--text-2);
+      transition: color 0.2s;
+    }
+    .footer-nav a:hover { color: var(--primary); }
+    .footer-nav .sep { color: var(--border); }
+
+    .footer-social {
+      display: flex;
+      gap: 8px;
+    }
+    .footer-social a {
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-2);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .footer-social a:hover { border-color: var(--primary); color: var(--primary); }
+
+    .footer-bottom {
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px 14px;
+      font-size: 13px;
+      color: var(--text-2);
+    }
+    .footer-bottom a { color: var(--text-2); transition: color 0.2s; }
+    .footer-bottom a:hover { color: var(--primary); }
+    .footer-bottom .sep { color: var(--border); }
+
+    /* ─── RESPONSIVE ──────────────────────────────────────── */
+    @media (min-width: 768px) {
+      .nav-links  { display: flex; }
+      .nav-login  { display: block; }
+      .nav-signup { display: inline-flex; }
+      .nav-burger { display: none; }
+
+      .stats-grid         { grid-template-columns: 1fr 1fr 1fr; }
+      .included-grid      { grid-template-columns: 1fr 1fr 1fr; }
+      .features-grid      { grid-template-columns: 1fr 1fr 1fr; }
+      .dark-cta-links     { flex-direction: row; justify-content: center; }
+
+      .footer-top {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .quiz-nav { flex-direction: row; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══ NAVBAR ══════════════════════════════════════════════════════ -->
+  <header class="navbar">
+    <div class="container">
+      <a href="/" class="nav-logo" aria-label="Kadar home">
+        <img src="https://cdn.prod.website-files.com/689597fffd74c2308c00dbbc/68959926703d34004604b465_6a5a0e9ff3d94367225b0cc9c6aea34a_logotype.svg" alt="Kadar" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="https://www.kadar.app/kadar-pricing">Pricing</a></li>
+        <li><a href="/kadar-blog/index.html">Kadar blog</a></li>
+        <li><a href="/hr-templates/index.html">HR templates</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="https://kadar.app/login" class="nav-login">Login</a>
+        <a href="https://kadar.app/sign-up" class="btn btn-primary nav-signup">Try Kadar free</a>
+        <button class="nav-burger" id="burger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile drawer -->
+  <div class="mobile-nav" id="mobileNav" aria-hidden="true">
+    <a href="https://www.kadar.app/kadar-pricing">Pricing</a>
+    <a href="/kadar-blog/index.html">Kadar blog</a>
+    <a href="/hr-templates/index.html">HR templates</a>
+    <a href="https://kadar.app/login">Login</a>
+    <a href="https://kadar.app/sign-up" class="btn btn-primary">Try Kadar free</a>
+  </div>
+
+  <!-- ══ HERO ════════════════════════════════════════════════════════ -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-inner">
+        <span class="hero-label">Free Template</span>
+        <h1>Most exit interviews don't get honest answers. This template helps fix that.</h1>
+        <p class="hero-sub">A free exit interview template — plus a 2-minute process health check that shows exactly where your current process is breaking down.</p>
+        <div class="hero-cta-wrap">
+          <a href="#quiz" class="btn btn-primary btn-lg">Check my exit process &rarr;</a>
+          <span class="hero-microcopy">Free. No credit card. Takes 2 minutes.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ STATS BAR ═══════════════════════════════════════════════════ -->
+  <section class="stats-bar">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-big">1 in 4</div>
+          <div class="stat-desc">companies skip exit interviews entirely</div>
+          <div class="stat-source">Source: HBR</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-big">Most</div>
+          <div class="stat-desc">employees soften feedback to protect references</div>
+          <div class="stat-source">Source: Work Institute</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-big">2 min</div>
+          <div class="stat-desc">to find out where your process is breaking down</div>
+          <div class="stat-source">&nbsp;</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ QUIZ SECTION ════════════════════════════════════════════════ -->
+  <section class="quiz-section" id="quiz">
+    <div class="container">
+      <div class="quiz-header">
+        <span class="section-label">Your Exit Process Score</span>
+        <h2 class="section-heading">Answer 5 questions. Get your score.</h2>
+        <p class="quiz-intro">Get your score and a personalised checklist — free.</p>
+      </div>
+
+      <div class="quiz-wrap">
+
+        <!-- Progress -->
+        <div class="quiz-progress-track" id="progressTrack" style="display:none;">
+          <div class="quiz-progress-fill" id="progressFill"></div>
+        </div>
+        <div class="quiz-step-label" id="stepLabel" style="display:none;"></div>
+
+        <!-- Q1 -->
+        <div class="quiz-step active" id="q1">
+          <p class="quiz-question">How do you currently conduct exit interviews?</p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="0">We don't — they're not part of our process</button>
+            <button class="quiz-option" data-value="1">Informally, depending on the manager</button>
+            <button class="quiz-option" data-value="2">HR runs them, but without a set structure</button>
+            <button class="quiz-option" data-value="3">We have a structured template we follow consistently</button>
+          </div>
+          <div class="quiz-nav">
+            <button class="quiz-next" id="next1" disabled>Next &rarr;</button>
+          </div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="quiz-step" id="q2">
+          <p class="quiz-question">Who typically leads the exit interview conversation?</p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="0">The employee's direct manager</button>
+            <button class="quiz-option" data-value="1">Whoever is available at the time</button>
+            <button class="quiz-option" data-value="3">Always someone from HR</button>
+            <button class="quiz-option" data-value="0">We don't have exit interviews</button>
+          </div>
+          <div class="quiz-nav">
+            <button class="quiz-back" id="back2">&larr; Back</button>
+            <button class="quiz-next" id="next2" disabled>Next &rarr;</button>
+          </div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="quiz-step" id="q3">
+          <p class="quiz-question">What do you do with exit interview feedback afterwards?</p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="0">Nothing formal — it's not documented</button>
+            <button class="quiz-option" data-value="1">It's written down but rarely reviewed</button>
+            <button class="quiz-option" data-value="2">We review it occasionally, but not systematically</button>
+            <button class="quiz-option" data-value="3">We track patterns across exits and act on recurring themes</button>
+          </div>
+          <div class="quiz-nav">
+            <button class="quiz-back" id="back3">&larr; Back</button>
+            <button class="quiz-next" id="next3" disabled>Next &rarr;</button>
+          </div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="quiz-step" id="q4">
+          <p class="quiz-question">How confident are you that employees give honest answers?</p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="0">Not at all — they're too polished to be real</button>
+            <button class="quiz-option" data-value="1">Somewhat — but we probably miss the real reasons</button>
+            <button class="quiz-option" data-value="2">Fairly confident — we create a safe space for it</button>
+            <button class="quiz-option" data-value="3">Very confident — we have a neutral, structured process</button>
+          </div>
+          <div class="quiz-nav">
+            <button class="quiz-back" id="back4">&larr; Back</button>
+            <button class="quiz-next" id="next4" disabled>Next &rarr;</button>
+          </div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="quiz-step" id="q5">
+          <p class="quiz-question">Has exit interview feedback ever led to a concrete change?</p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="0">Not that I know of</button>
+            <button class="quiz-option" data-value="1">Once or twice, but more by coincidence than process</button>
+            <button class="quiz-option" data-value="2">We're working towards this but not there yet</button>
+            <button class="quiz-option" data-value="3">Yes — we've made specific changes based on exit data</button>
+          </div>
+          <div class="quiz-nav">
+            <button class="quiz-back" id="back5">&larr; Back</button>
+            <button class="quiz-next" id="next5" disabled>See my score &rarr;</button>
+          </div>
+        </div>
+
+        <!-- GATE (score + form) -->
+        <div class="gate-step" id="gateStep">
+          <!-- Score ring -->
+          <div class="score-ring-wrap">
+            <div class="score-ring-outer">
+              <svg class="score-ring-svg" viewBox="0 0 100 100">
+                <circle class="score-ring-bg" cx="50" cy="50" r="45" />
+                <circle class="score-ring-fill" id="ringFill" cx="50" cy="50" r="45" />
+              </svg>
+              <span class="score-ring-center" id="scoreCenter">0/15</span>
+            </div>
+            <span class="profile-badge" id="profileBadge"></span>
+          </div>
+
+          <p class="profile-title" id="profileTitle"></p>
+          <ul class="profile-bullets" id="profileBullets"></ul>
+
+          <hr class="gate-divider" />
+
+          <h3 class="gate-form-title">Get your free exit interview template</h3>
+          <p class="gate-form-sub" id="gateSubtext"></p>
+
+          <form id="gateForm">
+            <div class="form-field">
+              <label for="fname">Name *</label>
+              <input type="text" id="fname" name="fname" placeholder="Your name" required />
+            </div>
+            <div class="form-field">
+              <label for="fcompany">Company name *</label>
+              <input type="text" id="fcompany" name="fcompany" placeholder="Your company" required />
+            </div>
+            <div class="form-field">
+              <label for="femail">Work email *</label>
+              <input type="email" id="femail" name="femail" placeholder="you@company.com" required />
+            </div>
+            <button type="submit" class="gate-submit">Send me the template &rarr;</button>
+            <p class="gate-trust">No spam. No sales calls. Just the template.</p>
+          </form>
+        </div>
+
+        <!-- THANK YOU -->
+        <div class="thanks-step" id="thanksStep">
+          <svg class="thanks-check" viewBox="0 0 64 64" fill="none">
+            <circle cx="32" cy="32" r="32" fill="#e0f7f7"/>
+            <circle cx="32" cy="32" r="30" fill="#0EA5A5" opacity="0.12"/>
+            <circle cx="32" cy="32" r="28" fill="#0EA5A5" opacity="0.18"/>
+            <circle cx="32" cy="32" r="24" fill="#0EA5A5"/>
+            <polyline points="20,32 28,40 44,24" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+          <h3 class="thanks-title">Check your inbox</h3>
+          <p class="thanks-sub">The template and your personalised checklist are on their way.</p>
+          <hr class="thanks-divider" />
+          <p class="thanks-upsell">Want to track exit patterns across all departures in one place?</p>
+          <a href="https://kadar.app/sign-up" target="_blank" rel="noopener" class="btn btn-primary btn-lg">Try Kadar free &rarr;</a>
+        </div>
+
+      </div><!-- /quiz-wrap -->
+    </div>
+  </section>
+
+  <!-- ══ WHAT'S INCLUDED ═════════════════════════════════════════════ -->
+  <section class="included-section">
+    <div class="container">
+      <div style="text-align:center; margin-bottom:48px;">
+        <h2 class="section-heading">What you'll get</h2>
+      </div>
+      <div class="included-grid">
+        <div class="included-card">
+          <div class="included-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          </div>
+          <h3>Exit interview template (PDF)</h3>
+          <p>Questions grouped by theme, ready to use in your next exit conversation.</p>
+        </div>
+        <div class="included-card">
+          <div class="included-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+          </div>
+          <h3>Personalised process checklist</h3>
+          <p>Matched to your quiz score — shows exactly where your process needs attention first.</p>
+        </div>
+        <div class="included-card">
+          <div class="included-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+          </div>
+          <h3>Scale beyond the template</h3>
+          <p>See how Kadar handles exits systematically across your whole organisation.</p>
+          <a href="https://kadar.app/sign-up" target="_blank" rel="noopener" class="text-link">See how Kadar handles exits at scale &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ HOW KADAR EXTENDS THIS ══════════════════════════════════════ -->
+  <section class="features-section">
+    <div class="container">
+      <div class="features-header">
+        <span class="section-label">Inside Kadar</span>
+        <h2 class="section-heading">A template gets you started.<br>Kadar makes it systematic.</h2>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-card-num">01</div>
+          <h3>Turn exits into comparable data</h3>
+          <p>Run standardised exit surveys across every departure. Themes surface automatically. Nothing gets lost in a notebook.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card-num">02</div>
+          <h3>Capture the live conversation</h3>
+          <p>Structure the exit interview inside Kadar — agenda points, notes, action items. Everything in one place, every time.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card-num">03</div>
+          <h3>Spot patterns before they cost you</h3>
+          <p>Connect exit data to team metrics. When a manager has a pattern, it shows up. When onboarding keeps coming up, you have the evidence to act.</p>
+        </div>
+      </div>
+      <div class="features-cta">
+        <a href="https://kadar.app/sign-up" target="_blank" rel="noopener" class="btn btn-primary btn-lg">Try Kadar free &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ TESTIMONIAL ══════════════════════════════════════════════════ -->
+  <section class="testimonial-section">
+    <div class="container">
+      <div class="t-card-single">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">"Using Kadar has completely transformed our employee performance review process. It's an all-in-one solution that keeps everything in one place, making it incredibly easy to track progress and set goals. The transparency it offers fosters trust across the team, as everyone can see how performance is evaluated and what's expected."</p>
+        <div class="t-author">
+          <img src="https://cdn.prod.website-files.com/689597fffd74c2308c00dbbc/68a4820401ac825950dcf070_avatar-group-07.png" alt="Ivana Mošić" class="t-avatar" />
+          <div>
+            <p class="t-name">Ivana Mošić</p>
+            <p class="t-role">HR Specialist @2am.tech</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FAQ ═════════════════════════════════════════════════════════ -->
+  <section class="faq-section">
+    <div class="container">
+      <div class="faq-header">
+        <span class="section-label">Questions</span>
+        <h2 class="section-heading">Things people ask</h2>
+      </div>
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <button class="faq-btn" aria-expanded="false">
+            <span>Why don't employees give honest exit interview feedback?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-body">
+            <div class="faq-body-inner">Most employees soften exit feedback to protect professional relationships and references. The conditions for honesty — a neutral interviewer, genuine anonymity, and visible follow-through — are rarely all present at the same time.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-btn" aria-expanded="false">
+            <span>Who should conduct the exit interview?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-body">
+            <div class="faq-body-inner">HR, not the employee's direct manager. A neutral party consistently produces more candid responses. For senior exits, some organisations use an external facilitator to add an additional layer of independence.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-btn" aria-expanded="false">
+            <span>How do you make exit interview data useful?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-body">
+            <div class="faq-body-inner">Collect feedback in a standardised format across all exits so responses are comparable over time. Look for recurring themes, not individual responses. Share findings with leadership quarterly — the visibility of follow-through is what builds trust in the process.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ DARK CTA ════════════════════════════════════════════════════ -->
+  <section class="dark-cta">
+    <div class="container">
+      <h2>A template gets you started.<br>Kadar makes it systematic.</h2>
+      <p>Try Kadar free — no credit card required.</p>
+      <div class="dark-cta-links">
+        <a href="https://kadar.app/sign-up" target="_blank" rel="noopener" class="btn btn-white btn-lg">Try Kadar free &rarr;</a>
+        <a href="/hr-templates/index.html" class="back-link">&larr; Back to all templates</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ══════════════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <a href="/" class="footer-logo">
+          <img src="https://cdn.prod.website-files.com/689597fffd74c2308c00dbbc/68959926703d34004604b465_6a5a0e9ff3d94367225b0cc9c6aea34a_logotype.svg" alt="Kadar" />
+        </a>
+        <nav class="footer-nav" aria-label="Footer links">
+          <a href="https://www.kadar.app/kadar-pricing">Pricing</a>
+          <span class="sep">|</span>
+          <a href="/kadar-blog/index.html">Kadar blog</a>
+          <span class="sep">|</span>
+          <a href="/hr-templates/index.html">HR templates</a>
+          <span class="sep">|</span>
+          <a href="https://kadar.app/login">Login</a>
+          <span class="sep">|</span>
+          <a href="https://kadar.app/sign-up">Sign up</a>
+        </nav>
+        <div class="footer-social">
+          <a href="#" aria-label="LinkedIn">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="#" aria-label="Instagram">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 Kadar</span>
+        <span class="sep">|</span>
+        <a href="/privacy-and-cookie-policy">Privacy and Cookie Policy</a>
+        <span class="sep">|</span>
+        <a href="/terms-of-service">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ══ SCRIPTS ═════════════════════════════════════════════════════ -->
+  <script>
+  (function () {
+    'use strict';
+
+    /* ── Mobile nav ─────────────────────────────────────── */
+    var burger    = document.getElementById('burger');
+    var mobileNav = document.getElementById('mobileNav');
+
+    burger.addEventListener('click', function () {
+      var isOpen = mobileNav.classList.toggle('open');
+      burger.classList.toggle('open', isOpen);
+      burger.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!burger.contains(e.target) && !mobileNav.contains(e.target)) {
+        mobileNav.classList.remove('open');
+        burger.classList.remove('open');
+        burger.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    /* ── FAQ ────────────────────────────────────────────── */
+    document.querySelectorAll('.faq-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var item = btn.closest('.faq-item');
+        var isOpen = item.classList.contains('open');
+        // Close all
+        document.querySelectorAll('.faq-item.open').forEach(function (el) {
+          el.classList.remove('open');
+          el.querySelector('.faq-btn').setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    /* ── QUIZ ───────────────────────────────────────────── */
+    var scores   = [null, null, null, null, null]; // answers per Q
+    var current  = 1; // 1-5
+    var MAX      = 5;
+
+    var progressTrack = document.getElementById('progressTrack');
+    var progressFill  = document.getElementById('progressFill');
+    var stepLabel     = document.getElementById('stepLabel');
+    var gateStep      = document.getElementById('gateStep');
+    var thanksStep    = document.getElementById('thanksStep');
+
+    function showProgress() {
+      progressTrack.style.display = 'block';
+      stepLabel.style.display = 'block';
+    }
+
+    function updateProgress(step) {
+      var pct = ((step - 1) / MAX) * 100;
+      progressFill.style.width = pct + '%';
+      stepLabel.textContent = 'Question ' + step + ' of ' + MAX;
+    }
+
+    function getStep(n) {
+      return document.getElementById('q' + n);
+    }
+
+    function showStep(n) {
+      // Hide all question steps + gate + thanks
+      for (var i = 1; i <= MAX; i++) {
+        var s = getStep(i);
+        if (s) { s.classList.remove('active'); }
+      }
+      gateStep.classList.remove('active');
+      thanksStep.classList.remove('active');
+
+      if (n >= 1 && n <= MAX) {
+        getStep(n).classList.add('active');
+        showProgress();
+        updateProgress(n);
+      } else if (n === MAX + 1) {
+        // show gate
+        progressFill.style.width = '100%';
+        stepLabel.style.display = 'none';
+        showGate();
+      }
+    }
+
+    function wireStep(stepNum) {
+      var stepEl    = getStep(stepNum);
+      var nextBtn   = document.getElementById('next' + stepNum);
+      var backBtn   = document.getElementById('back' + stepNum);
+      var opts      = stepEl.querySelectorAll('.quiz-option');
+
+      // Restore previous selection if any
+      if (scores[stepNum - 1] !== null) {
+        opts.forEach(function (o) {
+          if (parseInt(o.getAttribute('data-value'), 10) === scores[stepNum - 1]) {
+            o.classList.add('selected');
+          }
+        });
+        nextBtn.disabled = false;
+      }
+
+      opts.forEach(function (opt) {
+        opt.addEventListener('click', function () {
+          opts.forEach(function (o) { o.classList.remove('selected'); });
+          opt.classList.add('selected');
+          scores[stepNum - 1] = parseInt(opt.getAttribute('data-value'), 10);
+          nextBtn.disabled = false;
+        });
+      });
+
+      nextBtn.addEventListener('click', function () {
+        if (nextBtn.disabled) return;
+        current = stepNum + 1;
+        showStep(current);
+      });
+
+      if (backBtn) {
+        backBtn.addEventListener('click', function () {
+          current = stepNum - 1;
+          showStep(current);
+        });
+      }
+    }
+
+    for (var i = 1; i <= MAX; i++) { wireStep(i); }
+
+    /* ── Profiles ───────────────────────────────────────── */
+    var profiles = [
+      null,
+      {
+        min: 0, max: 4,
+        title: 'Starting from scratch',
+        badgeText: '0–4 points',
+        badgeClass: 'red-badge',
+        ringClass: 'red-ring',
+        bulletsClass: 'red-bullets',
+        bullets: [
+          'Exit interviews aren't part of your offboarding yet — every departure is a missed learning opportunity.',
+          'Without a structured process, you're missing the patterns that explain turnover.',
+          'The template gives you a ready-to-use structure to start immediately.'
+        ],
+        subtext: 'Your checklist shows exactly where to start — including the 3 questions most teams skip.'
+      },
+      {
+        min: 5, max: 8,
+        title: 'Inconsistent process',
+        badgeText: '5–8 points',
+        badgeClass: 'amber-badge',
+        ringClass: 'amber-ring',
+        bulletsClass: 'amber-bullets',
+        bullets: [
+          'You're running exit interviews, but inconsistency makes data incomparable across exits.',
+          'Without a neutral interviewer, feedback gets filtered — managers rarely hear the real reasons.',
+          'A structured template makes your process repeatable and insights actionable.'
+        ],
+        subtext: 'Your checklist includes a guide for standardising across HR and managers.'
+      },
+      {
+        min: 9, max: 12,
+        title: 'Solid foundation',
+        badgeText: '9–12 points',
+        badgeClass: '',
+        ringClass: '',
+        bulletsClass: '',
+        bullets: [
+          'You have the right instincts — structured, HR-led, doing something with the data.',
+          'The next step: connecting exit patterns to retention decisions.',
+          'The template sharpens your question set and adds sections most teams leave out.'
+        ],
+        subtext: 'Your checklist highlights the advanced sections that take your process from good to genuinely insightful.'
+      },
+      {
+        min: 13, max: 15,
+        title: 'High-performing process',
+        badgeText: '13–15 points',
+        badgeClass: '',
+        ringClass: '',
+        bulletsClass: '',
+        bullets: [
+          'Your exit process is structured, consistent, and feeding real decisions. That's rare.',
+          'The template gives you a benchmark to validate your current question set.',
+          'Even strong processes miss honest answers — check for psychological safety gaps.'
+        ],
+        subtext: 'Your checklist includes advanced prompts for high-stakes exits.'
+      }
+    ];
+
+    function getProfile(total) {
+      for (var p = 1; p < profiles.length; p++) {
+        if (total >= profiles[p].min && total <= profiles[p].max) return profiles[p];
+      }
+      return profiles[1];
+    }
+
+    function showGate() {
+      var total = scores.reduce(function (a, b) { return a + (b || 0); }, 0);
+      var prof  = getProfile(total);
+      var pct   = Math.round((total / 15) * 100);
+
+      // Ring
+      var circumference = 2 * Math.PI * 45; // 282.74
+      var ringFill = document.getElementById('ringFill');
+      ringFill.className = 'score-ring-fill' + (prof.ringClass ? ' ' + prof.ringClass : '');
+      document.getElementById('scoreCenter').textContent = total + '/15';
+
+      gateStep.classList.add('active');
+      // Animate ring after small delay
+      setTimeout(function () {
+        var offset = circumference - (pct / 100) * circumference;
+        ringFill.style.strokeDashoffset = offset;
+      }, 100);
+
+      // Badge
+      var badge = document.getElementById('profileBadge');
+      badge.textContent = prof.badgeText;
+      badge.className = 'profile-badge' + (prof.badgeClass ? ' ' + prof.badgeClass : '');
+
+      // Title
+      document.getElementById('profileTitle').textContent = prof.title;
+
+      // Bullets
+      var ul = document.getElementById('profileBullets');
+      ul.className = 'profile-bullets' + (prof.bulletsClass ? ' ' + prof.bulletsClass : '');
+      ul.innerHTML = '';
+      prof.bullets.forEach(function (b) {
+        var li = document.createElement('li');
+        li.textContent = b;
+        ul.appendChild(li);
+      });
+
+      // Sub
+      document.getElementById('gateSubtext').textContent = prof.subtext;
+    }
+
+    /* ── Gate form ──────────────────────────────────────── */
+    document.getElementById('gateForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      // Hide gate, show thanks
+      gateStep.classList.remove('active');
+      thanksStep.classList.add('active');
+      window.scrollTo({ top: document.getElementById('quiz').offsetTop - 100, behavior: 'smooth' });
+    });
+
+    // Init: show Q1 with no progress bar
+    getStep(1).classList.add('active');
+
+  })();
+  </script>
+
+</body>
+</html>
