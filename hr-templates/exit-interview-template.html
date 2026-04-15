@@ -381,6 +381,11 @@
       border-radius: 2px;
       margin-bottom: 24px;
       overflow: hidden;
+      display: none;
+    }
+
+    .quiz-step-label {
+      display: none;
     }
 
     .quiz-progress-fill {
@@ -1178,13 +1183,13 @@
       <div class="quiz-wrap">
 
         <!-- Progress -->
-        <div class="quiz-progress-track" id="progressTrack" style="display:none;">
+        <div class="quiz-progress-track" id="progressTrack">
           <div class="quiz-progress-fill" id="progressFill"></div>
         </div>
-        <div class="quiz-step-label" id="stepLabel" style="display:none;"></div>
+        <div class="quiz-step-label" id="stepLabel"></div>
 
         <!-- Q1 -->
-        <div class="quiz-step active" id="q1">
+        <div class="quiz-step" id="q1">
           <p class="quiz-question">How do you currently conduct exit interviews?</p>
           <div class="quiz-options">
             <button class="quiz-option" data-value="0">We don't — they're not part of our process</button>
@@ -1497,16 +1502,17 @@
   (function () {
     'use strict';
 
-    /* ── Mobile nav ─────────────────────────────────────── */
+    /* ─────────────────────────────────────────────────────
+       MOBILE NAV
+    ───────────────────────────────────────────────────── */
     var burger    = document.getElementById('burger');
     var mobileNav = document.getElementById('mobileNav');
 
     burger.addEventListener('click', function () {
-      var isOpen = mobileNav.classList.toggle('open');
-      burger.classList.toggle('open', isOpen);
-      burger.setAttribute('aria-expanded', String(isOpen));
+      var open = mobileNav.classList.toggle('open');
+      burger.classList.toggle('open', open);
+      burger.setAttribute('aria-expanded', String(open));
     });
-
     document.addEventListener('click', function (e) {
       if (!burger.contains(e.target) && !mobileNav.contains(e.target)) {
         mobileNav.classList.remove('open');
@@ -1515,12 +1521,13 @@
       }
     });
 
-    /* ── FAQ ────────────────────────────────────────────── */
+    /* ─────────────────────────────────────────────────────
+       FAQ ACCORDION
+    ───────────────────────────────────────────────────── */
     document.querySelectorAll('.faq-btn').forEach(function (btn) {
       btn.addEventListener('click', function () {
-        var item = btn.closest('.faq-item');
+        var item   = btn.closest('.faq-item');
         var isOpen = item.classList.contains('open');
-        // Close all
         document.querySelectorAll('.faq-item.open').forEach(function (el) {
           el.classList.remove('open');
           el.querySelector('.faq-btn').setAttribute('aria-expanded', 'false');
@@ -1532,189 +1539,184 @@
       });
     });
 
-    /* ── QUIZ ───────────────────────────────────────────── */
-    var scores   = [null, null, null, null, null]; // answers per Q
-    var current  = 1; // 1-5
-    var MAX      = 5;
+    /* ─────────────────────────────────────────────────────
+       QUIZ — state
+    ───────────────────────────────────────────────────── */
+    var currentQ = 1;          // 1–5 active question
+    var answers  = [-1,-1,-1,-1,-1]; // -1 = unanswered
 
+    /* ── DOM refs ── */
+    var quizWrap      = document.querySelector('.quiz-wrap');
     var progressTrack = document.getElementById('progressTrack');
     var progressFill  = document.getElementById('progressFill');
     var stepLabel     = document.getElementById('stepLabel');
     var gateStep      = document.getElementById('gateStep');
     var thanksStep    = document.getElementById('thanksStep');
+    var gateForm      = document.getElementById('gateForm');
 
-    function showProgress() {
-      progressTrack.style.display = 'block';
-      stepLabel.style.display = 'block';
-    }
-
-    function updateProgress(step) {
-      var pct = ((step - 1) / MAX) * 100;
-      progressFill.style.width = pct + '%';
-      stepLabel.textContent = 'Question ' + step + ' of ' + MAX;
-    }
-
-    function getStep(n) {
-      return document.getElementById('q' + n);
-    }
-
-    function showStep(n) {
-      // Hide all question steps + gate + thanks
-      for (var i = 1; i <= MAX; i++) {
-        var s = getStep(i);
-        if (s) { s.classList.remove('active'); }
-      }
-      gateStep.classList.remove('active');
-      thanksStep.classList.remove('active');
-
-      if (n >= 1 && n <= MAX) {
-        getStep(n).classList.add('active');
-        showProgress();
-        updateProgress(n);
-      } else if (n === MAX + 1) {
-        // show gate
-        progressFill.style.width = '100%';
-        stepLabel.style.display = 'none';
-        showGate();
-      }
-    }
-
-    function wireStep(stepNum) {
-      var stepEl    = getStep(stepNum);
-      var nextBtn   = document.getElementById('next' + stepNum);
-      var backBtn   = document.getElementById('back' + stepNum);
-      var opts      = stepEl.querySelectorAll('.quiz-option');
-
-      // Restore previous selection if any
-      if (scores[stepNum - 1] !== null) {
-        opts.forEach(function (o) {
-          if (parseInt(o.getAttribute('data-value'), 10) === scores[stepNum - 1]) {
-            o.classList.add('selected');
-          }
-        });
-        nextBtn.disabled = false;
-      }
-
-      opts.forEach(function (opt) {
-        opt.addEventListener('click', function () {
-          opts.forEach(function (o) { o.classList.remove('selected'); });
-          opt.classList.add('selected');
-          scores[stepNum - 1] = parseInt(opt.getAttribute('data-value'), 10);
-          nextBtn.disabled = false;
-        });
-      });
-
-      nextBtn.addEventListener('click', function () {
-        if (nextBtn.disabled) return;
-        current = stepNum + 1;
-        showStep(current);
-      });
-
-      if (backBtn) {
-        backBtn.addEventListener('click', function () {
-          current = stepNum - 1;
-          showStep(current);
-        });
-      }
-    }
-
-    for (var i = 1; i <= MAX; i++) { wireStep(i); }
-
-    /* ── Profiles ───────────────────────────────────────── */
-    var profiles = [
-      null,
+    /* ── Profile data ── */
+    var PROFILES = [
       {
         min: 0, max: 4,
-        title: 'Starting from scratch',
-        badgeText: '0–4 points',
-        badgeClass: 'red-badge',
-        ringClass: 'red-ring',
-        bulletsClass: 'red-bullets',
+        title: "Starting from scratch",
+        badge: "0\u20134 points", badgeClass: "red-badge",
+        ringClass: "red-ring", bulletsClass: "red-bullets",
         bullets: [
-          'Exit interviews aren\'t part of your offboarding yet \u2014 every departure is a missed learning opportunity.',
-          'Without a structured process, you\'re missing the patterns that explain turnover.',
-          'The template gives you a ready-to-use structure to start immediately.'
+          "Exit interviews aren\u2019t part of your offboarding yet \u2014 every departure is a missed learning opportunity.",
+          "Without a structured process, you\u2019re missing the patterns that explain turnover.",
+          "The template gives you a ready-to-use structure to start immediately."
         ],
-        subtext: 'Your checklist shows exactly where to start — including the 3 questions most teams skip.'
+        subtext: "Your checklist shows exactly where to start \u2014 including the 3 questions most teams skip."
       },
       {
         min: 5, max: 8,
-        title: 'Inconsistent process',
-        badgeText: '5–8 points',
-        badgeClass: 'amber-badge',
-        ringClass: 'amber-ring',
-        bulletsClass: 'amber-bullets',
+        title: "Inconsistent process",
+        badge: "5\u20138 points", badgeClass: "amber-badge",
+        ringClass: "amber-ring", bulletsClass: "amber-bullets",
         bullets: [
-          'You\'re running exit interviews, but inconsistency makes data incomparable across exits.',
-          'Without a neutral interviewer, feedback gets filtered — managers rarely hear the real reasons.',
-          'A structured template makes your process repeatable and insights actionable.'
+          "You\u2019re running exit interviews, but inconsistency makes data incomparable across exits.",
+          "Without a neutral interviewer, feedback gets filtered \u2014 managers rarely hear the real reasons.",
+          "A structured template makes your process repeatable and insights actionable."
         ],
-        subtext: 'Your checklist includes a guide for standardising across HR and managers.'
+        subtext: "Your checklist includes a guide for standardising across HR and managers."
       },
       {
         min: 9, max: 12,
-        title: 'Solid foundation',
-        badgeText: '9–12 points',
-        badgeClass: '',
-        ringClass: '',
-        bulletsClass: '',
+        title: "Solid foundation",
+        badge: "9\u201312 points", badgeClass: "",
+        ringClass: "", bulletsClass: "",
         bullets: [
-          'You have the right instincts — structured, HR-led, doing something with the data.',
-          'The next step: connecting exit patterns to retention decisions.',
-          'The template sharpens your question set and adds sections most teams leave out.'
+          "You have the right instincts \u2014 structured, HR-led, doing something with the data.",
+          "The next step: connecting exit patterns to retention decisions.",
+          "The template sharpens your question set and adds sections most teams leave out."
         ],
-        subtext: 'Your checklist highlights the advanced sections that take your process from good to genuinely insightful.'
+        subtext: "Your checklist highlights the advanced sections that take your process from good to genuinely insightful."
       },
       {
         min: 13, max: 15,
-        title: 'High-performing process',
-        badgeText: '13–15 points',
-        badgeClass: '',
-        ringClass: '',
-        bulletsClass: '',
+        title: "High-performing process",
+        badge: "13\u201315 points", badgeClass: "",
+        ringClass: "", bulletsClass: "",
         bullets: [
-          'Your exit process is structured, consistent, and feeding real decisions. That\'s rare.',
-          'The template gives you a benchmark to validate your current question set.',
-          'Even strong processes miss honest answers — check for psychological safety gaps.'
+          "Your exit process is structured, consistent, and feeding real decisions. That\u2019s rare.",
+          "The template gives you a benchmark to validate your current question set.",
+          "Even strong processes miss honest answers \u2014 check for psychological safety gaps."
         ],
-        subtext: 'Your checklist includes advanced prompts for high-stakes exits.'
+        subtext: "Your checklist includes advanced prompts for high-stakes exits."
       }
     ];
 
     function getProfile(total) {
-      for (var p = 1; p < profiles.length; p++) {
-        if (total >= profiles[p].min && total <= profiles[p].max) return profiles[p];
+      for (var i = 0; i < PROFILES.length; i++) {
+        if (total >= PROFILES[i].min && total <= PROFILES[i].max) return PROFILES[i];
       }
-      return profiles[1];
+      return PROFILES[0];
     }
 
-    function showGate() {
-      var total = scores.reduce(function (a, b) { return a + (b || 0); }, 0);
-      var prof  = getProfile(total);
-      var pct   = Math.round((total / 15) * 100);
+    /* ─────────────────────────────────────────────────────
+       QUIZ — navigation
+    ───────────────────────────────────────────────────── */
+    function goTo(n) {
+      /* hide every step */
+      for (var i = 1; i <= 5; i++) {
+        var el = document.getElementById('q' + i);
+        if (el) el.classList.remove('active');
+      }
+      gateStep.classList.remove('active');
+      thanksStep.classList.remove('active');
 
-      // Ring
-      var circumference = 2 * Math.PI * 45; // 282.74
-      var ringFill = document.getElementById('ringFill');
-      ringFill.className = 'score-ring-fill' + (prof.ringClass ? ' ' + prof.ringClass : '');
+      if (n >= 1 && n <= 5) {
+        /* show question n */
+        currentQ = n;
+        var qEl = document.getElementById('q' + n);
+        qEl.classList.add('active');
+
+        /* progress bar */
+        progressTrack.style.display = 'block';
+        stepLabel.style.display     = 'block';
+        progressFill.style.width    = ((n - 1) / 5 * 100) + '%';
+        stepLabel.textContent       = 'Question ' + n + ' of 5';
+
+        /* restore any previous selection */
+        var opts = qEl.querySelectorAll('.quiz-option');
+        opts.forEach(function (o) {
+          o.classList.toggle('selected', parseInt(o.getAttribute('data-value'), 10) === answers[n - 1]);
+        });
+
+        /* next button state */
+        var nxt = document.getElementById('next' + n);
+        if (nxt) nxt.disabled = (answers[n - 1] === -1);
+
+      } else if (n === 6) {
+        /* show gate */
+        progressFill.style.width = '100%';
+        stepLabel.style.display  = 'none';
+        renderGate();
+        gateStep.classList.add('active');
+        window.scrollTo({ top: document.getElementById('quiz').offsetTop - 90, behavior: 'smooth' });
+      }
+    }
+
+    /* ─────────────────────────────────────────────────────
+       QUIZ — event delegation (options + next + back)
+    ───────────────────────────────────────────────────── */
+    quizWrap.addEventListener('click', function (e) {
+
+      /* OPTION click */
+      var opt = e.target.closest('.quiz-option');
+      if (opt) {
+        var qEl = document.getElementById('q' + currentQ);
+        qEl.querySelectorAll('.quiz-option').forEach(function (o) { o.classList.remove('selected'); });
+        opt.classList.add('selected');
+        answers[currentQ - 1] = parseInt(opt.getAttribute('data-value'), 10);
+        var nxt = document.getElementById('next' + currentQ);
+        if (nxt) nxt.disabled = false;
+        return;
+      }
+
+      /* NEXT click */
+      var nxtBtn = e.target.closest('.quiz-next');
+      if (nxtBtn && !nxtBtn.disabled) {
+        goTo(currentQ < 5 ? currentQ + 1 : 6);
+        return;
+      }
+
+      /* BACK click */
+      var bckBtn = e.target.closest('.quiz-back');
+      if (bckBtn) {
+        goTo(currentQ - 1);
+      }
+    });
+
+    /* ─────────────────────────────────────────────────────
+       GATE — render score ring + profile copy
+    ───────────────────────────────────────────────────── */
+    function renderGate() {
+      var total = answers.reduce(function (s, v) { return s + Math.max(0, v); }, 0);
+      var prof  = getProfile(total);
+      var pct   = Math.round(total / 15 * 100);
+      var circ  = 2 * Math.PI * 45; // r=45 → circumference ≈ 282.7
+
+      /* score ring — use setAttribute for SVG compatibility */
+      var ring = document.getElementById('ringFill');
+      ring.setAttribute('class', 'score-ring-fill' + (prof.ringClass ? ' ' + prof.ringClass : ''));
+      ring.style.strokeDashoffset = circ; // start at 0%
       document.getElementById('scoreCenter').textContent = total + '/15';
 
-      gateStep.classList.add('active');
-      // Animate ring after small delay
+      /* animate ring after a frame */
       setTimeout(function () {
-        var offset = circumference - (pct / 100) * circumference;
-        ringFill.style.strokeDashoffset = offset;
-      }, 100);
+        ring.style.strokeDashoffset = circ - (pct / 100) * circ;
+      }, 80);
 
-      // Badge
+      /* profile badge */
       var badge = document.getElementById('profileBadge');
-      badge.textContent = prof.badgeText;
-      badge.className = 'profile-badge' + (prof.badgeClass ? ' ' + prof.badgeClass : '');
+      badge.textContent = prof.badge;
+      badge.className   = 'profile-badge' + (prof.badgeClass ? ' ' + prof.badgeClass : '');
 
-      // Title
+      /* title */
       document.getElementById('profileTitle').textContent = prof.title;
 
-      // Bullets
+      /* bullets */
       var ul = document.getElementById('profileBullets');
       ul.className = 'profile-bullets' + (prof.bulletsClass ? ' ' + prof.bulletsClass : '');
       ul.innerHTML = '';
@@ -1724,21 +1726,24 @@
         ul.appendChild(li);
       });
 
-      // Sub
+      /* gate sub-copy */
       document.getElementById('gateSubtext').textContent = prof.subtext;
     }
 
-    /* ── Gate form ──────────────────────────────────────── */
-    document.getElementById('gateForm').addEventListener('submit', function (e) {
+    /* ─────────────────────────────────────────────────────
+       GATE FORM — submit → thank-you
+    ───────────────────────────────────────────────────── */
+    gateForm.addEventListener('submit', function (e) {
       e.preventDefault();
-      // Hide gate, show thanks
       gateStep.classList.remove('active');
       thanksStep.classList.add('active');
-      window.scrollTo({ top: document.getElementById('quiz').offsetTop - 100, behavior: 'smooth' });
+      window.scrollTo({ top: document.getElementById('quiz').offsetTop - 90, behavior: 'smooth' });
     });
 
-    // Init: show Q1 with no progress bar
-    getStep(1).classList.add('active');
+    /* ─────────────────────────────────────────────────────
+       INIT — show Q1
+    ───────────────────────────────────────────────────── */
+    goTo(1);
 
   })();
   </script>
